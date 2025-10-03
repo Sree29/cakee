@@ -360,7 +360,7 @@
                             <h5 class="user-name">AMAL P</h5>
                             <h6>amalp@gmail.com</h6>
                         </div>
-                        <ul class="profile-list">
+                        <!-- <ul class="profile-list">
                             <li>
                                 <i class="ri-user-3-line"></i>
                                 <a href="profile.html">Change Profile</a>
@@ -373,10 +373,7 @@
                                 <i class="ri-map-pin-line"></i>
                                 <a href="saved-address.html">Saved Address</a>
                             </li>
-                            <!-- <li>
-                                <i class="ri-bank-card-line"></i>
-                                <a href="saved-card.html">Saved Card</a>
-                            </li> -->
+                            
                             <li>
                                 <i class="ri-question-line"></i><a href="faq.html">Help</a>
                             </li>
@@ -388,7 +385,147 @@
                                 <i class="ri-logout-box-r-line"></i>
                                 <a href="#log-out" data-bs-toggle="modal">Log Out</a>
                             </li>
-                        </ul>
+                        </ul> -->
+                         <div class="scroll-menu">
+  <ul class="scroll-list">
+    <li>
+      <a href="profile.html">
+        <i class="ri-user-3-line"></i>
+        <span>Change Profile</span>
+      </a>
+    </li>
+    <li>
+      <a href="my-order.html">
+        <i class="ri-shopping-bag-3-line"></i>
+        <span>My Order</span>
+      </a>
+    </li>
+    <li>
+      <a href="saved-address.html">
+        <i class="ri-map-pin-line"></i>
+        <span>Saved Address</span>
+      </a>
+    </li>
+    <li>
+      <a href="faq.html">
+        <i class="ri-question-line"></i>
+        <span>Help</span>
+      </a>
+    </li>
+    <li>
+      <a href="setting.html">
+        <i class="ri-settings-3-line"></i>
+        <span>Setting</span>
+      </a>
+    </li>
+    <li>
+      <a href="#log-out" data-bs-toggle="modal">
+        <i class="ri-logout-box-r-line"></i>
+        <span>Log Out</span>
+      </a>
+    </li>
+  </ul>
+</div>
+<style>
+
+
+/* Mobile view only */
+@media (max-width: 768px) {
+  .scroll-menu {
+    display: block;
+    overflow-x: auto;
+    padding: 12px;
+    background-color: #fff;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .scroll-list {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(6, minmax(80px, 1fr));
+    gap: 12px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    min-width: 100%;
+  }
+
+  .scroll-list li {
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    text-align: center;
+    padding: 10px;
+    flex-shrink: 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    scroll-snap-align: start;
+  }
+
+  .scroll-list a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+  }
+
+  .scroll-list i {
+    font-size: 20px;
+    margin-bottom: 6px;
+    color: #ff6600;
+  }
+
+  .scroll-list span {
+    font-size: 13px;
+    display: block;
+  }
+}
+/* Desktop view only */
+@media (min-width: 769px) {
+  .scroll-menu {
+    width: 220px;
+    background-color: #fff;
+    padding: 20px;
+    border-right: 1px solid #eee;
+  }
+
+  .scroll-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .scroll-list li {
+    background-color: transparent;
+    border-radius: 0;
+    text-align: left;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .scroll-list a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #333;
+    font-size: 15px;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .scroll-list i {
+    font-size: 18px;
+    color: #ff6600;
+  }
+
+  .scroll-list span {
+    font-size: 15px;
+    color: #333;
+  }
+}
+
+</style>
                     </div>
                 </div>
                 <div class="col-lg-9">
