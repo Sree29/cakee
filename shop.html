@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="zomo">
+    <meta name="keywords" content="zomo">
+    <meta name="author" content="zomo">
+    <link rel="icon" href="assets/images/logo/favicon.png" type="image/x-icon">
+    <title>Cakee — Product</title>
+    <link rel="apple-touch-icon" href="assets/images/logo/favicon.png">
+    <meta name="theme-color" content="#fe0094">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="zomo">
+    <meta name="msapplication-TileImage" content="assets/images/logo/favicon.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" id="rtl-link" href="assets/css/vendors/bootstrap.css">
+
+    <!-- swiper css (optional) -->
+    <link rel="stylesheet" type="text/css" href="assets/css/vendors/swiper-bundle.min.css">
+
+    <!-- remixicon css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/vendors/remixicon.css">
+
+    <!-- Theme css -->
+    <link rel="stylesheet" id="change-link" type="text/css" href="assets/css/style.css">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* Page-specific styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .product-hero {
+            padding: 40px 0;
+        }
+
+        .product-gallery {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 18px;
+        }
+
+        .product-img-main {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .thumb-list img {
+            width: 86px;
+            height: 72px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .thumb-list img.active {
+            border-color: #10a500;
+        }
+
+        .wishlist-icon {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 6px 14px rgba(16, 16, 16, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 6;
+            transition: transform .15s ease;
+        }
+
+        .wishlist-icon:hover {
+            transform: scale(1.06);
+        }
+
+        .wishlist-icon i {
+            font-size: 18px;
+            color: #ff4d4f;
+        }
+
+        .product-details {
+            background: #fff;
+            border-radius: 12px;
+            padding: 22px;
+        }
+
+        .price-old {
+            text-decoration: line-through;
+            color: #777;
+            margin-right: 8px;
+        }
+
+        .price-new {
+            font-weight: 700;
+            font-size: 22px;
+            color: #222;
+        }
+
+        .badge-off {
+            background: linear-gradient(90deg, #10a500, #1fae32);
+            color: #fff;
+            padding: 6px 10px;
+            border-radius: 8px;
+            font-size: 13px;
+        }
+
+        .option-btn {
+            min-width: 60px;
+            border-radius: 8px;
+        }
+
+        .option-btn.active {
+            background: #10a500;
+            color: #fff;
+            border-color: #10a500;
+        }
+
+        .add-cart {
+            background: linear-gradient(90deg, #ff6b6b, #ff4d4f);
+            color: #fff;
+            border-radius: 10px;
+            padding: 10px 14px;
+            border: none;
+        }
+
+        /* small helpers */
+        .muted-small {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .rating-star {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #ffb400;
+            font-weight: 600;
+        }
+
+        /* toast */
+        .cart-toast {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            z-index: 1200;
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="position-relative">
+
+    <!-- Header (user-provided) -->
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg p-0">
+                <a href="index.html">
+                    <img class="img-fluid logo" src="assets/images/logo/logo.png" style="height: auto; width: 100px;"
+                        alt="logo">
+                </a>
+                <a target="_blank" href="#!" data-bs-toggle="modal" data-bs-target="#location"
+                    class="btn btn-sm theme-btn location-btn mt-0 ms-3 d-flex align-content-center gap-1">
+                    <i class="ri-map-pin-line"></i> Location
+                </a>
+
+                <div class="nav-option order-md-2">
+                    <div class="dropdown-button">
+                        <div class="cart-button">
+                            <!-- cart count (will be updated by JS) -->
+                            <span id="header-cart-count">0</span>
+                            <i class="ri-shopping-cart-line text-white cart-bag"></i>
+                        </div>
+                        <div class="onhover-box">
+                            <ul class="cart-list">
+                                <!-- sample items (kept as-is) -->
+                                <li class="product-box-contain">
+                                    <div class="drop-cart">
+                                        <a href="#!" class="drop-image">
+                                            <img src="assets/images/product/vp-3.png" class="blur-up lazyloaded" alt="">
+                                        </a>
+                                        <div class="drop-contain">
+                                            <a href="#!">
+                                                <h5>Egg Sandwich</h5>
+                                            </a>
+                                            <h6><span>1 x </span> ₹80.58</h6>
+                                            <button class="close-button close_button">
+                                                <i class="fa-solid fa-xmark"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- ... more sample list items ... -->
+                            </ul>
+                            <div class="price-box">
+                                <h5>Total :</h5>
+                                <h4 class="theme-color fw-semibold">₹155.00</h4>
+                            </div>
+                            <div class="button-group">
+                                <a href="checkout.html" class="btn btn-sm theme-btn w-100 d-block rounded-2">View
+                                    Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-part dropdown-button order-md-2">
+                        <img class="img-fluid profile-pic" src="assets/images/icons/p5.png" alt="profile">
+                        <div>
+                            <h6 class="fw-normal">Hi, Mark Jecno</h6>
+                            <h5 class="fw-medium">My Account</h5>
+                        </div>
+                        <div class="onhover-box onhover-sm">
+                            <ul class="menu-list">
+                                <li>
+                                    <a class="dropdown-item" href="profile.html">Profile</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="my-order.html">My orders</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="saved-address.html">Saved Address</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="saved-card.html">Saved cards</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="setting.html">Settings</a>
+                                </li>
+                            </ul>
+                            <div class="bottom-btn">
+                                <a href="signin.html" class="theme-color fw-medium d-flex"><i
+                                        class="ri-login-box-line me-2"></i>Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </nav>
+        </div>
+    </header>
+    <!-- Header end -->
+
+    <section class="page-head-section">
+        <div class="container page-heading">
+            <h2 class="h3 mb-3 text-white text-center">Shop</h2>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb flex-lg-nowrap justify-content-center justify-content-lg-star">
+                    <li class="breadcrumb-item">
+                        <a href="index.html"><i class="ri-home-line"></i>Home</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Shop</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+    <section class="product-hero">
+        <div class="container">
+            <div class="row g-4 align-items-start">
+                <!-- Left: gallery -->
+                <div class="col-12 col-lg-6">
+                    <div class="product-gallery position-relative">
+
+
+                        <!-- main image -->
+                        <div style="height:420px; overflow:hidden; border-radius:10px;">
+                            <img id="mainImage" src="assets/images/cakes/white-forest.JPG" alt="Dummy Cake"
+                                class="product-img-main">
+                        </div>
+
+                        <!-- thumbnails -->
+                        <div class="d-flex gap-2 mt-3 thumb-list">
+                            <img src="assets/images/cakes/white-forest.JPG"
+                                data-src="assets/images/cakes/white-forest.JPG" class="active" alt="thumb1">
+                            <img src="assets/images/cakes/black-fores.JPG"
+                                data-src="assets/images/cakes/black-fores.JPG" alt="thumb2">
+                            <img src="assets/images/cakes/kitkat.JPG" data-src="assets/images/cakes/kitkat.JPG"
+                                alt="thumb3">
+                            <img src="assets/images/cakes/butter-scotch.JPG"
+                                data-src="assets/images/cakes/butter-scotch.JPG" alt="thumb4">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: product details -->
+                <div class="col-12 col-lg-6">
+                    <div class="product-details">
+                        <div class="d-flex align-items-start justify-content-between">
+                            <div>
+                                <h2 class="h4 mb-1">Vanila Cake</h2>
+                                <div class="muted-small">Bakery • Fresh • Custom</div>
+                            </div>
+                            <div class="text-end">
+                                <div class="rating-star">
+                                    <i class="ri-star-s-fill"></i><span>4.3</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-3 d-flex align-items-center gap-3">
+                            <div class="price-old">₹999</div>
+                            <div class="price-new">₹749</div>
+                            <div class="badge-off">25% OFF</div>
+                        </div>
+
+                        <div class="mt-3">
+                            <div class="d-flex align-items-center gap-3 muted-small">
+                                <div><i class="ri-map-pin-2-fill me-1"></i> New Jersey</div>
+                                <div class="ms-2"><i class="ri-time-fill me-1"></i> 3 hrs</div>
+                            </div>
+                        </div>
+
+                        <hr class="my-3">
+
+                        <label class="form-label mb-2">Choose size</label>
+                        <div class="mb-3 d-flex gap-2">
+                            <button class="btn btn-outline-secondary option-btn active">1 kg</button>
+                            <button class="btn btn-outline-secondary option-btn">500 g</button>
+                            <button class="btn btn-outline-secondary option-btn">2 kg</button>
+                        </div>
+
+                        <div class="d-flex align-items-center gap-3 mt-3">
+                            <div class="input-group" style="width:150px;">
+                                <button class="btn btn-outline-secondary" id="qty-decrease" type="button">-</button>
+                                <input type="text" id="qty" class="form-control text-center" value="1"
+                                    aria-label="quantity">
+                                <button class="btn btn-outline-secondary" id="qty-increase" type="button">+</button>
+                            </div>
+
+                            <button class="add-cart" id="addToCartBtn"> 
+    <i class="ri-shopping-cart-2-line me-2"></i> Add to cart
+</button>
+
+<style>
+#addToCartBtn {
+    background-color: #fe0094 !important; /* Button fill color */
+    color: #fff;               /* Text color */
+    border: 2px solid #fe0094 !important; /* Border same as background */
+    border-radius: 50px;       /* Optional: pill-shaped */
+    padding: 0.5rem 1.5rem;    /* Adjust size */
+    transition: all 0.3s ease;
+}
+
+#addToCartBtn:hover {
+    background-color: #e60085 !important; /* Slightly darker on hover */
+    border-color: #e60085 !important;
+    color: #fff;
+}
+</style>
+
+                        </div>
+
+                        <!-- <div class="mt-3 muted-small">
+                            <strong>Delivery & returns:</strong> Standard home delivery available. Contact bakery for custom orders.
+                        </div> -->
+
+                        <hr class="my-3">
+                        <h6>Product description</h6>
+                        <p class="muted-small mb-0">Soft sponge layered with fresh cream and cherries — classic cake
+                            example for demo purposes.</p>
+
+                        <div class="row g-2 mt-3">
+                            <div class="col-6">
+                                <div class="p-2 bg-light rounded small">Egg / Eggless</div>
+                            </div>
+                            <div class="col-6">
+                                <div class="p-2 bg-light rounded small">Sugar / Sugar-free</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- related items -->
+            <!-- <div class="mt-5">
+                <h5>Related items</h5>
+                <div class="row g-3 mt-2">
+                    <div class="col-6 col-md-3">
+                        <div class="card p-2">
+                            <img src="assets/images/cakes/butter-scotch.JPG" class="card-img-top" style="height:120px; object-fit:cover;" alt="">
+                            <div class="card-body p-2">
+                                <h6 class="mb-1">Butter Scotch</h6>
+                                <div class="muted-small">₹749</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="card p-2">
+                            <img src="assets/images/cakes/kitkat.JPG" class="card-img-top" style="height:120px; object-fit:cover;" alt="">
+                            <div class="card-body p-2">
+                                <h6 class="mb-1">Kit Kat</h6>
+                                <div class="muted-small">₹999</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+        </div>
+    </section>
+
+    <!-- You Might Also Like section -->
+  <section class="you-might-like" style="padding-top: 10px; padding-bottom: 80px;">
+
+    <div class="container">
+        <h5 class="fw-bold" style="font-size: 32px;">You Might Also Like</h5>
+        <div class="row g-3 mt-2">
+            <!-- Item 1 -->
+           <div class="col-6 col-md-3">
+    <div class="card p-3 d-flex flex-column h-100">
+        <img src="assets/images/cakes/black-fores.JPG" class="card-img-top"
+             style="height:180px; object-fit:cover; border-radius:10px;" alt="Red Velvet">
+        <div class="card-body d-flex flex-column justify-content-between mt-2">
+            <div>
+                <h6 class="mb-1">Black Forest</h6>
+                <div class="muted-small mb-2">₹849</div>
+            </div>
+            <a href="shop.html" class="btn view-cake-btn w-100">View Cake</a>
+        </div>
+    </div>
+</div>
+
+<!-- Item 2 -->
+<div class="col-6 col-md-3">
+    <div class="card p-3 d-flex flex-column h-100">
+        <img src="assets/images/cakes/red-velvet.JPG" class="card-img-top"
+             style="height:180px; object-fit:cover; border-radius:10px;" alt="Red Velvet">
+        <div class="card-body d-flex flex-column justify-content-between mt-2 flex-grow-1">
+            <div>
+                <h6 class="mb-1">Red Velvet</h6>
+                <div class="muted-small mb-2">₹849</div>
+            </div>
+            <a href="shop.html" class="btn view-cake-btn w-100 mt-2">View Cake</a>
+        </div>
+    </div>
+</div>
+
+<!-- Item 3 -->
+<div class="col-6 col-md-3">
+    <div class="card p-3 d-flex flex-column h-100">
+        <img src="assets/images/cakes/butter-scotch.JPG" class="card-img-top"
+             style="height:180px; object-fit:cover; border-radius:10px;" alt="Black Forest">
+        <div class="card-body d-flex flex-column justify-content-between mt-2 flex-grow-1">
+            <div>
+                <h6 class="mb-1">Black Forest</h6>
+                <div class="muted-small mb-2">₹749</div>
+            </div>
+            <a href="shop.html" class="btn view-cake-btn w-100 mt-2">View Cake</a>
+        </div>
+    </div>
+</div>
+
+<!-- Item 4 -->
+<div class="col-6 col-md-3">
+    <div class="card p-3 d-flex flex-column h-100">
+        <img src="assets/images/cakes/kitkat.JPG" class="card-img-top"
+             style="height:180px; object-fit:cover; border-radius:10px;" alt="Fruit Cake">
+        <div class="card-body d-flex flex-column justify-content-between mt-2 flex-grow-1">
+            <div>
+                <h6 class="mb-1">Fruit Cake</h6>
+                <div class="muted-small mb-2">₹699</div>
+            </div>
+            <a href="shop.html" class="btn view-cake-btn w-100 mt-2">View Cake</a>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+
+    <!-- Button CSS -->
+    <style>
+        .view-cake-btn {
+            color: #fe0094;
+            background-color: transparent;
+            border: 2px solid #fe0094;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .view-cake-btn:hover {
+            color: #fff;
+            background-color: #fe0094;
+            border-color: #fe0094;
+        }
+    </style>
+</section>
+
+
+
+
+    <!-- Footer (user-provided) -->
+    <footer class="footer-section section-t-space">
+        <div class="container">
+            <div class="main-footer">
+                <div class="row g-3">
+                    <div class="col-xl-4 col-lg-12">
+                        <div class="footer-logo-part">
+                            <img class="img-fluid logo" src="assets/images/logo/logo.png" alt="logo">
+                            <p>Celebrate with us – live it up!</p>
+
+                            <div class="social-media-part">
+                                <ul class="social-icon">
+                                    <li>
+                                        <a href="https://www.instagram.com/accounts/login/" target="_blank">
+                                            <i class="ri-instagram-fill icon"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://twitter.com/i/flow/login" target="_blank">
+                                            <i class="ri-whatsapp-fill icon"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.facebook.com/login/" target="_blank">
+                                            <i class="ri-facebook-fill icon"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.youtube.com/" target="_blank">
+                                            <i class="ri-youtube-fill icon"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.linkedin.com/login/" target="_blank">
+                                            <i class="ri-linkedin-fill icon"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="bottom-footer-part">
+                <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                    <h6>@ Copyright 2024 CAKEE. All rights Reserved.</h6>
+                    <img class="img-fluid cards" src="assets/images/icons/footer-card.png" alt="card">
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer section end -->
+
+    <!-- mobile fix menu start -->
+    <div class="mobile-menu d-md-none d-block mobile-cart">
+        <ul>
+            <li class="active">
+                <a href="index.html" class="menu-box">
+                    <i class="ri-home-4-line"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="wishlist.html" class="menu-box">
+                    <i class="ri-heart-3-line"></i>
+                    <span>Wishlist</span>
+                </a>
+            </li>
+            <li>
+                <a href="checkout.html" class="menu-box">
+                    <i class="ri-shopping-cart-2-line"></i>
+                    <span>Cart</span>
+                </a>
+            </li>
+            <li>
+                <a href="profile.html" class="menu-box">
+                    <i class="ri-user-line"></i>
+                    <span>Profile</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- mobile fix menu end -->
+
+    <!-- tap to top start -->
+    <button class="scroll scroll-to-top">
+        <i class="ri-arrow-up-s-line arrow"></i>
+    </button>
+    <!-- tap to top end -->
+
+    <!-- location offcanvas modal (user-provided) -->
+    <div class="modal fade location-modal" id="location" data-bs-backdrop="static" data-bs-keyboard="false"
+        tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">
+                        <h5 class="fw-semibold">Select a Location</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="search-section">
+                        <form class="form_search" role="form">
+                            <input type="search" placeholder="Search Location" class="nav-search nav-search-field">
+                        </form>
+                    </div>
+                    <a href="#!" class="current-location">
+                        <div class="current-address">
+                            <i class="ri-focus-3-line focus"></i>
+                            <div>
+                                <h5>Use current-location</h5>
+                                <h6>Wellington St., Ottawa, Ontario, Canada</h6>
+                            </div>
+                        </div>
+                        <i class="ri-arrow-right-s-line arrow"></i>
+                    </a>
+                    <h5 class="mt-sm-3 mt-2 fw-medium recent-title dark-text">
+                        Recent Location
+                    </h5>
+                    <a href="#!" class="recent-location">
+                        <div class="recant-address">
+                            <i class="ri-map-pin-line theme-color"></i>
+                            <div>
+                                <h5>Bayshore</h5>
+                                <h6>kingston St., Ottawa, Ontario, Canada</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn gray-btn" data-bs-dismiss="modal">Close</a>
+                    <a href="#" class="btn theme-btn mt-0" data-bs-dismiss="modal">Save</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- location offcanvas end -->
+
+    <!-- responsive space -->
+    <div class="responsive-space"></div>
+
+    <!-- bootstrap js -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <!-- footer accordion js -->
+    <script src="assets/js/footer-accordion.js"></script>
+
+    <!-- loader js -->
+    <script src="assets/js/loader.js"></script>
+
+    <!-- swiper js (optional) -->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/custom-swiper.js"></script>
+
+    <!-- script js (user-provided) -->
+    <script src="assets/js/script.js"></script>
+
+    <!-- Page JS: gallery, wishlist, qty, add to cart toast -->
+    <script>
+        // thumbnail click change main image
+        document.querySelectorAll('.thumb-list img').forEach(img => {
+            img.addEventListener('click', function () {
+                document.querySelectorAll('.thumb-list img').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+                const src = this.getAttribute('data-src') || this.src;
+                document.getElementById('mainImage').src = src;
+            });
+        });
+
+        // wishlist toggle
+        (function () {
+            const wishlistBtn = document.getElementById('wishlist-btn');
+            const wishlistIcon = document.getElementById('wishlist-icon');
+            wishlistBtn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                if (wishlistIcon.classList.contains('ri-heart-line')) {
+                    wishlistIcon.classList.remove('ri-heart-line');
+                    wishlistIcon.classList.add('ri-heart-fill');
+                    wishlistIcon.style.color = '#ff4d4f';
+                } else {
+                    wishlistIcon.classList.remove('ri-heart-fill');
+                    wishlistIcon.classList.add('ri-heart-line');
+                    wishlistIcon.style.color = '#ff4d4f';
+                }
+            });
+        })();
+
+        // qty controls
+        (function () {
+            const qtyInput = document.getElementById('qty');
+            document.getElementById('qty-increase').addEventListener('click', () => {
+                qtyInput.value = parseInt(qtyInput.value || '0') + 1;
+            });
+            document.getElementById('qty-decrease').addEventListener('click', () => {
+                qtyInput.value = Math.max(1, (parseInt(qtyInput.value || '1') - 1));
+            });
+        })();
+
+        // option selection
+        document.querySelectorAll('.option-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+
+        // Add to cart (visual)
+        (function () {
+            const addBtn = document.getElementById('addToCartBtn');
+            const headerCartCount = document.getElementById('header-cart-count');
+            const cartToast = document.createElement('div');
+            cartToast.className = 'cart-toast';
+            cartToast.innerHTML = `
+                <div class="toast align-items-center text-white bg-success border-0 show" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body">Added to cart</div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" id="cart-toast-close"></button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(cartToast);
+            const closeToast = () => cartToast.style.display = 'none';
+
+            addBtn.addEventListener('click', () => {
+                const qty = parseInt(document.getElementById('qty').value || '1');
+                const current = parseInt(headerCartCount.innerText || '0');
+                headerCartCount.innerText = current + qty;
+
+                cartToast.style.display = 'block';
+                // auto hide
+                setTimeout(closeToast, 1600);
+
+                // allow manual close
+                const closeBtn = document.getElementById('cart-toast-close');
+                if (closeBtn) closeBtn.addEventListener('click', closeToast);
+            });
+        })();
+    </script>
+
+</body>
+
+</html>
