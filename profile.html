@@ -36,9 +36,16 @@
 
     <!-- Theme css -->
     <link rel="stylesheet" id="change-link" type="text/css" href="assets/css/style.css">
+
+    <!-- font awsome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
 </head>
 
-<body>
+<body class="position-relative">
 
     <!-- Header section start -->
     <header>
@@ -50,13 +57,45 @@
                         <i class="ri-menu-line"></i>
                     </span>
                 </button> -->
-                <a href="index.html">
+                <!-- <a href="index.html">
                     <img class="img-fluid logo" src="assets/images/logo/logo.png" style="height: auto; width: 100px;" alt="logo">
                 </a>
                 <a target="_blank" href="#!" data-bs-toggle="modal" data-bs-target="#location"
                     class="btn btn-sm theme-btn location-btn mt-0 ms-3 d-flex align-content-center gap-1">
                     <i class="ri-map-pin-line"></i> Location
+                </a> -->
+                <!-- Left: Location button (replaces logo) -->
+
+
+                <!-- <div class="d-flex align-items-center w-100">
+     -->
+                <a target="_blank" href="#!" data-bs-toggle="modal" data-bs-target="#location"
+                    class="btn btn-sm theme-btn location-btn d-flex align-items-center gap-1">
+                    <i class="ri-map-pin-line"></i> Location
                 </a>
+
+                <a href="wishlist.html"
+                    class="btn btn-sm theme-btn wishlist-btn d-flex align-items-center gap-1 d-md-none">
+                    <i class="ri-heart-line"></i> Wishlist
+                </a>
+                <style>
+                    @media (max-width: 767px) {
+                        .location-btn {
+                            margin-right: auto !important;
+                            margin-left: 0 !important;
+                            /* force it fully left */
+                        }
+                    }
+                </style>
+
+                <a href="wishlist.html"
+                    class="btn btn-sm theme-btn wishlist-btn d-flex align-items-center gap-1 d-none d-md-flex ms-3">
+                    <i class="ri-heart-line"></i> Wishlist
+                </a>
+                <!-- </div>    -->
+
+
+
                 <div class="nav-option order-md-2">
                     <div class="dropdown-button">
                         <div class="cart-button">
@@ -74,7 +113,7 @@
                                             <a href="#!">
                                                 <h5>Egg Sandwich</h5>
                                             </a>
-                                            <h6><span>1 x </span> $80.58</h6>
+                                            <h6><span>1 x </span> ₹80.58</h6>
                                             <button class="close-button close_button">
                                                 <i class="fa-solid fa-xmark"></i>
                                             </button>
@@ -90,7 +129,7 @@
                                             <a href="#!">
                                                 <h5>Grilled Chicken Quesadilla</h5>
                                             </a>
-                                            <h6><span>1 x </span> $25.64</h6>
+                                            <h6><span>1 x </span> ₹25.64</h6>
                                             <button class="close-button close_button">
                                                 <i class="fa-solid fa-xmark"></i>
                                             </button>
@@ -106,7 +145,7 @@
                                             <a href="#!">
                                                 <h5>Spicy Ahi Roll</h5>
                                             </a>
-                                            <h6><span>1 x </span> $12.00</h6>
+                                            <h6><span>1 x </span> ₹12.00</h6>
                                             <button class="close-button close_button">
                                                 <i class="fa-solid fa-xmark"></i>
                                             </button>
@@ -122,7 +161,7 @@
                                             <a href="#!">
                                                 <h5>Spicy Dumplings</h5>
                                             </a>
-                                            <h6><span>1 x </span> $16.28</h6>
+                                            <h6><span>1 x </span> ₹16.28</h6>
                                             <button class="close-button close_button">
                                                 <i class="fa-solid fa-xmark"></i>
                                             </button>
@@ -138,7 +177,7 @@
                                             <a href="#!">
                                                 <h5>Chicken Nugget</h5>
                                             </a>
-                                            <h6><span>1 x </span> $20.50</h6>
+                                            <h6><span>1 x </span> ₹20.50</h6>
                                             <button class="close-button close_button">
                                                 <i class="fa-solid fa-xmark"></i>
                                             </button>
@@ -148,7 +187,7 @@
                             </ul>
                             <div class="price-box">
                                 <h5>Total :</h5>
-                                <h4 class="theme-color fw-semibold">$155.00</h4>
+                                <h4 class="theme-color fw-semibold">₹155.00</h4>
                             </div>
                             <div class="button-group">
                                 <a href="checkout.html" class="btn btn-sm theme-btn w-100 d-block rounded-2">View
@@ -173,7 +212,9 @@
                                 <li>
                                     <a class="dropdown-item" href="saved-address.html">Saved Address</a>
                                 </li>
-                               
+                                <li>
+                                    <a class="dropdown-item" href="saved-card.html">Saved cards</a>
+                                </li>
                                 <li>
                                     <a class="dropdown-item" href="setting.html">Settings</a>
                                 </li>
@@ -183,148 +224,9 @@
                                         class="ri-login-box-line me-2"></i>Logout</a>
                             </div>
                         </div>
-   
                     </div>
                 </div>
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
-                        <button class="navbar-toggler btn-close" id="offcanvas-close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <ul class="navbar-nav justify-content-center flex-grow-1">
-                            <li class="nav-item dropdown mega-menu">
-                                <a class="nav-link dropdown-toggle" href="#!" id="accountDropdown" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">Home</a>
-                                <div class="dropdown-menu mt-0 border-0 bsb-zoomIn" aria-labelledby="accountDropdown">
-                                    <div class="row row-cols-lg-5 row-cols-1 g-xl-4 g-3">
-                                        <div class="col">
-                                            <a href="index.html" class="demo-box" target="_blank">
-                                                <img src="landing/assets/images/demo/1.png" alt="d-1"
-                                                    class="img-fluid demo-img">
-                                                <h5 class="dropdown-item">Classic</h5>
-                                            </a>
-                                        </div>
-                                        <div class="col">
-                                            <a href="index2.html" class="demo-box" target="_blank">
-                                                <img src="landing/assets/images/demo/2.png" alt="d-2"
-                                                    class="img-fluid demo-img">
-                                                <h5 class="dropdown-item">Elegance</h5>
-                                            </a>
-                                        </div>
-                                        <div class="col">
-                                            <a href="index3.html" class="demo-box" target="_blank">
-                                                <img src="landing/assets/images/demo/3.png" alt="d-3"
-                                                    class="img-fluid demo-img">
-                                                <h5 class="dropdown-item">Compact</h5>
-                                            </a>
-                                        </div>
-                                        <div class="col">
-                                            <a href="index4.html" class="demo-box" target="_blank">
-                                                <img src="landing/assets/images/demo/4.png" alt="d-4"
-                                                    class="img-fluid demo-img">
-                                                <h5 class="dropdown-item">Minimal</h5>
-                                            </a>
-                                        </div>
-                                        <div class="col">
-                                            <a href="index5.html" class="demo-box" target="_blank">
-                                                <img src="landing/assets/images/demo/5.png" alt="d-5"
-                                                    class="img-fluid demo-img">
-                                                <h5 class="dropdown-item">Mordern</h5>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link dropdown-toggle" href="#!" id="orderMenu" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">Order</a>
-                                <ul class="dropdown-menu mt-0 border-0" aria-labelledby="orderMenu">
-                                    <li>
-                                        <a class="dropdown-item" href="menu-listing.html">Menu listing</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="menu-grid.html">Menu grid</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="address.html">Address</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="checkout.html">Checkout</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="confirm-order.html">Confirm order</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="offer.html">Offer</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="order-tracking.html">Order tracking</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="payment.html">Payment</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="restaurant-listing.html">Restaurant listing</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link dropdown-toggle" href="#!" id="blogMenu" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
-                                <ul class="dropdown-menu mt-0 border-0" aria-labelledby="blogMenu">
-                                    <li>
-                                        <a class="dropdown-item" href="blog-grid-left-sidebar.html">Grid Left
-                                            Sidebar</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="blog-grid-right-sidebar.html">Grid Right
-                                            Sidebar</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="blog-list.html">Blog Listing</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="blog-details.html">Blog Details</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#!" id="pagesMenu" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
-                                <ul class="dropdown-menu mt-0 border-0" aria-labelledby="pagesMenu">
-                                    <li><a class="dropdown-item" href="404.html">404</a></li>
-                                    <li>
-                                        <a class="dropdown-item" href="coming-soon.html">Coming soon</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="contact.html">Contact</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="empty-cart.html">Empty Cart</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="faq.html">FAQs</a></li>
-                                    <li><a class="dropdown-item" href="otp.html">OTP</a></li>
-                                    <li>
-                                        <a class="dropdown-item" href="signin.html">Sign in</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="signup.html">Sign up</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="testimonial.html">Testimonial</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="wishlist.html">Wishlist</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="contact.html">Contact</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+
             </nav>
         </div>
     </header>
@@ -385,156 +287,170 @@
                                 <a href="#log-out" data-bs-toggle="modal">Log Out</a>
                             </li>
                         </ul> -->
-   <div class="scroll-menu">
-  <ul class="scroll-list">
-    <li>
-      <a href="profile.html">
-        <i class="ri-user-3-line"></i>
-        <span>Change Profile</span>
-      </a>
-    </li>
-    <li>
-      <a href="my-order.html">
-        <i class="ri-shopping-bag-3-line"></i>
-        <span>My Order</span>
-      </a>
-    </li>
-    <li>
-      <a href="saved-address.html">
-        <i class="ri-map-pin-line"></i>
-        <span>Saved Address</span>
-      </a>
-    </li>
-    <li>
+                        <div class="scroll-menu">
+                            <ul class="scroll-list">
+                                <li>
+                                    <a href="profile.html">
+                                        <i class="ri-user-3-line"></i>
+                                        <span>Change Profile</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="my-order.html">
+                                        <i class="ri-shopping-bag-3-line"></i>
+                                        <span>My Order</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="saved-address.html">
+                                        <i class="ri-map-pin-line"></i>
+                                        <span>Saved Address</span>
+                                    </a>
+                                </li>
+                                <!-- <li>
       <a href="faq.html">
         <i class="ri-question-line"></i>
         <span>Help</span>
       </a>
-    </li>
-    <li>
-      <a href="setting.html">
-        <i class="ri-settings-3-line"></i>
-        <span>Setting</span>
+    </li> -->
+                                <li>
+                                    <a href="setting.html">
+                                        <i class="ri-settings-3-line"></i>
+                                        <span>Setting</span>
+                                    </a>
+                                </li>
+                                <li>
+      <a href="wishlist.html">
+        <i class="ri-heart-line"></i>
+        <span>Wishlist</span>
       </a>
     </li>
-    <li>
+                                <!-- <li>
       <a href="#log-out" data-bs-toggle="modal">
         <i class="ri-logout-box-r-line"></i>
         <span>Log Out</span>
       </a>
-    </li>
-  </ul>
-</div>
-<style>
+    </li> -->
+                            </ul>
+                        </div>
+                        <style>
+                            /* Mobile view only */
+                            @media (max-width: 768px) {
+                                .scroll-menu {
+                                    display: block;
+                                    overflow-x: auto;
+                                    padding: 12px;
+                                    background-color: #fff;
+                                    -webkit-overflow-scrolling: touch;
+                                }
 
+                                .scroll-list {
+                                    display: grid;
+                                    grid-auto-flow: column;
+                                    grid-template-columns: repeat(6, minmax(80px, 1fr));
+                                    gap: 12px;
+                                    list-style: none;
+                                    padding: 0;
+                                    margin: 0;
+                                    min-width: 100%;
+                                }
 
-/* Mobile view only */
-@media (max-width: 768px) {
-  .scroll-menu {
-    display: block;
-    overflow-x: auto;
-    padding: 12px;
-    background-color: #fff;
-    -webkit-overflow-scrolling: touch;
-  }
+                                .scroll-list li {
+                                    background-color: #f5f5f5;
+                                    border-radius: 8px;
+                                    text-align: center;
+                                    padding: 10px;
+                                    flex-shrink: 0;
+                                    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+                                    scroll-snap-align: start;
+                                }
 
-  .scroll-list {
-    display: grid;
-    grid-auto-flow: column;
-    grid-template-columns: repeat(6, minmax(80px, 1fr));
-    gap: 12px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    min-width: 100%;
-  }
+                                .scroll-list a {
+                                    text-decoration: none;
+                                    color: #333;
+                                    display: block;
+                                }
 
-  .scroll-list li {
-    background-color: #f5f5f5;
-    border-radius: 8px;
-    text-align: center;
-    padding: 10px;
-    flex-shrink: 0;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    scroll-snap-align: start;
-  }
+                                .scroll-list i {
+                                    font-size: 20px;
+                                    margin-bottom: 6px;
+                                    color: #fe0094;
+                                }
 
-  .scroll-list a {
-    text-decoration: none;
-    color: #333;
-    display: block;
-  }
+                                .scroll-list span {
+                                    font-size: 13px;
+                                    display: block;
+                                }
+                            }
 
-  .scroll-list i {
-    font-size: 20px;
-    margin-bottom: 6px;
-    color: #fe0094
-;
-  }
+                            /* Desktop view only */
+                            @media (min-width: 769px) {
+                                .scroll-menu {
+                                    width: 220px;
+                                    background-color: #fff;
+                                    padding: 20px;
+                                    border-right: 1px solid #eee;
+                                }
 
-  .scroll-list span {
-    font-size: 13px;
-    display: block;
-  }
-}
-/* Desktop view only */
-@media (min-width: 769px) {
-  .scroll-menu {
-    width: 220px;
-    background-color: #fff;
-    padding: 20px;
-    border-right: 1px solid #eee;
-  }
+                                .scroll-list {
+                                    display: flex;
+                                    flex-direction: column;
+                                    gap: 16px;
+                                    list-style: none;
+                                    padding: 0;
+                                    margin: 0;
+                                }
 
-  .scroll-list {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
+                                .scroll-list li {
+                                    background-color: transparent;
+                                    border-radius: 0;
+                                    text-align: left;
+                                    padding: 0;
+                                    box-shadow: none;
+                                }
 
-  .scroll-list li {
-    background-color: transparent;
-    border-radius: 0;
-    text-align: left;
-    padding: 0;
-    box-shadow: none;
-  }
+                                .scroll-list a {
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 10px;
+                                    text-decoration: none;
+                                    color: #333;
+                                    font-size: 15px;
+                                    padding: 8px 0;
+                                    border-bottom: 1px solid #f0f0f0;
+                                }
 
-  .scroll-list a {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    color: #333;
-    font-size: 15px;
-    padding: 8px 0;
-    border-bottom: 1px solid #f0f0f0;
-  }
+                                .scroll-list i {
+                                    font-size: 18px;
+                                    color: #fe0094;
+                                }
 
-  .scroll-list i {
-    font-size: 18px;
-    color: #fe0094
-;
-  }
-
-  .scroll-list span {
-    font-size: 15px;
-    color: #333;
-  }
-}
-
-</style>
-      </div>
+                                .scroll-list span {
+                                    font-size: 15px;
+                                    color: #333;
+                                }
+                            }
+                        </style>
+                    </div>
                 </div>
                 <div class="col-lg-9">
                     <div class="change-profile-content">
-                        <div class="title">
+                        <!-- <div class="title">
                             <div class="loader-line"></div>
                             <h3>Change Profile</h3>
+                        </div> -->
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <div class="title d-flex align-items-center">
+                                <div class="loader-line me-2"></div>
+                                <h3 class="mb-0">Change Profile</h3>
+                            </div>
+
+                            <!-- Help Button -->
+                            <a href="faq.html" class="btn btn-sm" style="border: 1px solid #fe0094; color: #fe0094;">
+                                <i class="ri-question-line me-1"></i> Help
+                            </a>
                         </div>
+
                         <ul class="profile-details-list">
                             <li>
                                 <div class="profile-content">
@@ -577,6 +493,18 @@
                                 <a href="#password" class="btn theme-outline mt-0" data-bs-toggle="modal">Change</a>
                             </li>
                         </ul>
+
+                        <div class="mt-3 d-flex justify-content-end">
+                            <!-- <button class="btn btn-sm" style="color:#fe0094; border: 1px solid #fe0094;">
+        <i class="ri-logout-box-line"></i> Logout
+    </button> -->
+                            <a href="#log-out" data-bs-toggle="modal" class="btn btn-sm"
+                                style="color:#fe0094; border: 1px solid #fe0094;">
+                                <i class="ri-logout-box-line"></i> Logout
+                            </a>
+
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -610,7 +538,8 @@
                 <div class="row g-3">
                     <div class="col-xl-4 col-lg-12">
                         <div class="footer-logo-part">
-                            <img class="img-fluid logo" src="assets/images/logo/logo.png" style="height: auto; width: 100px;" alt="logo">
+                            <img class="img-fluid logo" src="assets/images/logo/logo.png"
+                                style="height: auto; width: 100px;" alt="logo">
                             <p>
                                 Welcome to our online order website! Here, you can browse our
                                 wide selection of products and place orders from the comfort

@@ -77,9 +77,10 @@
         <i class="ri-heart-line"></i> Wishlist
     </a>
 <style>
-    @media (max-width: 767px) {
+  @media (max-width: 767px) {
   .location-btn {
     margin-right: auto !important;
+    margin-left: 0 !important;   /* force it fully left */
   }
 }
 
@@ -242,7 +243,6 @@
             <!-- <h1>Cakee</h1>
             <h2>Discover bakers that deliver near you</h2> -->
           
-
    <div class="search-section">
     <form class="auth-form search-head" target="_blank">
         <div class="form-group">
@@ -867,51 +867,49 @@ scrollText.innerHTML = words
     <section class="popular-restaurant section-b-space ratio3_2 overflow-hidden">
         <div class="container">
             <div class="row g-md-4 g-3">
-                <div class="col-xl-3 col-lg-4 col-md-6">
-                    <div class="vertical-product-box product-style-3">
-                        <div class="vertical-product-box-img">
-                            <a href="shop.html">
-                                <img class="product-img-top w-100 bg-img" src="assets/images/cakes/white-forest.JPG"
-                                    alt="vp1">
-                            </a>
+               <div class="col-xl-3 col-lg-4 col-md-6">
+    <div class="vertical-product-box product-style-3">
+        <div class="vertical-product-box-img position-relative">
+            <a href="shop.html">
+                <!-- Default image -->
+                <img class="product-img-top w-100 bg-img default-img" 
+                     src="assets/images/cakes/white-forest.JPG" alt="vp1">
 
-                          
-<!-- Wishlist Icon -->
-<div class="wishlist-icon position-absolute top-0 start-0 m-2 p-2 rounded-circle bg-white shadow" style="cursor: pointer;">
-    <i class="ri-heart-line" style="font-size: 20px; color: #ff4d4f; transition: transform 0.2s;"></i>
+            </a>
+
+            <!-- Wishlist Icon -->
+            <div class="wishlist-icon position-absolute top-0 start-0 m-2 p-2 rounded-circle bg-white shadow" style="cursor: pointer;">
+                <i class="ri-heart-line" style="font-size: 20px; color: #ff4d4f; transition: transform 0.2s;"></i>
+            </div>
+
+            <div class="offers">
+                <img src="assets/images/shape.png" alt="shape" class="img-fluid">
+                <h6>upto ₹2</h6>
+                <div class="d-flex align-items-center justify-content-end">
+                    <h4>50% OFF</h4>
+                </div>
+            </div>
+        </div>
+        <div class="vertical-product-body">
+            <div class="d-flex align-items-center justify-content-between">
+                <a href="shop.html">
+                    <h4 class="vertical-product-title">White Forest</h4>
+                </a>
+                <h6 class="rating-star">
+                    <span class="star"><i class="ri-star-s-fill"></i></span>3.9
+                </h6>
+            </div>
+            <h5 class="product-items">Egg/Egg-less,Sugar/Sugar-free</h5>
+            <div class="location-distance d-flex align-items-center justify-content-between pt-sm-3 pt-2">
+                <h5 class="place">New Jsercy</h5>
+                <ul class="distance">
+                    <li><i class="ri-time-fill icon"></i> 3 hrs</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
 
-
-
-                            <div class="offers">
-                                <img src="assets/images/shape.png" alt="shape" class="img-fluid">
-                                <h6>upto ₹2</h6>
-                                <div class="d-flex align-items-center justify-content-end">
-                                    <h4>50% OFF</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="vertical-product-body">
-                            <div class="d-flex align-items-center justify-content-between">
-                                <a href="shop.html">
-                                    <h4 class="vertical-product-title">White Forest</h4>
-                                </a>
-                                <h6 class="rating-star">
-                                    <span class="star"><i class="ri-star-s-fill"></i></span>3.9
-                                </h6>
-                            </div>
-                            <h5 class="product-items">Egg/Egg-less,Sugar/Sugar-free</h5>
-                            <div
-                                class="location-distance d-flex align-items-center justify-content-between pt-sm-3 pt-2">
-                                <h5 class="place">New Jsercy</h5>
-                                <ul class="distance">
-                                    <!-- <li><i class="ri-map-pin-fill icon"></i> 3.2 km</li> -->
-                                    <li><i class="ri-time-fill icon"></i> 3 hrs</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="col-xl-3 col-lg-4 col-md-6">
                     <div class="vertical-product-box product-style-3">
                         <div class="vertical-product-box-img">
@@ -1431,8 +1429,9 @@ scrollText.innerHTML = words
                 <div class="row g-3">
                     <div class="col-xl-4 col-lg-12">
                         <div class="footer-logo-part">
-                            <img class="img-fluid logo" src="assets/images/logo/logo.png" alt="logo">
-                          <p>Celebrate with us – live it up!</p>
+                          <img class="img-fluid logo" src="assets/images/logo/logo.png" alt="logo" style="max-width:200px; height:auto;">
+
+                          <p style="font-size:40px; font-weight:600; margin-top:10px;">Celebrate with us – live it up!</p>
 
                             <div class="social-media-part">
                                 <ul class="social-icon">
