@@ -867,89 +867,81 @@ scrollText.innerHTML = words
     <section class="popular-restaurant section-b-space ratio3_2 overflow-hidden">
         <div class="container">
             <div class="row g-md-4 g-3">
-               <div class="col-xl-3 col-lg-4 col-md-6">
-    <div class="vertical-product-box product-style-3">
-        <div class="vertical-product-box-img position-relative">
-            <a href="shop.html">
-                <!-- Default image -->
-                <img class="product-img-top w-100 bg-img default-img" 
-                     src="assets/images/cakes/white-forest.JPG" alt="vp1">
-
-            </a>
-
-            <!-- Wishlist Icon -->
-            <div class="wishlist-icon position-absolute top-0 start-0 m-2 p-2 rounded-circle bg-white shadow" style="cursor: pointer;">
-                <i class="ri-heart-line" style="font-size: 20px; color: #ff4d4f; transition: transform 0.2s;"></i>
-            </div>
-
-            <div class="offers">
-                <img src="assets/images/shape.png" alt="shape" class="img-fluid">
-                <h6>upto ₹2</h6>
-                <div class="d-flex align-items-center justify-content-end">
-                    <h4>50% OFF</h4>
-                </div>
-            </div>
-        </div>
-        <div class="vertical-product-body">
-            <div class="d-flex align-items-center justify-content-between">
-                <a href="shop.html">
-                    <h4 class="vertical-product-title">White Forest</h4>
-                </a>
-                <h6 class="rating-star">
-                    <span class="star"><i class="ri-star-s-fill"></i></span>3.9
-                </h6>
-            </div>
-            <h5 class="product-items">Egg/Egg-less,Sugar/Sugar-free</h5>
-            <div class="location-distance d-flex align-items-center justify-content-between pt-sm-3 pt-2">
-                <h5 class="place">New Jsercy</h5>
-                <ul class="distance">
-                    <li><i class="ri-time-fill icon"></i> 3 hrs</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
+              
 
                 <div class="col-xl-3 col-lg-4 col-md-6">
-                    <div class="vertical-product-box product-style-3">
-                        <div class="vertical-product-box-img">
-                            <a href="shop.html">
-                                <img class="vertical-product-img-top w-100 bg-img" src="assets/images/cakes/vanila.JPG"
-                                    alt="vp-2">
-                            </a>
-                            <!-- Wishlist Icon -->
-<div class="wishlist-icon position-absolute top-0 start-0 m-2 p-2 rounded-circle bg-white shadow" style="cursor: pointer;">
-    <i class="ri-heart-line" style="font-size: 20px; color: #ff4d4f; transition: transform 0.2s;"></i>
+  <div class="vertical-product-box product-style-3">
+    <div class="vertical-product-box-img position-relative">
+      <a href="shop.html">
+        <img class="vertical-product-img-top w-100 bg-img" 
+             src="assets/images/cakes/vanila.JPG" 
+             alt="vp-2">
+      </a>
+
+      <!-- Wishlist Icon (Top Right) -->
+      <div class="wishlist-icon position-absolute top-0 end-0 m-2 p-2 rounded-circle bg-white shadow" 
+           style="cursor: pointer;">
+        <i class="ri-heart-line" 
+           style="font-size: 20px; color: #ff4d4f; transition: transform 0.2s;"></i>
+      </div>
+
+      <!-- Offer Tag (Top Left) -->
+      <div class="offers position-absolute top-0 start-0 m-2" style="width: 130px;">
+  <img src="assets/images/shape.png" alt="shape" class="img-fluid w-100">
+
+  <!-- Adjusted text position -->
+  <div class="position-absolute start-50 text-center offer-text"
+       style="top: 150%; transform: translate(-50%, -50%); width: 100%;">
+    <h6 class="mb-1" style="font-size: 13px; color: #000;">upto ₹2</h6>
+    <h4 class="mb-0" style="font-size: 16px; font-weight: 700; color: #000;">50% OFF</h4>
+  </div>
+<style>
+    
+  /* Adjust text position in smaller screens */
+  @media (max-width: 768px) {
+    .offers {
+      width: 150px !important; /* slightly smaller image */
+    }
+    .offer-text {
+      top: 98% !important; /* move text a bit lower */
+    }
+    .offer-text h6 {
+      font-size: 12px !important;
+      margin-top: 6px !important;
+    }
+    .offer-text h4 {
+      font-size: 14px !important;
+    }
+  }
+</style>
+
 </div>
-                            <div class="offers">
-                                <img src="assets/images/shape.png" alt="shape" class="img-fluid">
-                                <h6>upto ₹2</h6>
-                                <div class="d-flex align-items-center justify-content-end">
-                                    <h4>50% OFF</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="vertical-product-body">
-                            <div class="d-flex align-items-center justify-content-between">
-                                <a href="shop.html">
-                                    <h4 class="vertical-product-title">Chocolate</h4>
-                                </a>
-                                <h6 class="rating-star">
-                                    <span class="star"><i class="ri-star-s-fill"></i></span>3.2
-                                </h6>
-                            </div>
-                            <h5 class="product-items">Egg/Egg-less,Sugar/Sugar-free</h5>
-                            <div
-                                class="location-distance d-flex align-items-center justify-content-between pt-sm-3 pt-2">
-                                <h5 class="place">California</h5>
-                                <ul class="distance">
-                                    <!-- <li><i class="ri-map-pin-fill icon"></i> 1 km</li> -->
-                                    <li><i class="ri-time-fill icon"></i> 3 hrs</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+    </div>
+
+    <!-- Product Details -->
+    <div class="vertical-product-body">
+      <div class="d-flex align-items-center justify-content-between">
+        <a href="shop.html">
+          <h4 class="vertical-product-title">Chocolate</h4>
+        </a>
+        <h6 class="rating-star">
+          <span class="star"><i class="ri-star-s-fill"></i></span>3.2
+        </h6>
+      </div>
+
+      <h5 class="product-items">Egg/Egg-less,Sugar/Sugar-free</h5>
+
+      <div class="location-distance d-flex align-items-center justify-content-between pt-sm-3 pt-2">
+        <h5 class="place">California</h5>
+        <ul class="distance">
+          <li><i class="ri-time-fill icon"></i> 3 hrs</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
                 <div class="col-xl-3 col-lg-4 col-md-6">
                     <div class="vertical-product-box product-style-3">
                         <div class="vertical-product-box-img">
@@ -958,9 +950,11 @@ scrollText.innerHTML = words
                                     alt="vp3">
                             </a>
                             <!-- Wishlist Icon -->
-<div class="wishlist-icon position-absolute top-0 start-0 m-2 p-2 rounded-circle bg-white shadow" style="cursor: pointer;">
-    <i class="ri-heart-line" style="font-size: 20px; color: #ff4d4f; transition: transform 0.2s;"></i>
-</div>
+   <div class="wishlist-icon position-absolute top-0 end-0 m-2 p-2 rounded-circle bg-white shadow" 
+           style="cursor: pointer;">
+        <i class="ri-heart-line" 
+           style="font-size: 20px; color: #ff4d4f; transition: transform 0.2s;"></i>
+      </div>
                         </div>
                         <div class="vertical-product-body">
                             <div class="d-flex align-items-center justify-content-between">
@@ -999,9 +993,11 @@ scrollText.innerHTML = words
                                     <h4 class="vertical-product-title">Pineapple Upside-Down Cake</h4>
                                 </a>
                                 <!-- Wishlist Icon -->
-<div class="wishlist-icon position-absolute top-0 start-0 m-2 p-2 rounded-circle bg-white shadow" style="cursor: pointer;">
-    <i class="ri-heart-line" style="font-size: 20px; color: #ff4d4f; transition: transform 0.2s;"></i>
-</div>
+   <div class="wishlist-icon position-absolute top-0 end-0 m-2 p-2 rounded-circle bg-white shadow" 
+           style="cursor: pointer;">
+        <i class="ri-heart-line" 
+           style="font-size: 20px; color: #ff4d4f; transition: transform 0.2s;"></i>
+      </div>
                                 <h6 class="rating-star">
                                     <span class="star"><i class="ri-star-s-fill"></i></span>3.6
                                 </h6>
@@ -1026,19 +1022,22 @@ scrollText.innerHTML = words
                                     alt="vp-5">
                             </a>
                             <!-- Wishlist Icon -->
-<div class="wishlist-icon position-absolute top-0 start-0 m-2 p-2 rounded-circle bg-white shadow" style="cursor: pointer;">
-    <i class="ri-heart-line" style="font-size: 20px; color: #ff4d4f; transition: transform 0.2s;"></i>
-</div>
-                        </div>
+   <div class="wishlist-icon position-absolute top-0 end-0 m-2 p-2 rounded-circle bg-white shadow" 
+           style="cursor: pointer;">
+        <i class="ri-heart-line" 
+           style="font-size: 20px; color: #ff4d4f; transition: transform 0.2s;"></i>
+      </div>               </div>
                         <div class="vertical-product-body">
                             <div class="d-flex align-items-center justify-content-between">
                                 <a href="shop.html">
                                     <h4 class="vertical-product-title">Cheesecake</h4>
                                 </a>
                                 <!-- Wishlist Icon -->
-<div class="wishlist-icon position-absolute top-0 start-0 m-2 p-2 rounded-circle bg-white shadow" style="cursor: pointer;">
-    <i class="ri-heart-line" style="font-size: 20px; color: #ff4d4f; transition: transform 0.2s;"></i>
-</div>
+   <div class="wishlist-icon position-absolute top-0 end-0 m-2 p-2 rounded-circle bg-white shadow" 
+           style="cursor: pointer;">
+        <i class="ri-heart-line" 
+           style="font-size: 20px; color: #ff4d4f; transition: transform 0.2s;"></i>
+      </div>
                                 <h6 class="rating-star">
                                     <span class="star"><i class="ri-star-s-fill"></i></span>3.2
                                 </h6>
@@ -1062,13 +1061,13 @@ scrollText.innerHTML = words
                                 <img class="product-img-top w-100 bg-img" src="assets/images/cakes/rainbow.JPG"
                                     alt="vp16">
                             </a>
-                            <div class="offers">
+                            <!-- <div class="offers">
                                 <img src="assets/images/shape.png" alt="shape" class="img-fluid">
                                 <h6>upto ₹2</h6>
                                 <div class="d-flex align-items-center justify-content-end">
                                     <h4>50% OFF</h4>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="vertical-product-body">
                             <div class="d-flex align-items-center justify-content-between">
@@ -1076,9 +1075,11 @@ scrollText.innerHTML = words
                                     <h4 class="vertical-product-title">Red Velvet Cake</h4>
                                 </a>
                                 <!-- Wishlist Icon -->
-<div class="wishlist-icon position-absolute top-0 start-0 m-2 p-2 rounded-circle bg-white shadow" style="cursor: pointer;">
-    <i class="ri-heart-line" style="font-size: 20px; color: #ff4d4f; transition: transform 0.2s;"></i>
-</div>
+   <div class="wishlist-icon position-absolute top-0 end-0 m-2 p-2 rounded-circle bg-white shadow" 
+           style="cursor: pointer;">
+        <i class="ri-heart-line" 
+           style="font-size: 20px; color: #ff4d4f; transition: transform 0.2s;"></i>
+      </div>
                                 <h6 class="rating-star">
                                     <span class="star"><i class="ri-star-s-fill"></i></span>3.6
                                 </h6>
@@ -1098,45 +1099,108 @@ scrollText.innerHTML = words
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-4 col-md-6">
+  <div class="vertical-product-box product-style-3">
+    <div class="vertical-product-box-img position-relative">
+      <a href="shop.html">
+        <img class="vertical-product-img-top w-100 bg-img" 
+             src="assets/images/cakes/vanila.JPG" 
+             alt="vp-2">
+      </a>
+
+      <!-- Wishlist Icon (Top Right) -->
+      <div class="wishlist-icon position-absolute top-0 end-0 m-2 p-2 rounded-circle bg-white shadow" 
+           style="cursor: pointer;">
+        <i class="ri-heart-line" 
+           style="font-size: 20px; color: #ff4d4f; transition: transform 0.2s;"></i>
+      </div>
+
+      <!-- Offer Tag (Top Left) -->
+      <div class="offers position-absolute top-0 start-0 m-2" style="width: 130px;">
+  <img src="assets/images/shape.png" alt="shape" class="img-fluid w-100">
+
+  <!-- Adjusted text position -->
+  <div class="position-absolute start-50 text-center offer-text"
+       style="top: 150%; transform: translate(-50%, -50%); width: 100%;">
+    <h6 class="mb-1" style="font-size: 13px; color: #000;">upto ₹2</h6>
+    <h4 class="mb-0" style="font-size: 16px; font-weight: 700; color: #000;">50% OFF</h4>
+  </div>
+<style>
+    
+  /* Adjust text position in smaller screens */
+  @media (max-width: 768px) {
+    .offers {
+      width: 150px !important; /* slightly smaller image */
+    }
+    .offer-text {
+      top: 98% !important; /* move text a bit lower */
+    }
+    .offer-text h6 {
+      font-size: 12px !important;
+      margin-top: 6px !important;
+    }
+    .offer-text h4 {
+      font-size: 14px !important;
+    }
+  }
+</style>
+
+</div>
+
+    </div>
+
+    <!-- Product Details -->
+    <div class="vertical-product-body">
+      <div class="d-flex align-items-center justify-content-between">
+        <a href="shop.html">
+          <h4 class="vertical-product-title">Chocolate</h4>
+        </a>
+        <h6 class="rating-star">
+          <span class="star"><i class="ri-star-s-fill"></i></span>3.2
+        </h6>
+      </div>
+
+      <h5 class="product-items">Egg/Egg-less,Sugar/Sugar-free</h5>
+
+      <div class="location-distance d-flex align-items-center justify-content-between pt-sm-3 pt-2">
+        <h5 class="place">California</h5>
+        <ul class="distance">
+          <li><i class="ri-time-fill icon"></i> 3 hrs</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-xl-3 col-lg-4 col-md-6">
                     <div class="vertical-product-box product-style-3">
                         <div class="vertical-product-box-img">
-                            <a href="menu-listing.html">
-                                <img class="vertical-product-img-top w-100 bg-img" src="assets/images/cakes/pistachio.JPG"
-                                    alt="vp-7">
+                            <a href="shop.html">
+                                <img class="product-img-top w-100 bg-img" src="assets/images/cakes/tender-cocnut.JPG"
+                                    alt="vp3">
                             </a>
                             <!-- Wishlist Icon -->
-<div class="wishlist-icon position-absolute top-0 start-0 m-2 p-2 rounded-circle bg-white shadow" style="cursor: pointer;">
-    <i class="ri-heart-line" style="font-size: 20px; color: #ff4d4f; transition: transform 0.2s;"></i>
-</div>
-                            <div class="offers">
-                                <img src="assets/images/shape.png" alt="shape" class="img-fluid">
-                                <h6>upto ₹2</h6>
-                                <div class="d-flex align-items-center justify-content-end">
-                                    <h4>50% OFF</h4>
-                                </div>
-                            </div>
+   <div class="wishlist-icon position-absolute top-0 end-0 m-2 p-2 rounded-circle bg-white shadow" 
+           style="cursor: pointer;">
+        <i class="ri-heart-line" 
+           style="font-size: 20px; color: #ff4d4f; transition: transform 0.2s;"></i>
+      </div>
                         </div>
                         <div class="vertical-product-body">
                             <div class="d-flex align-items-center justify-content-between">
                                 <a href="menu-listing.html">
-                                    <h4 class="vertical-product-title">Strawberry Cake</h4>
+                                    <h4 class="vertical-product-title">
+                            Vanilla
+                                    </h4>
                                 </a>
-                                <!-- Wishlist Icon -->
-<div class="wishlist-icon position-absolute top-0 start-0 m-2 p-2 rounded-circle bg-white shadow" style="cursor: pointer;">
-    <i class="ri-heart-line" style="font-size: 20px; color: #ff4d4f; transition: transform 0.2s;"></i>
-</div>
                                 <h6 class="rating-star">
-                                    <span class="star"><i class="ri-star-s-fill"></i></span>3.8
+                                    <span class="star"><i class="ri-star-s-fill"></i></span>4.3
                                 </h6>
                             </div>
-                            <h5 class="product-items">
-                                Egg/Egg-less,Sugar/Sugar-free
-                            </h5>
+                            <h5 class="product-items">Egg/Egg-less,Sugar/Sugar-free</h5>
                             <div
                                 class="location-distance d-flex align-items-center justify-content-between pt-sm-3 pt-2">
-                                <h5 class="place">Chicago</h5>
+                                <h5 class="place">New York</h5>
                                 <ul class="distance">
-                                    <!-- <li><i class="ri-map-pin-fill icon"></i> 2.4 km</li> -->
+                                    <!-- <li><i class="ri-map-pin-fill icon"></i> 5 km</li> -->
                                     <li><i class="ri-time-fill icon"></i> 3 hrs</li>
                                 </ul>
                             </div>
@@ -1150,13 +1214,13 @@ scrollText.innerHTML = words
                                 <img class="vertical-product-img-top w-100 bg-img" src="assets/images/cakes/kitkat.JPG"
                                     alt="vp-8">
                             </a>
-                            <div class="offers">
+                            <!-- <div class="offers">
                                 <img src="assets/images/shape.png" alt="shape" class="img-fluid">
                                 <h6>upto ₹2</h6>
                                 <div class="d-flex align-items-center justify-content-end">
                                     <h4>50% OFF</h4>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="vertical-product-body">
                             <div class="d-flex align-items-center justify-content-between">
@@ -1164,9 +1228,11 @@ scrollText.innerHTML = words
                                     <h4 class="vertical-product-title">Pound Cake,</h4>
                                 </a>
                                 <!-- Wishlist Icon -->
-<div class="wishlist-icon position-absolute top-0 start-0 m-2 p-2 rounded-circle bg-white shadow" style="cursor: pointer;">
-    <i class="ri-heart-line" style="font-size: 20px; color: #ff4d4f; transition: transform 0.2s;"></i>
-</div>
+   <div class="wishlist-icon position-absolute top-0 end-0 m-2 p-2 rounded-circle bg-white shadow" 
+           style="cursor: pointer;">
+        <i class="ri-heart-line" 
+           style="font-size: 20px; color: #ff4d4f; transition: transform 0.2s;"></i>
+      </div>
                                 <h6 class="rating-star">
                                     <span class="star"><i class="ri-star-s-fill"></i></span>3.2
                                 </h6>
