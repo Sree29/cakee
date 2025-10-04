@@ -177,28 +177,75 @@
 <body class="position-relative">
 
     <!-- Header (user-provided) -->
-    <header>
+   <header>
         <div class="container">
             <nav class="navbar navbar-expand-lg p-0">
-                <a href="index.html">
-                    <img class="img-fluid logo" src="assets/images/logo/logo.png" style="height: auto; width: 100px;"
-                        alt="logo">
+                <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#offcanvasNavbar">
+                    <span class="navbar-toggler-icon">
+                        <i class="ri-menu-line"></i>
+                    </span>
+                </button> -->
+                <!-- <a href="index.html">
+                    <img class="img-fluid logo" src="assets/images/logo/logo.png" style="height: auto; width: 100px;" alt="logo">
                 </a>
                 <a target="_blank" href="#!" data-bs-toggle="modal" data-bs-target="#location"
                     class="btn btn-sm theme-btn location-btn mt-0 ms-3 d-flex align-content-center gap-1">
                     <i class="ri-map-pin-line"></i> Location
-                </a>
+                </a> -->
+                <!-- Left: Location button (replaces logo) -->
+  
+
+<!-- <div class="d-flex align-items-center w-100">
+     -->
+<div class="d-flex justify-content-between align-items-center w-100 flex-wrap button-row">
+  <!-- Location button -->
+<a target="_blank" href="#!" data-bs-toggle="modal" data-bs-target="#location"
+   class="btn btn-sm theme-btn location-btn d-flex align-items-center gap-1 me-2">
+   <i class="ri-map-pin-line"></i> Location
+</a>
+
+
+  <!-- Wishlist button -->
+ <a href="wishlist.html" 
+   class="btn btn-sm theme-btn wishlist-btn d-flex align-items-center gap-1 ms-2">
+   <i class="ri-heart-line"></i> Wishlist
+</a>
+
+</div>
+<style>
+   
+
+    @media (max-width: 576px) {
+  .button-row a {
+    min-width: 45%;
+  }
+}
+.location-btn {
+  width: 120px; /* adjust as needed */
+}
+
+
+    .wishlist-btn {
+  width: 120px; /* or any fixed value you prefer */
+}
+
+</style>
+
+
+    
+<!-- </div>    -->
+
+
 
                 <div class="nav-option order-md-2">
                     <div class="dropdown-button">
                         <div class="cart-button">
-                            <!-- cart count (will be updated by JS) -->
-                            <span id="header-cart-count">0</span>
+                            <span>5</span>
                             <i class="ri-shopping-cart-line text-white cart-bag"></i>
                         </div>
                         <div class="onhover-box">
                             <ul class="cart-list">
-                                <!-- sample items (kept as-is) -->
                                 <li class="product-box-contain">
                                     <div class="drop-cart">
                                         <a href="#!" class="drop-image">
@@ -215,7 +262,70 @@
                                         </div>
                                     </div>
                                 </li>
-                                <!-- ... more sample list items ... -->
+                                <li class="product-box-contain">
+                                    <div class="drop-cart">
+                                        <a href="#!" class="drop-image">
+                                            <img src="assets/images/product/vp-2.png" class="blur-up lazyloaded" alt="">
+                                        </a>
+                                        <div class="drop-contain">
+                                            <a href="#!">
+                                                <h5>Grilled Chicken Quesadilla</h5>
+                                            </a>
+                                            <h6><span>1 x </span> ₹25.64</h6>
+                                            <button class="close-button close_button">
+                                                <i class="fa-solid fa-xmark"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="product-box-contain">
+                                    <div class="drop-cart">
+                                        <a href="#!" class="drop-image">
+                                            <img src="assets/images/product/vp-4.png" class="blur-up lazyloaded" alt="">
+                                        </a>
+                                        <div class="drop-contain">
+                                            <a href="#!">
+                                                <h5>Spicy Ahi Roll</h5>
+                                            </a>
+                                            <h6><span>1 x </span> ₹12.00</h6>
+                                            <button class="close-button close_button">
+                                                <i class="fa-solid fa-xmark"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="product-box-contain">
+                                    <div class="drop-cart">
+                                        <a href="#!" class="drop-image">
+                                            <img src="assets/images/product/vp-5.png" class="blur-up lazyloaded" alt="">
+                                        </a>
+                                        <div class="drop-contain">
+                                            <a href="#!">
+                                                <h5>Spicy Dumplings</h5>
+                                            </a>
+                                            <h6><span>1 x </span> ₹16.28</h6>
+                                            <button class="close-button close_button">
+                                                <i class="fa-solid fa-xmark"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="product-box-contain">
+                                    <div class="drop-cart">
+                                        <a href="#!" class="drop-image">
+                                            <img src="assets/images/product/vp-6.png" class="blur-up lazyloaded" alt="">
+                                        </a>
+                                        <div class="drop-contain">
+                                            <a href="#!">
+                                                <h5>Chicken Nugget</h5>
+                                            </a>
+                                            <h6><span>1 x </span> ₹20.50</h6>
+                                            <button class="close-button close_button">
+                                                <i class="fa-solid fa-xmark"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
                             </ul>
                             <div class="price-box">
                                 <h5>Total :</h5>
@@ -258,7 +368,7 @@
                         </div>
                     </div>
                 </div>
-
+                
             </nav>
         </div>
     </header>

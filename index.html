@@ -67,19 +67,39 @@
 
 <!-- <div class="d-flex align-items-center w-100">
      -->
-<div class="d-flex justify-content-between align-items-center">
-  <!-- Location button on the left -->
-  <a target="_blank" href="#!" data-bs-toggle="modal" data-bs-target="#location"
-     class="btn btn-sm theme-btn location-btn d-flex align-items-center gap-1">
-     <i class="ri-map-pin-line"></i> Location
-  </a>
+<div class="d-flex justify-content-between align-items-center w-100 flex-wrap button-row">
+  <!-- Location button -->
+<a target="_blank" href="#!" data-bs-toggle="modal" data-bs-target="#location"
+   class="btn btn-sm theme-btn location-btn d-flex align-items-center gap-1 me-2">
+   <i class="ri-map-pin-line"></i> Location
+</a>
 
-  <!-- Wishlist button on the right -->
-  <a href="wishlist.html" 
-     class="btn btn-sm theme-btn wishlist-btn d-flex align-items-center gap-1">
-      <i class="ri-heart-line"></i> Wishlist
-  </a>
+
+  <!-- Wishlist button -->
+ <a href="wishlist.html" 
+   class="btn btn-sm theme-btn wishlist-btn d-flex align-items-center gap-1 ms-2">
+   <i class="ri-heart-line"></i> Wishlist
+</a>
+
 </div>
+<style>
+   
+
+    @media (max-width: 576px) {
+  .button-row a {
+    min-width: 45%;
+  }
+}
+.location-btn {
+  width: 120px; /* adjust as needed */
+}
+
+
+    .wishlist-btn {
+  width: 120px; /* or any fixed value you prefer */
+}
+
+</style>
 
 
     
@@ -1342,7 +1362,7 @@ scrollText.innerHTML = words
                     <div class="deal-box">
                         <div class="deal-content">
                             <div class="brand-logo">
-                                <img src="assets/images/brands/palooda.jpg" class="img-fluid" alt="">
+                                <img src="assets/images/cakes/kitkat.JPG" class="img-fluid" alt="">
                             </div>
                             
                             <h3>Up to 50% Off!</h3>
@@ -1365,7 +1385,7 @@ scrollText.innerHTML = words
                     <div class="deal-box">
                         <div class="deal-content">
                             <div class="brand-logo">
-                                <img src="assets/images/brands/cake-shop.jpg" class="img-fluid" alt="">
+                                <img src="assets/images/cakes/white-forest.JPG" class="img-fluid" alt="">
                             </div>
                             <h3>Flat 20%</h3>
 
@@ -1388,7 +1408,7 @@ scrollText.innerHTML = words
                     <div class="deal-box">
                         <div class="deal-content">
                             <div class="brand-logo">
-                                <img src="assets/images/brands/cafe-cake.jpeg" class="img-fluid" alt="">
+                                <img src="assets/images/cakes/pistachio/IMG_7890.JPG" class="img-fluid" alt="">
                             </div>
                             <h3>Buy 1 Get 1</h3>
 
@@ -1410,7 +1430,7 @@ scrollText.innerHTML = words
                     <div class="deal-box">
                         <div class="deal-content">
                             <div class="brand-logo">
-                                <img src="assets/images/brands/4o-clock.jpg" class="img-fluid" alt="">
+                                <img src="assets/images/cakes/coco-nut.JPG" class="img-fluid" alt="">
                             </div>
                             <h3>Up to 30% Off!</h3>
 
