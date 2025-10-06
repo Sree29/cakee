@@ -67,36 +67,49 @@
 
 <!-- <div class="d-flex align-items-center w-100">
      -->
- <a target="_blank" href="#!" data-bs-toggle="modal" data-bs-target="#location"
-       class="btn btn-sm theme-btn location-btn d-flex align-items-center gap-1">
-       <i class="ri-map-pin-line"></i> Location
-    </a>
+<div class="d-flex justify-content-between align-items-center w-100 flex-wrap button-row">
+  <!-- Location button -->
+<a target="_blank" href="#!" data-bs-toggle="modal" data-bs-target="#location"
+   class="btn btn-sm theme-btn location-btn d-flex align-items-center gap-1 me-2">
+   <i class="ri-map-pin-line"></i> Location
+</a>
 
-     <a href="wishlist.html" 
-       class="btn btn-sm theme-btn wishlist-btn d-flex align-items-center gap-1 d-md-none">
-        <i class="ri-heart-line"></i> Wishlist
-    </a>
+
+  <!-- Wishlist button -->
+ <a href="wishlist.html" 
+   class="btn btn-sm theme-btn wishlist-btn d-flex align-items-center gap-1 ms-2">
+   <i class="ri-heart-line"></i> Wishlist
+</a>
+
+</div>
 <style>
-  @media (max-width: 767px) {
-  .location-btn {
-    margin-right: auto !important;
-    margin-left: 0 !important;   /* force it fully left */
+   
+
+    @media (max-width: 576px) {
+  .button-row a {
+    min-width: 45%;
   }
+}
+.location-btn {
+  width: 120px; /* adjust as needed */
+}
+
+
+    .wishlist-btn {
+  width: 120px; /* or any fixed value you prefer */
 }
 
 </style>
-  
-    <a href="wishlist.html" 
-       class="btn btn-sm theme-btn wishlist-btn d-flex align-items-center gap-1 d-none d-md-flex ms-3">
-        <i class="ri-heart-line"></i> Wishlist
-    </a>
+
+
+    
 <!-- </div>    -->
 
 
 
                 <div class="nav-option order-md-2">
                     <div class="dropdown-button">
-                        <div class="cart-button">
+                        <!-- <div class="cart-button">
                             <span>5</span>
                             <i class="ri-shopping-cart-line text-white cart-bag"></i>
                         </div>
@@ -191,7 +204,44 @@
                                 <a href="checkout.html" class="btn btn-sm theme-btn w-100 d-block rounded-2">View
                                     Cart</a>
                             </div>
-                        </div>
+                        </div> -->
+          <a href="checkout.html" class="cart-button">
+  <span id="cart-count">0</span>
+  <i class="ri-shopping-cart-line text-white cart-bag"></i>
+</a>
+
+<script>
+  const cartCountEl = document.getElementById('cart-count');
+
+  // Load cart from localStorage
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  // Function to update cart count
+  function updateCartCount() {
+    cartCountEl.textContent = cart.length;
+  }
+
+  // Initial count
+  updateCartCount();
+
+  // Add to cart buttons
+  document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', () => {
+      const product = {
+        name: button.getAttribute('data-name'),
+        price: button.getAttribute('data-price'),
+        image: button.getAttribute('data-image') || ''
+      };
+
+      cart.push(product);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      updateCartCount();
+    });
+  });
+</script>
+
+
+
                     </div>
                     <div class="profile-part dropdown-button order-md-2">
                         <img class="img-fluid profile-pic" src="assets/images/icons/p5.png" alt="profile">
@@ -309,7 +359,7 @@
                     <div class="col-lg-4">
                         <div class="order-summery-section sticky-top">
                             <div class="checkout-detail">
-                                <ul>
+                                <!-- <ul>
                                     <li>
                                         <div class="horizontal-product-box">
                                             <div class="product-content">
@@ -370,7 +420,98 @@
                                             </div>
                                         </div>
                                     </li>
-                                </ul>
+                                </ul> -->
+                                <ul id="cart-list"></ul>
+<div class="bill-summary">
+  <div class="sub-total">
+    <h6 class="content-color fw-normal">Sub Total</h6>
+    <h6 class="fw-semibold">₹<span id="cart-subtotal">0</span></h6>
+  </div>
+  <div class="sub-total">
+    <h6 class="content-color fw-normal">Delivery Charge</h6>
+    <h6 class="fw-semibold success-color">Free</h6>
+  </div>
+  <div class="grand-total">
+    <h6 class="fw-semibold dark-text">To Pay</h6>
+    <h6 class="fw-semibold amount">₹<span id="cart-total">0</span></h6>
+  </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  function updateCartUI() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartList = document.getElementById('cart-list');
+    const subtotalElem = document.getElementById('cart-subtotal');
+    const totalElem = document.getElementById('cart-total');
+
+    let subtotal = 0;
+
+    if(cartList) {
+      cartList.innerHTML = '';
+      cart.forEach((item, index) => {
+        subtotal += item.price * item.quantity;
+        cartList.innerHTML += `
+          <li class="horizontal-product-box">
+            <div class="product-content">
+              <div class="d-flex align-items-center justify-content-between">
+                <h5>${item.name}</h5>
+                <h6 class="product-price">₹${item.price * item.quantity}</h6>
+              </div>
+              <h6 class="ingredients-text">Rating: ${item.rating}</h6>
+              <div class="d-flex align-items-center justify-content-between mt-1 gap-1">
+                <div class="plus-minus">
+                  <button class="sub" data-index="${index}">-</button>
+                  <input type="number" value="${item.quantity}" min="1" max="10" data-index="${index}">
+                  <button class="add" data-index="${index}">+</button>
+                </div>
+                <button class="remove-btn btn btn-sm btn-danger" data-index="${index}">Remove</button>
+              </div>
+            </div>
+          </li>
+        `;
+      });
+    }
+
+    if(subtotalElem) subtotalElem.textContent = subtotal;
+    if(totalElem) totalElem.textContent = subtotal; // you can add delivery charges if needed
+  }
+
+  // Remove item
+  document.addEventListener('click', function(e) {
+    if(e.target.classList.contains('remove-btn')) {
+      const index = parseInt(e.target.dataset.index);
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.splice(index, 1);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      updateCartUI();
+    }
+
+    // Quantity + / -
+    if(e.target.classList.contains('add') || e.target.classList.contains('sub')) {
+      const index = parseInt(e.target.dataset.index);
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      if(e.target.classList.contains('add')) cart[index].quantity += 1;
+      if(e.target.classList.contains('sub') && cart[index].quantity > 1) cart[index].quantity -= 1;
+      localStorage.setItem('cart', JSON.stringify(cart));
+      updateCartUI();
+    }
+  });
+
+  // Quantity input change
+  document.addEventListener('input', function(e) {
+    if(e.target.tagName === 'INPUT' && e.target.type === 'number') {
+      const index = parseInt(e.target.dataset.index);
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart[index].quantity = parseInt(e.target.value) || 1;
+      localStorage.setItem('cart', JSON.stringify(cart));
+      updateCartUI();
+    }
+  });
+
+  updateCartUI();
+});
+</script>
+
                                 <h5 class="bill-details-title fw-semibold dark-text">
                                     Bill Details
                                 </h5>
@@ -468,10 +609,10 @@
                     <span>Home</span>
                 </a>
             </li>
-            <li>
-                <a href="wishlist.html" class="menu-box">
-                    <i class="ri-heart-3-line"></i>
-                    <span>Wishlist</span>
+             <li>
+                <a href="shop1.html" class="menu-box">
+                   <i class="ri-shopping-bag-line"></i>
+                    <span>Shop</span>
                 </a>
             </li>
             <li class="active">
