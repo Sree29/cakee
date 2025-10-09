@@ -67,39 +67,58 @@
 
 <!-- <div class="d-flex align-items-center w-100">
      -->
-<div class="d-flex justify-content-between align-items-center w-100 flex-wrap button-row">
+<div class="d-flex justify-content-between align-items-center w-100 button-row">
   <!-- Location button -->
-<a target="_blank" href="#!" data-bs-toggle="modal" data-bs-target="#location"
-   class="btn btn-sm theme-btn location-btn d-flex align-items-center gap-1 me-2">
-   <i class="ri-map-pin-line"></i> Location
-</a>
-
+  <a target="_blank" href="#!" data-bs-toggle="modal" data-bs-target="#location"
+     class="btn btn-sm theme-btn location-btn d-flex align-items-center gap-1">
+     <i class="ri-map-pin-line"></i> Location
+  </a>
 
   <!-- Wishlist button -->
- <a href="wishlist.html" 
-   class="btn btn-sm theme-btn wishlist-btn d-flex align-items-center gap-1 ms-2">
-   <i class="ri-heart-line"></i> Wishlist
-</a>
-
+  <a href="wishlist.html" 
+     class="btn btn-sm theme-btn wishlist-btn d-flex align-items-center gap-1">
+     <i class="ri-heart-line"></i> Wishlist
+  </a>
 </div>
 <style>
-   
+ .button-row {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
 
-    @media (max-width: 576px) {
-  .button-row a {
-    min-width: 45%;
+.location-btn {
+  margin-left: 0 !important;
+  margin-right: auto;
+}
+
+<!-- body, html {
+  padding: 0;
+  margin: 0;
+} -->
+@media (max-width: 576px) {
+  .button-row {
+    position: relative;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100%;
+  }
+
+  .location-btn {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .wishlist-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
   }
 }
-.location-btn {
-  width: 120px; /* adjust as needed */
-}
 
-
-    .wishlist-btn {
-  width: 120px; /* or any fixed value you prefer */
-}
 
 </style>
+
 
 
     
@@ -463,7 +482,7 @@
                         <div class="footer-logo-part">
                           <img class="img-fluid logo" src="assets/images/logo/logo.png" alt="logo" style="max-width:200px; height:auto;">
 
-                          <p style="font-size:30px; font-weight:600; margin-top:10px;">Celebrate with us – live it up!</p>
+                          <p style="font-size:30px; font-weight:600; margin-top:10px;">Celebrate with us!</p>
 
                             <div class="social-media-part">
                                 <ul class="social-icon">
@@ -501,7 +520,10 @@
             </div>
             <div class="bottom-footer-part">
                 <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
-                    <h6>@ Copyright 2024 CAKEE. All rights Reserved.</h6>
+<h6>© Copyright 2025 <strong>CAKEE</strong>. All rights reserved. Designed by 
+<a href="https://www.cognetz.com" target="_blank" style="color: inherit; text-decoration: none;">Cognetz</a>.
+</h6>
+
                     <img class="img-fluid cards" src="assets/images/icons/footer-card.png" alt="card">
                 </div>
             </div>
@@ -510,7 +532,7 @@
     <!-- footer section end -->
 
     <!-- mobile fix menu start -->
-    <div class="mobile-menu d-md-none d-block mobile-cart">
+   <div class="mobile-menu d-md-none d-block mobile-cart">
         <ul>
             <li>
                 <a href="index.html" class="menu-box">
@@ -518,18 +540,21 @@
                     <span>Home</span>
                 </a>
             </li>
-            <li>
-                <a href="wishlist.html" class="menu-box">
-                    <i class="ri-heart-3-line"></i>
-                    <span>Wishlist</span>
+
+           <li>
+                <a href="shop1.html" class="menu-box">
+                   <i class="ri-shopping-bag-line"></i>
+                    <span>Shop</span>
                 </a>
             </li>
+
             <li class="active">
                 <a href="checkout.html" class="menu-box">
                     <i class="ri-shopping-cart-2-line"></i>
                     <span>Cart</span>
                 </a>
             </li>
+
             <li>
                 <a href="profile.html" class="menu-box">
                     <i class="ri-user-line"></i>
