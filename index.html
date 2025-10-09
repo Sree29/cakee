@@ -1416,7 +1416,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="category-content">
       <h3>Birthday Cakes</h3>
       <p>Baked for Memories</p>
-      <a href="shop1.html" class="shop-btn">Shop Now →</a>
+    <a href="shop1.html" class="shop-btn">Shop Now →</a>
     </div>
     <img src="assets/images/cakes/birthday.jpeg" alt="Birthday Cake">
   </div>
@@ -1426,7 +1426,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="category-content">
       <h3>Big Savings</h3>
       <p>Best Offers</p>
-      <a href="#" class="shop-btn">Shop Now →</a>
+     <a href="shop1.html" class="shop-btn">Shop Now →</a>
     </div>
     <img src="assets/images/cakes/cake.jpeg" alt="Offer Cake">
   </div>
@@ -1519,10 +1519,19 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   .category-card img {
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
   }
 }
+  .shop-btn {
+ padding: 5px 10px;   /* smaller padding */
+    font-size: 0.85rem;  /* smaller text */
+  }
+
+  .category-card img {
+    width: 140px;
+    height: 140px;
+  }
 
 /* Desktop view */
 @media (min-width: 1200px) { .category-section { grid-template-columns: repeat(4, 1fr); } .category-card { flex-direction: column; text-align: center; } .category-content { padding-right: 0; } .category-card img { width: 220px; height: auto; margin-top: 15px; } }
