@@ -1402,7 +1402,8 @@ document.addEventListener('DOMContentLoaded', function() {
     </style>
   <section class="category-section">
   <!-- 1 -->
-  <div class="category-card" style="background-color:#BDE2FF;">
+  <!-- 1 -->
+  <div class="category-card kids-bg">
     <div class="category-content">
       <h3>Kids Cakes</h3>
       <p>For Special Occasions</p>
@@ -1412,30 +1413,30 @@ document.addEventListener('DOMContentLoaded', function() {
   </div>
 
   <!-- 2 -->
-  <div class="category-card" style="background-color:#FFD1DC;">
+  <div class="category-card birthday-bg">
     <div class="category-content">
       <h3>Birthday Cakes</h3>
       <p>Baked for Memories</p>
-    <a href="shop1.html" class="shop-btn">Shop Now →</a>
+      <a href="shop1.html" class="shop-btn">Shop Now →</a>
     </div>
     <img src="assets/images/cakes/birthday1.png" alt="Birthday Cake">
   </div>
 
   <!-- 3 -->
-  <div class="category-card" style="background-color:#FDEEDC;">
+  <div class="category-card savings-bg">
     <div class="category-content">
       <h3>Big Savings</h3>
       <p>Best Offers</p>
-     <a href="shop1.html" class="shop-btn">Shop Now →</a>
+      <a href="shop1.html" class="shop-btn">Shop Now →</a>
     </div>
     <img src="assets/images/cakes/cake1.png" alt="Offer Cake">
   </div>
 
   <!-- 4 -->
-  <div class="category-card" style="background-color:#E7E3FF;">
+  <div class="category-card custom-bg">
     <div class="category-content">
       <h3>Customized Cakes</h3>
-      <p>Customize with yopur choice</p>
+      <p>Customize with your choice</p>
       <a href="shop1.html" class="shop-btn">Shop Now →</a>
     </div>
     <img src="assets/images/cakes/anniversery1.png" alt="Anniversary Cake">
@@ -1461,11 +1462,24 @@ document.addEventListener('DOMContentLoaded', function() {
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .category-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
+.kids-bg {
+  background-color: #BDE2FF;     /* Light blue */
+}
+.birthday-bg {
+  background-color: #FFD1DC;     /* Soft pink */
+}
+.savings-bg {
+  background-color: #DCC6FF;     /* Lavender */
+}
+.custom-bg {
+  background-color: #F9A94B;     /* Vibrant orange (corrected) */
+}
+
+
 
 /* Text content */
 .category-content {
@@ -1473,14 +1487,12 @@ document.addEventListener('DOMContentLoaded', function() {
   text-align: left;
   padding-right: 20px;
 }
-
 .category-content h3 {
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 5px;
   color: #111;
 }
-
 .category-content p {
   font-size: 1rem;
   font-style: italic;
@@ -1499,7 +1511,6 @@ document.addEventListener('DOMContentLoaded', function() {
   display: inline-block;
   transition: background 0.3s;
 }
-
 .shop-btn:hover {
   background-color: #1C8EE8;
 }
@@ -1517,24 +1528,43 @@ document.addEventListener('DOMContentLoaded', function() {
   .category-section {
     grid-template-columns: repeat(2, 1fr);
   }
+  .category-card img {
+    width: 200px;
+    height: 200px;
+  }
+}
 
+/* Desktop view */
+@media (min-width: 1200px) {
+  .category-section {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .category-card {
+    flex-direction: row;
+    text-align: left;
+  }
+  .category-content {
+    padding-right: 20px;
+  }
+  .category-card img {
+    width: 220px;
+    height: 220px;
+    margin-top: 0;
+  }
+}
+
+/* Mobile view */
+@media (max-width: 767px) {
+  .shop-btn {
+    padding: 3px 8px;
+    font-size: 0.75rem;
+    margin-top: 2px;
+  }
   .category-card img {
     width: 100px;
     height: 100px;
   }
 }
-  .shop-btn {
- padding: 5px 10px;   /* smaller padding */
-    font-size: 0.85rem;  /* smaller text */
-  }
-
-  .category-card img {
-    width: 140px;
-    height: 140px;
-  }
-
-/* Desktop view */
-@media (min-width: 1200px) { .category-section { grid-template-columns: repeat(4, 1fr); } .category-card { flex-direction: column; text-align: center; } .category-content { padding-right: 0; } .category-card img { width: 220px; height: auto; margin-top: 15px; } }
 
 </style>
     <!-- banner section starts -->
