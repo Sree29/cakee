@@ -1400,173 +1400,165 @@ document.addEventListener('DOMContentLoaded', function() {
             border-radius: 50%;
         }
     </style>
-  <section class="category-section">
-  <!-- 1 -->
-  <!-- 1 -->
-  <div class="category-card kids-bg">
-    <div class="category-content">
-      <h3>Kids Cakes</h3>
-      <p>For Special Occasions</p>
-      <a href="shop1.html" class="shop-btn">Shop Now →</a>
-    </div>
-    <img src="assets/images/cakes/kids1.png" alt="Kids Cake">
-  </div>
+ <section class="category-section" style="padding-top: 10px; padding-bottom: 20px;">
+  <div class="category-grid">
+    <!-- Card 1 -->
 
-  <!-- 2 -->
-  <div class="category-card birthday-bg">
-    <div class="category-content">
-      <h3>Birthday Cakes</h3>
-      <p>Baked for Memories</p>
-      <a href="shop1.html" class="shop-btn">Shop Now →</a>
-    </div>
-    <img src="assets/images/cakes/birthday1.png" alt="Birthday Cake">
-  </div>
+    <div class="category-card">
+      <div class="image-wrapper">
+        <img src="assets/images/cakes/kids-cakes.jpg" alt="Kids Cake">
+        <div class="overlay-text">
+         <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 10px;">Kids Cakes</h3>
 
-  <!-- 3 -->
-  <div class="category-card savings-bg">
-    <div class="category-content">
-      <h3>Big Savings</h3>
-      <p>Best Offers</p>
-      <a href="shop1.html" class="shop-btn">Shop Now →</a>
+          <p>For Special Occasions</p>
+        
+          <a href="shop4.html" class="shop-overlay-btn">Shop Now →</a>
+        </div>
+      </div>
     </div>
-    <img src="assets/images/cakes/cake1.png" alt="Offer Cake">
-  </div>
+      <!-- Card 2 -->
+    <div class="category-card">
+      <div class="image-wrapper">
+        <img src="assets/images/cakes/birthday-cakes.jpg" alt="Birthday Cake">
+        <div class="overlay-text">
+          <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 10px;">Birthday<br> Cakes</h3>
+          <p>Baked for Memories</p>
+       
+          <a href="shop3.html" class="shop-overlay-btn">Shop Now →</a>
+        </div>
+      </div>
+    </div>
 
-  <!-- 4 -->
-  <div class="category-card custom-bg">
-    <div class="category-content">
-      <h3>Customized Cakes</h3>
-      <p>Customize with your choice</p>
-      <a href="shop1.html" class="shop-btn">Shop Now →</a>
+     <!-- Card 3 -->
+    <div class="category-card">
+      <div class="image-wrapper">
+        <img src="assets/images/cakes/offer-cake.jpg" alt="Birthday Cake">
+        <div class="overlay-text">
+          <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 10px;">Big Savings</h3>
+          <p>Best Offers</p>
+          
+          <a href="shop2.html" class="shop-overlay-btn">Shop Now →</a>
+        </div>
+      </div>
     </div>
-    <img src="assets/images/cakes/anniversery1.png" alt="Anniversary Cake">
+    <!-- Card 4 -->
+    <div class="category-card">
+      <div class="image-wrapper">
+        <img src="assets/images/cakes/cusomizable-cakes.jpg" alt="Offer Cake">
+        <div class="overlay-text">
+          <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 10px;">Customized<br> Cakes</h3>
+          <p>Customize with your <br>choice</p>
+        
+          <a href="shop1.html" class="shop-overlay-btn">Shop Now →</a>
+        </div>
+      </div>
+    </div>
+
+   
+
+
   </div>
 </section>
 <style>
-    .category-section {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-  padding: 20px;
-  font-family: 'Poppins', sans-serif;
-}
-
-/* Card container */
-.category-card {
+    .category-grid {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 20px;
-  padding: 25px;
-  color: #222;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.category-section {
+  padding: 20px 15px; /* padding around the section (top/bottom & left/right) */
+}
+
+.category-card {
+  flex: 1 1 calc(25% - 20px);
+  max-width: calc(25% - 20px);
+  box-sizing: border-box;
+  border-radius: 12px;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
 }
+
 .category-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-.kids-bg {
-  background-color: #BDE2FF;     /* Light blue */
-}
-.birthday-bg {
-  background-color: #FFD1DC;     /* Soft pink */
-}
-.savings-bg {
-  background-color: #DCC6FF;     /* Lavender */
-}
-.custom-bg {
-  background-color: #F9A94B;     /* Vibrant orange (corrected) */
+  transform: scale(1.02);
 }
 
-
-
-/* Text content */
-.category-content {
-  flex: 1;
-  text-align: left;
-  padding-right: 20px;
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 250px; /* Fixed height for all images */
+  overflow: hidden;
+  border-radius: 12px;
 }
-.category-content h3 {
-  font-size: 1.5rem;
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures image fills the space without stretching */
+  display: block;
+}
+
+/* Overlay text */
+.overlay-text {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  color: #fff;
+ 
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+    font-size: 2rem !important; /* Increased from 1.2rem */
+  font-weight: 700;
+}
+
+.overlay-text h3 {
+  margin: 0;
+  font-size: 1.2rem;
   font-weight: 600;
-  margin-bottom: 5px;
-  color: #111;
 }
-.category-content p {
+
+.overlay-text p {
+  margin: 4px 0;
   font-size: 1rem;
+}
+
+.overlay-text span {
+  font-size: 0.9rem;
   font-style: italic;
-  margin-bottom: 15px;
-  color: #333;
+  display: block;
+  margin-bottom: 8px;
 }
 
 /* Button */
-.shop-btn {
+.shop-overlay-btn {
+  display: inline-block;
   background-color: #32A9FF;
   color: #fff;
-  padding: 10px 25px;
-  border-radius: 30px;
-  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
   font-weight: 500;
-  display: inline-block;
-  transition: background 0.3s;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: background 0.3s ease;
 }
-.shop-btn:hover {
+
+.shop-overlay-btn:hover {
   background-color: #1C8EE8;
 }
 
-/* Cake image */
-.category-card img {
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-/* Tablet view */
-@media (min-width: 768px) {
-  .category-section {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .category-card img {
-    width: 200px;
-    height: 200px;
-  }
-}
-
-/* Desktop view */
-@media (min-width: 1200px) {
-  .category-section {
-    grid-template-columns: repeat(4, 1fr);
-  }
+/* Mobile: stack cards */
+@media (max-width: 768px) {
   .category-card {
-    flex-direction: row;
-    text-align: left;
-  }
-  .category-content {
-    padding-right: 20px;
-  }
-  .category-card img {
-    width: 220px;
-    height: 220px;
-    margin-top: 0;
-  }
-}
-
-/* Mobile view */
-@media (max-width: 767px) {
-  .shop-btn {
-    padding: 3px 8px;
-    font-size: 0.75rem;
-    margin-top: 2px;
-  }
-  .category-card img {
-    width: 100px;
-    height: 100px;
+    flex: 1 1 100%;
+    max-width: 100%;
   }
 }
 
 </style>
+
     <!-- banner section starts -->
     <section class="section-b-space deal-section">
         <div class="container">
