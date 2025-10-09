@@ -1442,7 +1442,7 @@ document.addEventListener('DOMContentLoaded', function() {
   </div>
 </section>
 <style>
-   .category-section {
+    .category-section {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
@@ -1450,12 +1450,11 @@ document.addEventListener('DOMContentLoaded', function() {
   font-family: 'Poppins', sans-serif;
 }
 
-/* Common Card Style */
+/* Card container */
 .category-card {
   display: flex;
-  flex-direction: column; /* Stack text and image on mobile */
   align-items: center;
-  text-align: center;
+  justify-content: space-between;
   border-radius: 20px;
   padding: 25px;
   color: #222;
@@ -1468,19 +1467,18 @@ document.addEventListener('DOMContentLoaded', function() {
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-/* Image */
-.category-card img {
-  width: 180px;
-  height: auto;
-  object-fit: contain;
-  margin-top: 15px;
+/* Text content */
+.category-content {
+  flex: 1;
+  text-align: left;
+  padding-right: 20px;
 }
 
-/* Text Content */
 .category-content h3 {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 5px;
+  color: #111;
 }
 
 .category-content p {
@@ -1498,6 +1496,7 @@ document.addEventListener('DOMContentLoaded', function() {
   border-radius: 30px;
   text-decoration: none;
   font-weight: 500;
+  display: inline-block;
   transition: background 0.3s;
 }
 
@@ -1505,39 +1504,28 @@ document.addEventListener('DOMContentLoaded', function() {
   background-color: #1C8EE8;
 }
 
-/* Tablet */
+/* Cake image */
+.category-card img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Tablet view */
 @media (min-width: 768px) {
   .category-section {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .category-card {
-    flex-direction: row; /* side by side */
-    text-align: left;
-    justify-content: space-between;
-  }
-
   .category-card img {
-    margin-top: 0;
-    width: 150px;
+    width: 200px;
+    height: 200px;
   }
 }
 
-/* Desktop */
-@media (min-width: 1200px) {
-  .category-section {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .category-card {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .category-card img {
-    margin-top: 15px;
-  }
-}
+/* Desktop view */
+@media (min-width: 1200px) { .category-section { grid-template-columns: repeat(4, 1fr); } .category-card { flex-direction: column; text-align: center; } .category-content { padding-right: 0; } .category-card img { width: 220px; height: auto; margin-top: 15px; } }
 
 </style>
     <!-- banner section starts -->
