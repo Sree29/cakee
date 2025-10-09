@@ -391,12 +391,12 @@
                 <div class="col-12 col-lg-6">
                     <div class="product-details">
                         <div class="d-flex align-items-center justify-content-between mt-4 mb-2">
-  <h2 class="mb-0" style="font-size: 2rem; font-weight: 600;">Vanilla Cake</h2>
+                            <h2 class="mb-0" style="font-size: 2rem; font-weight: 600;">Vanilla Cake</h2>
 
-  <div class="rating-star text-warning fw-semibold text-end">
-    <i class="ri-star-s-fill"></i> 4.3 (125 reviews)
-  </div>
-</div>
+                            <div class="rating-star text-warning fw-semibold text-end">
+                                <i class="ri-star-s-fill"></i> 4.3 (125 reviews)
+                            </div>
+                        </div>
 
 
                         <div class="mt-3 d-flex align-items-center gap-3 flex-wrap">
@@ -652,7 +652,7 @@
     </style>
 
     <!-- =================== CUSTOMER REVIEWS SECTION =================== -->
-    <section class="customer-reviews" style="margin-top: 0.5rem;">
+    <section class="customer-reviews">
         <div class="container">
             <h4 class="mb-4 fw-bold">Customer Reviews</h4>
 
@@ -719,58 +719,283 @@
             color: #ffb400 !important;
         }
     </style>
+    <div class="service-box">
+        <div class="service-item">
+            <div class="icon-circle">
+                <i class="fas fa-truck"></i>
+            </div>
+            <div class="text-block">
+                <h6>Same-day delivery available</h6>
+                <p>Order before 5 PM for delivery today.</p>
+            </div>
+        </div>
 
+        <div class="service-item">
+            <div class="icon-circle">
+                <i class="fas fa-snowflake"></i>
+            </div>
+            <div class="text-block">
+                <h6>Store in a cool place</h6>
+                <p>Best enjoyed when kept refrigerated.</p>
+            </div>
+        </div>
+
+        <div class="service-item">
+            <div class="icon-circle">
+                <i class="fas fa-comment-alt"></i>
+            </div>
+            <div class="text-block">
+                <h6>Add a custom message</h6>
+                <p>Include a short note to make it special.</p>
+            </div>
+        </div>
+
+        <div class="service-item">
+            <div class="icon-circle">
+                <i class="fas fa-credit-card"></i>
+            </div>
+            <div class="text-block">
+                <h6>Payment on delivery available</h6>
+                <p>Easy and convenient checkout options.</p>
+            </div>
+        </div>
+        <div class="service-item">
+            <div class="icon-circle">
+                <i class="fas fa-ban"></i> <!-- You can swap this icon if needed -->
+            </div>
+            <div class="text-block">
+                <h6>No returns or exchanges</h6>
+                <p>As all cakes are freshly made to order.</p>
+            </div>
+        </div>
+
+    </div>
+    <style>
+        .service-box {
+            display: grid;
+            grid-template-columns: 1fr;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 20px;
+            margin: 2rem auto;
+            max-width: 1400px;
+            width: 95%;
+            overflow: hidden;
+            min-height: 220px;
+            padding: 0;
+        }
+
+        /* Desktop: 5 columns */
+        @media (min-width: 768px) {
+            .service-box {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+
+        .service-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem 1rem;
+            border-right: 1px solid #ccc;
+        }
+
+        .service-item:last-child {
+            border-right: none;
+        }
+
+        .icon-circle {
+            background-color: #fff;
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            min-width: 70px;
+            /* 👈 Prevents shrinking in flex layout */
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            flex-shrink: 0;
+            /* 👈 Prevents distortion in grid/flex */
+        }
+
+        .icon-circle i {
+            font-size: 1.8rem;
+            color: #007bff;
+        }
+
+        .text-block h6 {
+            margin: 0;
+            font-size: 1.2rem;
+            /* 👈 Increased from 1.3rem */
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .text-block p {
+            margin: 0.5rem 0 0;
+            font-size: 1.1rem;
+            /* 👈 Increased from 1.1rem */
+            color: #555;
+            line-height: 1.6;
+        }
+    </style>
     <!-- =================== YOU MIGHT ALSO LIKE SECTION =================== -->
     <section class="you-might-like" style="padding-top: 1rem; padding-bottom: 3rem;">
         <div class="container">
             <h5 class="fw-bold mb-4" style="font-size: 28px;">You Might Also Like</h5>
-            <div class="row g-3">
-                <!-- Item -->
-                <div class="col-6 col-md-3">
-                    <div class="card p-3 h-100">
-                        <img src="assets/images/cakes/black-fores.JPG" class="card-img-top"
-                            style="height:180px; object-fit:cover; border-radius:10px;" alt="Black Forest">
-                        <div class="card-body">
-                            <h6 class="mb-1">Black Forest</h6>
-                            <div class="muted-small mb-2">₹849</div>
-                            <a href="shop.html" class="btn view-cake-btn w-100">View Cake</a>
+            <div class="row g-3 justify-content-center">
+
+                <!-- Product Box -->
+                <div class="col-md-3 col-6">
+                    <div class="product-box text-center p-3" style="border: 1px solid #dee2e6; border-radius: 20px;"
+                        data-price="849" data-name="Black Forest" data-rating="4">
+
+                        <div class="image-wrapper" style="position: relative;">
+                            <!-- Best Seller Tag (Touching Image Border) -->
+                            <div class="best-seller-corner">Best Seller</div>
+
+
+                            <a href="shop.html">
+                                <img src="assets/images/cakes/black-fores.JPG" class="img-fluid" alt="Black Forest"
+                                    style="border-radius: 15px; width: 100%; height: 220px; object-fit: cover;">
+                            </a>
                         </div>
+
+                        <h4 class="cake-title mt-4 mb-4" style="font-weight: 450;">Black Forest</h4>
+                        <h6 class="rating-star mb-1">
+                            <span class="star">★★★★☆</span> <span class="rating-value">4.2</span>
+                        </h6>
+
+                        <p class="mb-2">
+                            <span style="font-weight: 450; font-size: 1.1rem;">0.5KG</span> -
+                            <span class="text-dark" style="font-weight: 450;font-size: 1.1rem;">₹849</span>
+                            <span class="text-secondary"><s>₹999</s></span>
+                        </p>
+
+                        <p class="mb-4">
+                            <span class="px-3 py-1"
+                                style="background-color: #eaf8ec; color: #155724; font-weight: 500; border-radius: 8px;">
+                                15% off
+                            </span>
+                        </p>
+
+                        <a href="shop.html" class="btn btn-sm rounded-pill px-4 mb-2 mt-3"
+                            style="background-color: #ff5cba; color: #fff; border: none;">View Cake →</a>
                     </div>
                 </div>
 
-                <div class="col-6 col-md-3">
-                    <div class="card p-3 h-100">
-                        <img src="assets/images/cakes/red-velvet.JPG" class="card-img-top"
-                            style="height:180px; object-fit:cover; border-radius:10px;" alt="Red Velvet">
-                        <div class="card-body">
-                            <h6 class="mb-1">Red Velvet</h6>
-                            <div class="muted-small mb-2">₹849</div>
-                            <a href="shop.html" class="btn view-cake-btn w-100">View Cake</a>
+                <div class="col-md-3 col-6">
+                    <div class="product-box text-center p-3" style="border: 1px solid #dee2e6; border-radius: 20px;"
+                        data-price="849" data-name="butter scotch" data-rating="4">
+
+                        <div class="image-wrapper" style="position: relative;">
+                            <!-- Best Seller Tag (Touching Image Border) -->
+                            <div class="best-seller-corner">Best Seller</div>
+
+
+                            <a href="shop.html">
+                                <img src="assets/images/cakes/butter-scotch.JPG" class="img-fluid" alt="Butter Scotch"
+                                    style="border-radius: 15px; width: 100%; height: 220px; object-fit: cover;">
+                            </a>
                         </div>
+
+                        <h4 class="cake-title mt-4 mb-4" style="font-weight: 450;">Butter Scotch</h4>
+                        <h6 class="rating-star mb-1">
+                            <span class="star">★★★★☆</span> <span class="rating-value">4.2</span>
+                        </h6>
+
+                        <p class="mb-2">
+                            <span style="font-weight: 450; font-size: 1.1rem;">0.5KG</span> -
+                            <span class="text-dark" style="font-weight: 450;font-size: 1.1rem;">₹749</span>
+                            <span class="text-secondary"><s>₹899</s></span>
+                        </p>
+
+                        <p class="mb-4">
+                            <span class="px-3 py-1"
+                                style="background-color: #eaf8ec; color: #155724; font-weight: 500; border-radius: 8px;">
+                                15% off
+                            </span>
+                        </p>
+
+                        <a href="shop.html" class="btn btn-sm rounded-pill px-4 mb-2 mt-3"
+                            style="background-color: #ff5cba; color: #fff; border: none;">View Cake →</a>
                     </div>
                 </div>
+                <div class="col-md-3 col-6">
+                    <div class="product-box text-center p-3" style="border: 1px solid #dee2e6; border-radius: 20px;"
+                        data-price="849" data-name="Choco Truffle" data-rating="4">
 
-                <div class="col-6 col-md-3">
-                    <div class="card p-3 h-100">
-                        <img src="assets/images/cakes/butter-scotch.JPG" class="card-img-top"
-                            style="height:180px; object-fit:cover; border-radius:10px;" alt="Butter Scotch">
-                        <div class="card-body">
-                            <h6 class="mb-1">Butter Scotch</h6>
-                            <div class="muted-small mb-2">₹749</div>
-                            <a href="shop.html" class="btn view-cake-btn w-100">View Cake</a>
+                        <div class="image-wrapper" style="position: relative;">
+                            <!-- Best Seller Tag (Touching Image Border) -->
+                            <div class="best-seller-corner">Best Seller</div>
+
+
+                            <a href="shop.html">
+                                <img src="assets/images/cakes/choco truffle/IMG_7830.JPG" class="img-fluid"
+                                    alt="Choco Truffle"
+                                    style="border-radius: 15px; width: 100%; height: 220px; object-fit: cover;">
+                            </a>
                         </div>
+
+                        <h4 class="cake-title mt-4 mb-4" style="font-weight: 450;">Choco Truffle</h4>
+                        <h6 class="rating-star mb-1">
+                            <span class="star">★★★★☆</span> <span class="rating-value">4.2</span>
+                        </h6>
+
+                        <p class="mb-2">
+                            <span style="font-weight: 450; font-size: 1.1rem;">0.5KG</span> -
+                            <span class="text-dark" style="font-weight: 450;font-size: 1.1rem;">₹849</span>
+                            <span class="text-secondary"><s>₹999</s></span>
+                        </p>
+
+                        <p class="mb-4">
+                            <span class="px-3 py-1"
+                                style="background-color: #eaf8ec; color: #155724; font-weight: 500; border-radius: 8px;">
+                                15% off
+                            </span>
+                        </p>
+
+                        <a href="shop.html" class="btn btn-sm rounded-pill px-4 mb-2 mt-3"
+                            style="background-color: #ff5cba; color: #fff; border: none;">View Cake →</a>
                     </div>
                 </div>
+                <div class="col-md-3 col-6">
+                    <div class="product-box text-center p-3" style="border: 1px solid #dee2e6; border-radius: 20px;"
+                        data-price="849" data-name="kitkat" data-rating="4">
 
-                <div class="col-6 col-md-3">
-                    <div class="card p-3 h-100">
-                        <img src="assets/images/cakes/kitkat.JPG" class="card-img-top"
-                            style="height:180px; object-fit:cover; border-radius:10px;" alt="KitKat Cake">
-                        <div class="card-body">
-                            <h6 class="mb-1">KitKat Cake</h6>
-                            <div class="muted-small mb-2">₹699</div>
-                            <a href="shop.html" class="btn view-cake-btn w-100">View Cake</a>
+                        <div class="image-wrapper" style="position: relative;">
+                            <!-- Best Seller Tag (Touching Image Border) -->
+                            <div class="best-seller-corner">Best Seller</div>
+
+
+                            <a href="shop.html">
+                                <img src="assets/images/cakes/kitkat/IMG_7845.JPG" class="img-fluid" alt="KitKat"
+                                    style="border-radius: 15px; width: 100%; height: 220px; object-fit: cover;">
+                            </a>
                         </div>
+
+                        <h4 class="cake-title mt-4 mb-4" style="font-weight: 450;">KitKat</h4>
+                        <h6 class="rating-star mb-1">
+                            <span class="star">★★★★☆</span> <span class="rating-value">4.2</span>
+                        </h6>
+
+                        <p class="mb-2">
+                            <span style="font-weight: 450; font-size: 1.1rem;">0.5KG</span> -
+                            <span class="text-dark" style="font-weight: 450;font-size: 1.1rem;">₹649</span>
+                            <span class="text-secondary"><s>₹799</s></span>
+                        </p>
+
+                        <p class="mb-4">
+                            <span class="px-3 py-1"
+                                style="background-color: #eaf8ec; color: #155724; font-weight: 500; border-radius: 8px;">
+                                15% off
+                            </span>
+                        </p>
+
+                        <a href="shop.html" class="btn btn-sm rounded-pill px-4 mb-2 mt-3"
+                            style="background-color: #ff5cba; color: #fff; border: none;">View Cake →</a>
                     </div>
                 </div>
             </div>
@@ -778,20 +1003,132 @@
     </section>
 
     <style>
-        .view-cake-btn {
-            color: #fe0094;
-            background-color: transparent;
-            border: 2px solid #fe0094;
-            border-radius: 50px;
-            transition: all 0.3s ease;
+        .best-seller-corner {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background-color: #d62828;
+            /* Bold red */
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+            z-index: 2;
         }
 
-        .view-cake-btn:hover {
-            color: #fff;
-            background-color: #fe0094;
-            border-color: #fe0094;
+        .image-wrapper {
+            position: relative;
         }
     </style>
+
+<div class="feature-card-grid mt-1px">
+  <div class="feature-card">
+    <div class="icon-circle">
+      <i class="fas fa-car"></i>
+    </div>
+    <div class="text-block">
+      <h6>Fast Delivery</h6>
+      <p>Delivery within 4hrs</p>
+    </div>
+  </div>
+
+  <div class="feature-card">
+    <div class="icon-circle">
+      <i class="fas fa-leaf"></i>
+    </div>
+    <div class="text-block">
+      <h6>Fresh & Clean</h6>
+      <p>100% Fresh & Hygenic</p>
+    </div>
+  </div>
+
+  <div class="feature-card">
+    <div class="icon-circle">
+      <i class="fas fa-id-card"></i>
+    </div>
+    <div class="text-block">
+      <h6>FSSAI Certified</h6>
+      <p>Food Safety Certified</p>
+    </div>
+  </div>
+  <div class="feature-card">
+  <div class="icon-circle">
+    <i class="fas fa-headset"></i> <!-- Icon for support -->
+  </div>
+  <div class="text-block">
+    <h6>24/7 Support</h6>
+    <p>We're here to help</p>
+  </div>
+</div>
+
+</div>
+<style>
+    body {
+  background-color: #fff; /* Page background */
+}
+
+.feature-card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+
+/* Desktop: 3 cards in a row */
+@media (min-width: 768px) {
+  .feature-card-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.feature-card {
+  background-color: #e6f2ff; /* Light blue card */
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  min-height: 180px; /* 👈 Increased card height */
+}
+
+
+.icon-circle {
+  background-color: #007bff;
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  min-width: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  flex-shrink: 0;
+}
+
+.icon-circle i {
+  font-size: 1.75rem;
+  color: #fff;
+}
+
+.text-block h6 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.text-block p {
+  font-size: 1.2rem;
+  margin: 0.25rem 0 0;
+  color: #555;
+}
+
+</style>
+
 
     <!-- Footer (user-provided) -->
     <footer class="footer-section section-t-space">
