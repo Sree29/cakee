@@ -385,7 +385,15 @@
                     </div>
 
                 </div>
+<style>
+    @media (max-width: 576px) {
+  .main-image-wrapper,
+  .product-details {
+    margin-top: 1rem !important;
+  }
+}
 
+</style>
 
                 <!-- Right: product details -->
                 <div class="col-12 col-lg-6">
@@ -396,9 +404,6 @@
                                 <i class="ri-star-s-fill"></i> 4.3 (125 reviews)
                             </div>
                         </div>
-
-
-
 
                         <div class="mt-3 d-flex align-items-center gap-3 flex-wrap">
                             <div class="price-new fw-bold fs-5 text-dark">₹749</div>
@@ -421,6 +426,25 @@
                                 <button class="btn option-btn">3 KG</button>
                             </div>
                         </div>
+                        <style>
+                            @media (max-width: 576px) {
+    /* Reduce top margin for stacked columns */
+    .main-image-wrapper {
+        margin-top: 0 !important; /* remove extra top margin */
+        padding: 10px !important; /* optional: reduce inner padding */
+    }
+
+    .product-details {
+        margin-top: 0.5rem !important; /* smaller gap below left column */
+    }
+
+    /* Optional: reduce main image height for compact look */
+    .main-image-wrapper img {
+        height: 250px;
+        object-fit: cover;
+    }
+}
+</style>
                         <style>
                             .weight-buttons {
                                 display: flex;
@@ -720,12 +744,7 @@
 
             </div>
 
-            <hr class="my-3">
-            <h6>Product description</h6>
-            <p class="muted-small mb-0 text-secondary">
-                Soft sponge layered with fresh cream and cherries — a classic vanilla delight for every
-                occasion.
-            </p>
+          
         </div>
 
 
@@ -1401,11 +1420,11 @@
             }
 
             .custom-title {
-                font-size: 0.9rem;
+                font-size: 1rem;
             }
 
             .custom-description {
-                font-size: 0.7rem;
+                font-size: 0.8rem;
             }
         }
     </style>

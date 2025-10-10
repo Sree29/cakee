@@ -344,7 +344,7 @@
 
 
     <!-- ✅ Your Original Category Section (unchanged) -->
-    <div class="categories-section">
+    <!-- <div class="categories-section">
         <div class="container">
             <div class="position-relative category-top d-flex justify-content-center gap-4">
                 <a href="javascript:void(0);" class="food-categories active" data-category="cakes">
@@ -361,61 +361,46 @@
                 </a>
             </div>
         </div>
+    </div> -->
+    <div class="categories-section">
+        <div class="container">
+            <div class="position-relative category-top">
+                <div class="swiper categories-no-arrow categories-style">
+                    <div class="swiper-wrapper">
+                        <!-- Cake -->
+                        <div class="swiper-slide">
+                            <a href="" class="food-categories">
+                                <img class="img-fluid categories-img" src="assets/images/category/cat-cake.png"
+                                    alt="Cakes">
+                                <h4 class="dark-text">Cakes</h4>
+                            </a>
+                        </div>
+
+                        <!-- Dessert -->
+                        <div class="swiper-slide">
+                            <a href="" class="food-categories">
+                                <img class="img-fluid categories-img" src="assets/images/category/cat-dessert.png"
+                                    alt="Desserts">
+                                <h4 class="dark-text">Desserts</h4>
+                            </a>
+                        </div>
+
+                        <!-- Specials -->
+                        <div class="swiper-slide">
+                            <a href="" class="food-categories">
+                                <img class="img-fluid categories-img" src="assets/images/category/cat-specials.png"
+                                    alt="Specials">
+                                <h4 class="dark-text">Specials</h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <style>
-        .categories-section .category-top {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            align-items: flex-start;
-        }
 
-        .categories-section .food-categories {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            width: 140px;
-        }
 
-        .categories-section .food-categories img {
-            width: 80px;
-            height: auto;
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        .categories-section .food-categories h4 {
-            font-size: 16px;
-            margin: 0;
-            color: #444;
-            text-align: center;
-            line-height: 1.2;
-            white-space: nowrap;
-            min-height: 22px;
-        }
-
-        .categories-section .food-categories.active h4 {
-            color: #ff6b00;
-        }
-
-        /* Layout for filter/sidebar */
-        .product-layout {
-            display: flex;
-            gap: 20px;
-        }
-
-        .filter-sort-panel {
-            width: 220px;
-            /* fixed sidebar width */
-            flex-shrink: 0;
-        }
-
-        .products-container {
-            flex: 1;
-        }
-    </style>
     <!-- Sticky Toolbar should be outside the flex container -->
     <div class="sticky-toolbar">
         <div class="d-flex overflow-auto gap-2 py-2 scroll-headings">
@@ -424,8 +409,9 @@
                 <!-- Only the heading buttons -->
                 <button id="filterDropdown" class="btn btn-sm border rounded flex-shrink-0" type="button"
                     data-bs-toggle="dropdown">
-                    Filter
+                    Filter ▼
                 </button>
+
                 <ul class="dropdown-menu" aria-labelledby="filterDropdown"
                     style="min-width: 180px; white-space: normal;">
                     <li style="display: block;"><a class="dropdown-item d-block w-100" href="#" data-value="all">All</a>
@@ -444,8 +430,9 @@
 
                 <button id="sortDropdown" class="btn btn-sm border rounded flex-shrink-0" type="button"
                     data-bs-toggle="dropdown">
-                    Sort
+                    Sort ▼
                 </button>
+
                 <ul class="dropdown-menu" aria-labelledby="filterDropdown"
                     style="min-width: 180px; white-space: normal;">
                     <li style="display: block;"><a class="dropdown-item d-block w-100" href="#"
@@ -462,8 +449,9 @@
 
                 <button id="ratingDropdown" class="btn btn-sm border rounded flex-shrink-0" type="button"
                     data-bs-toggle="dropdown">
-                    Rating
+                    Rating ▼
                 </button>
+
                 <ul class="dropdown-menu" aria-labelledby="ratingDropdown">
                     <li style="display: block;"><a class="dropdown-item" href="#" data-value="all">All</a></li>
                     <li style="display: block;"><a class="dropdown-item" href="#" data-value="4">4 ★ & above</a>
@@ -477,8 +465,9 @@
                 </ul>
                 <button id="eggDropdown" class="btn btn-sm border rounded flex-shrink-0" type="button"
                     data-bs-toggle="dropdown">
-                    Egg
+                    Egg ▼
                 </button>
+
                 <ul class="dropdown-menu" aria-labelledby="eggDropdown" style="min-width: 180px; white-space: normal;">
                     <li><a class="dropdown-item" href="#" data-value="all">All</a></li>
                     <li><a class="dropdown-item" href="#" data-value="egg">With Egg</a></li>
@@ -486,8 +475,9 @@
                 </ul>
                 <button id="sugarDropdown" class="btn btn-sm border rounded flex-shrink-0" type="button"
                     data-bs-toggle="dropdown">
-                    Sugar
+                    Sugar ▼
                 </button>
+
                 <ul class="dropdown-menu" aria-labelledby="sugarDropdown"
                     style="min-width: 180px; white-space: normal;">
                     <li><a class="dropdown-item" href="#" data-value="all">All</a></li>
@@ -855,12 +845,12 @@
                                         </span>
                                     </p>
 
-                                   <div class="btn-wrapper">
-    <a href="shop.html" class="btn btn-sm rounded-pill px-4"
-       style="background-color: #ff5cba; color: #fff; border: none;">
-       <i class="ri-shopping-cart-2-line me-2"></i> Add
-    </a>
-</div>
+                                    <div class="btn-wrapper">
+                                        <a href="shop.html" class="btn btn-sm rounded-pill px-4"
+                                            style="background-color: #ff5cba; color: #fff; border: none;">
+                                            <i class="ri-shopping-cart-2-line me-2"></i> Add
+                                        </a>
+                                    </div>
 
 
                                 </div>
@@ -901,12 +891,12 @@
                                         </span>
                                     </p>
 
-                                   <div class="btn-wrapper">
-    <a href="shop.html" class="btn btn-sm rounded-pill px-4"
-       style="background-color: #ff5cba; color: #fff; border: none;">
-       <i class="ri-shopping-cart-2-line me-2"></i> Add
-    </a>
-</div>
+                                    <div class="btn-wrapper">
+                                        <a href="shop.html" class="btn btn-sm rounded-pill px-4"
+                                            style="background-color: #ff5cba; color: #fff; border: none;">
+                                            <i class="ri-shopping-cart-2-line me-2"></i> Add
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-3 col-6">
@@ -942,12 +932,12 @@
                                             20% off
                                         </span>
                                     </p>
-<div class="btn-wrapper">
-    <a href="shop.html" class="btn btn-sm rounded-pill px-4"
-       style="background-color: #ff5cba; color: #fff; border: none;">
-       <i class="ri-shopping-cart-2-line me-2"></i> Add
-    </a>
-</div>
+                                    <div class="btn-wrapper">
+                                        <a href="shop.html" class="btn btn-sm rounded-pill px-4"
+                                            style="background-color: #ff5cba; color: #fff; border: none;">
+                                            <i class="ri-shopping-cart-2-line me-2"></i> Add
+                                        </a>
+                                    </div>
 
                                 </div>
                             </div>
@@ -984,12 +974,12 @@
                                         </span>
                                     </p>
 
-                                  <div class="btn-wrapper">
-    <a href="shop.html" class="btn btn-sm rounded-pill px-4"
-       style="background-color: #ff5cba; color: #fff; border: none;">
-       <i class="ri-shopping-cart-2-line me-2"></i> Add
-    </a>
-</div>
+                                    <div class="btn-wrapper">
+                                        <a href="shop.html" class="btn btn-sm rounded-pill px-4"
+                                            style="background-color: #ff5cba; color: #fff; border: none;">
+                                            <i class="ri-shopping-cart-2-line me-2"></i> Add
+                                        </a>
+                                    </div>
 
                                 </div>
                             </div>
