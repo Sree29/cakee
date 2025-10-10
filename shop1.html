@@ -362,7 +362,7 @@
             </div>
         </div>
     </div> -->
-  <div class="categories-section">
+    <div class="categories-section">
         <div class="container">
             <div class="position-relative category-top d-flex justify-content-center gap-4">
                 <a href="javascript:void(0);" class="food-categories active" data-category="cakes">
@@ -380,25 +380,24 @@
             </div>
         </div>
     </div>
- <style>
- 
-      .categories-section .food-categories {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  width: 140px;
-  min-height: 160px; /* Ensures equal vertical space */
-  justify-content: flex-start;
-}
+    <style>
+        .categories-section .food-categories {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 140px;
+            min-height: 100px;
+            /* Ensures equal vertical space */
+            justify-content: flex-start;
+        }
 
-.categories-section .food-categories img {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  margin-bottom: 8px;
-}
-
+        .categories-section .food-categories img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            margin-bottom: 8px;
+        }
     </style>
 
 
@@ -496,6 +495,16 @@
             background-color: #fff;
             padding: 8px 15px;
             border-bottom: 1px solid #ddd;
+        }
+
+        .categories-section {
+            margin-bottom: 8px;
+            /* Reduce spacing below category section */
+        }
+
+        .sticky-toolbar {
+            margin-top: 0px;
+            /* Remove any default spacing above toolbar */
         }
     </style>
     <style>
@@ -789,7 +798,7 @@
             updateCartUI();
         });
     </script>
-    <section class="category-products section-b-space mt-4">
+    <section class="category-products section-b-space mt-1">
         <div class="container">
             <div class="d-flex flex-column flex-lg-row gap-3">
                 <style>
@@ -973,10 +982,11 @@
                                         }
 
                                         /* Desktop styles */
-                                        @media (min-width: 768px){
+                                        @media (min-width: 768px) {
                                             .product-box {
-    min-height: 360px;
-  }
+                                                min-height: 360px;
+                                            }
+
                                             .cake-title {
                                                 font-size: 1.3rem;
                                             }
@@ -1033,7 +1043,7 @@
                     </div>
 
                     <!-- Desserts -->
-                    <div class="category-content desserts mt-4">
+                    <div class="category-content desserts mt-1">
                         <div class="row g-3 justify-content-center">
                             <div class="col-md-3 col-6">
                                 <div class="product-box text-center p-2"
@@ -1129,7 +1139,7 @@
                     </div>
 
                     <!-- Specials -->
-                    <div class="category-content specials mt-4">
+                    <div class="category-content specials mt-1">
                         <div class="row g-3 justify-content-center">
                             <div class="col-md-3 col-6">
                                 <div class="product-box text-center p-2"
