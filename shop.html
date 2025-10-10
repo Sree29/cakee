@@ -888,99 +888,102 @@
             color: #ffb400 !important;
         }
     </style>
-    <div class="service-box">
-        <div class="service-item">
-            <div class="icon-circle">
-                <i class="fas fa-truck"></i>
-            </div>
-            <div class="text-block">
-                <h6>Same-day delivery available</h6>
-                <p>Order before 5 PM for delivery today.</p>
-            </div>
-        </div>
-
-        <div class="service-item">
-            <div class="icon-circle">
-                <i class="fas fa-snowflake"></i>
-            </div>
-            <div class="text-block">
-                <h6>Store in a cool place</h6>
-                <p>Best enjoyed when kept refrigerated.</p>
-            </div>
-        </div>
-
-        <div class="service-item">
-            <div class="icon-circle">
-                <i class="fas fa-comment-alt"></i>
-            </div>
-            <div class="text-block">
-                <h6>Add a custom message</h6>
-                <p>Include a short note to make it special.</p>
-            </div>
-        </div>
-
-        <div class="service-item">
-            <div class="icon-circle">
-                <i class="fas fa-credit-card"></i>
-            </div>
-            <div class="text-block">
-                <h6>Payment on delivery available</h6>
-                <p>Easy and convenient checkout options.</p>
-            </div>
-        </div>
-
-        <div class="service-item">
-            <div class="icon-circle">
-                <i class="fas fa-ban"></i>
-            </div>
-            <div class="text-block">
-                <h6>No returns or exchanges</h6>
-                <p>As all cakes are freshly made to order.</p>
-            </div>
-        </div>
+   <section class="services-section">
+  <div class="service-box">
+    <div class="service-item">
+      <div class="icon-circle">
+        <i class="fas fa-truck"></i>
+      </div>
+      <div class="text-block">
+        <h6>Same-day delivery available</h6>
+        <p>Order before 5 PM for delivery today.</p>
+      </div>
     </div>
-    <style>
-        .service-box {
-            display: grid;
-            grid-template-columns: 1fr;
-            background-color: #f8f9fa;
-            border: 1px solid #dee2e6;
-            border-radius: 15px;
-            margin: 2rem auto;
-            max-width: 1200px;
-            width: 95%;
-            overflow: hidden;
-            padding: 0;
-        }
 
-        /* Desktop: 5 columns */
-        @media (min-width: 768px) {
-            .service-box {
-                grid-template-columns: repeat(5, 1fr);
-            }
-        }
+    <div class="service-item">
+      <div class="icon-circle">
+        <i class="fas fa-snowflake"></i>
+      </div>
+      <div class="text-block">
+        <h6>Store in a cool place</h6>
+        <p>Best enjoyed when kept refrigerated.</p>
+      </div>
+    </div>
 
-        .service-item {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            /* slightly smaller */
-            padding: 0.8rem;
-            /* slightly smaller */
-            border-right: 1px solid #ddd;
-            justify-content: center;
-            text-align: left;
-        }
+    <div class="service-item">
+      <div class="icon-circle">
+        <i class="fas fa-comment-alt"></i>
+      </div>
+      <div class="text-block">
+        <h6>Add a custom message</h6>
+        <p>Include a short note to make it special.</p>
+      </div>
+    </div>
 
-        .service-item:last-child {
-            border-right: none;
-        }
+    <div class="service-item">
+      <div class="icon-circle">
+        <i class="fas fa-credit-card"></i>
+      </div>
+      <div class="text-block">
+        <h6>Payment on delivery available</h6>
+        <p>Easy and convenient checkout options.</p>
+      </div>
+    </div>
 
-        /* --- ICON CIRCLE --- */
-      .icon-circle {
-  aspect-ratio: 1 / 1;
+    <div class="service-item">
+      <div class="icon-circle">
+        <i class="fas fa-ban"></i>
+      </div>
+      <div class="text-block">
+        <h6>No returns or exchanges</h6>
+        <p>As all cakes are freshly made to order.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.services-section {
+  background-color: #f8f9fa;
+  padding: 2rem 1rem;
+}
+
+.service-box {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  border: 1px solid #dee2e6;
+  border-radius: 15px;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* Desktop: 5 columns */
+@media (min-width: 768px) {
+  .service-box {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.service-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.8rem;
+  border-right: 1px solid #ddd;
+  justify-content: center;
+  text-align: left;
+}
+
+.service-item:last-child {
+  border-right: none;
+}
+
+/* Icon Circle */
+.icon-circle {
   width: 45px;
-  height: 45px;
+  aspect-ratio: 1 / 1;
   background-color: #fff;
   border-radius: 50%;
   display: flex;
@@ -989,70 +992,64 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
 }
 
+.icon-circle i {
+  font-size: 1.2rem;
+  color: #007bff;
+}
 
+/* Text */
+.text-block h6 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
 
-        .icon-circle i {
-            font-size: 1.2rem;
-            /* reduced */
-            color: #007bff;
-        }
+.text-block p {
+  margin: 0.2rem 0 0;
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.3;
+}
 
-        /* --- TEXT --- */
-        .text-block h6 {
-            margin: 0;
-            font-size: 1.4rem !important;
-            /* reduced */
-            font-weight: 600;
-            line-height: 1.2;
-        }
-
-        .text-block p {
-            margin: 0.2rem 0 0;
-            font-size: 1rem !important;
-            /* reduced */
-            color: #555;
-            line-height: 1.3;
-        }
-
-    @media (max-width: 767px) {
-  .icon-circle {
-    width: 40px !important;
-    aspect-ratio: 1 / 1;
-    border-radius: 50% !important;
-    background-color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
-  }
-
-  .icon-circle i {
-    font-size: 1.2rem !important;
-    line-height: 1;
-    vertical-align: middle;
-  }
-
-  .text-block h6 {
-    font-size: 1.2rem !important;
-    font-weight: 600;
-    line-height: 1.3;
-  }
-
-  .text-block p {
-    font-size: 1rem !important;
-    line-height: 1.4;
-    color: #555;
+/* Mobile adjustments */
+@media (max-width: 767px) {
+  .service-box {
+    grid-template-columns: 1fr;
   }
 
   .service-item {
+    flex-direction: row;
     padding: 0.8rem;
     gap: 0.6rem;
     margin-bottom: 1rem;
     border-right: none;
   }
-}
 
-    </style>
+  .icon-circle {
+    width: 40px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  }
+
+  .icon-circle i {
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+
+  .text-block h6 {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+
+  .text-block p {
+    font-size: 1.2rem;
+    line-height: 1.4;
+  }
+}
+</style>
+
 
     <!-- =================== YOU MIGHT ALSO LIKE SECTION =================== -->
     <section class="you-might-like" style="padding-top: 1rem; padding-bottom: 3rem;">
