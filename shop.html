@@ -1399,34 +1399,43 @@
             margin: 0.1rem 0 0;
             color: #555;
         }
+@media (max-width: 576px) {
+    .custom-feature-grid {
+        justify-content: center; /* center all cards in the row */
+    }
 
-        /* Mobile view adjustments */
-        @media (max-width: 576px) {
-            .custom-feature-card {
-                padding: 0.5rem;
-                /* tighter padding */
-                min-height: 75px;
-                /* reduced height */
-                gap: 0.6rem;
-            }
+    .custom-feature-card {
+        display: flex;
+        flex-direction: row;      /* icon left of text */
+        align-items: center;      /* vertically center icon and text */
+        justify-content: center;  /* center the whole content horizontally */
+        text-align: left;         /* text left-aligned relative to icon */
+        min-height: 75px;         /* reduced height */
+        padding: 0.5rem;          /* tighter padding */
+        margin-bottom: 1rem;      /* spacing between stacked cards */
+        gap: 0.6rem;              /* space between icon and text */
+    }
 
-            .custom-icon-circle {
-                width: 38px;
-                height: 38px;
-            }
+    .custom-icon-circle {
+        width: 38px;
+        height: 38px;
+        margin-right: 0.5rem;     /* space between icon and text */
+        margin-bottom: 0;
+    }
 
-            .custom-icon {
-                font-size: 1rem;
-            }
+    .custom-icon {
+        font-size: 1rem;
+    }
 
-            .custom-title {
-                font-size: 1rem;
-            }
+    .custom-title {
+        font-size: 1rem;
+    }
 
-            .custom-description {
-                font-size: 0.8rem;
-            }
-        }
+    .custom-description {
+        font-size: 0.8rem;
+    }
+}
+
     </style>
 
     <!-- Footer (user-provided) -->

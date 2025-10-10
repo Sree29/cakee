@@ -362,43 +362,44 @@
             </div>
         </div>
     </div> -->
-    <div class="categories-section">
+  <div class="categories-section">
         <div class="container">
-            <div class="position-relative category-top">
-                <div class="swiper categories-no-arrow categories-style">
-                    <div class="swiper-wrapper">
-                        <!-- Cake -->
-                        <div class="swiper-slide">
-                            <a href="" class="food-categories">
-                                <img class="img-fluid categories-img" src="assets/images/category/cat-cake.png"
-                                    alt="Cakes">
-                                <h4 class="dark-text">Cakes</h4>
-                            </a>
-                        </div>
-
-                        <!-- Dessert -->
-                        <div class="swiper-slide">
-                            <a href="" class="food-categories">
-                                <img class="img-fluid categories-img" src="assets/images/category/cat-dessert.png"
-                                    alt="Desserts">
-                                <h4 class="dark-text">Desserts</h4>
-                            </a>
-                        </div>
-
-                        <!-- Specials -->
-                        <div class="swiper-slide">
-                            <a href="" class="food-categories">
-                                <img class="img-fluid categories-img" src="assets/images/category/cat-specials.png"
-                                    alt="Specials">
-                                <h4 class="dark-text">Specials</h4>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            <div class="position-relative category-top d-flex justify-content-center gap-4">
+                <a href="javascript:void(0);" class="food-categories active" data-category="cakes">
+                    <img class="img-fluid categories-img" src="assets/images/category/cat-cake.png" alt="p-1">
+                    <h4 class="dark-text">Cakes</h4>
+                </a>
+                <a href="javascript:void(0);" class="food-categories" data-category="desserts">
+                    <img class="img-fluid categories-img" src="assets/images/category/cat-dessert.png" alt="p-2">
+                    <h4 class="dark-text">Desserts</h4>
+                </a>
+                <a href="javascript:void(0);" class="food-categories" data-category="specials">
+                    <img class="img-fluid categories-img" src="assets/images/category/cat-specials.png" alt="p-3">
+                    <h4 class="dark-text">Specials</h4>
+                </a>
             </div>
         </div>
     </div>
+ <style>
+ 
+      .categories-section .food-categories {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 140px;
+  min-height: 160px; /* Ensures equal vertical space */
+  justify-content: flex-start;
+}
 
+.categories-section .food-categories img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
+    </style>
 
 
     <!-- Sticky Toolbar should be outside the flex container -->
@@ -720,84 +721,77 @@
     </script>
 
 
+    <script>
 
-    <section class="category-products section-b-space mt-4">
-        <div class="container">
-            <div class="d-flex flex-column flex-lg-row gap-3">
+        document.addEventListener('DOMContentLoaded', function () {
 
+            function updateCartUI() {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                console.log('Cart:', cart); // For now, check console
 
-
-
-                <script>
-
-                    document.addEventListener('DOMContentLoaded', function () {
-
-                        function updateCartUI() {
-                            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-                            console.log('Cart:', cart); // For now, check console
-
-                            const cartList = document.querySelector('#cart-list');
-                            if (cartList) {
-                                cartList.innerHTML = '';
-                                cart.forEach((item, index) => {
-                                    cartList.innerHTML += `
+                const cartList = document.querySelector('#cart-list');
+                if (cartList) {
+                    cartList.innerHTML = '';
+                    cart.forEach((item, index) => {
+                        cartList.innerHTML += `
           <li>
             ${item.name} - ₹${item.price} x ${item.quantity}
             <button data-index="${index}" class="remove-btn">Remove</button>
           </li>
         `;
-                                });
-                            }
-                        }
-
-                        // Add to Cart Buttons
-                        const addButtons = document.querySelectorAll('.add-to-cart');
-                        addButtons.forEach(button => {
-                            button.addEventListener('click', function () {
-                                const productBox = this.closest('.product-box');
-                                const product = {
-                                    name: productBox.dataset.name,
-                                    price: parseInt(productBox.dataset.price),
-                                    rating: parseFloat(productBox.dataset.rating),
-                                    quantity: 1
-                                };
-
-                                // Get existing cart
-                                let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-                                // Check if product exists
-                                const existingIndex = cart.findIndex(item => item.name === product.name);
-                                if (existingIndex > -1) {
-                                    cart[existingIndex].quantity += 1;
-                                } else {
-                                    cart.push(product);
-                                }
-
-                                // Save cart
-                                localStorage.setItem('cart', JSON.stringify(cart));
-
-                                updateCartUI();
-                                alert(`${product.name} added to cart!`);
-                            });
-                        });
-
-                        // Remove button (optional)
-                        document.addEventListener('click', function (e) {
-                            if (e.target.classList.contains('remove-btn')) {
-                                const index = parseInt(e.target.dataset.index);
-                                let cart = JSON.parse(localStorage.getItem('cart')) || [];
-                                cart.splice(index, 1);
-                                localStorage.setItem('cart', JSON.stringify(cart));
-                                updateCartUI();
-                            }
-                        });
-
-                        // Initialize cart on load
-                        updateCartUI();
                     });
-                </script>
+                }
+            }
 
+            // Add to Cart Buttons
+            const addButtons = document.querySelectorAll('.add-to-cart');
+            addButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const productBox = this.closest('.product-box');
+                    const product = {
+                        name: productBox.dataset.name,
+                        price: parseInt(productBox.dataset.price),
+                        rating: parseFloat(productBox.dataset.rating),
+                        quantity: 1
+                    };
 
+                    // Get existing cart
+                    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+                    // Check if product exists
+                    const existingIndex = cart.findIndex(item => item.name === product.name);
+                    if (existingIndex > -1) {
+                        cart[existingIndex].quantity += 1;
+                    } else {
+                        cart.push(product);
+                    }
+
+                    // Save cart
+                    localStorage.setItem('cart', JSON.stringify(cart));
+
+                    updateCartUI();
+                    alert(`${product.name} added to cart!`);
+                });
+            });
+
+            // Remove button (optional)
+            document.addEventListener('click', function (e) {
+                if (e.target.classList.contains('remove-btn')) {
+                    const index = parseInt(e.target.dataset.index);
+                    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                    cart.splice(index, 1);
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    updateCartUI();
+                }
+            });
+
+            // Initialize cart on load
+            updateCartUI();
+        });
+    </script>
+    <section class="category-products section-b-space mt-4">
+        <div class="container">
+            <div class="d-flex flex-column flex-lg-row gap-3">
                 <style>
                     .rating-star .star {
                         color: #FFD700;
@@ -830,11 +824,10 @@
                                         </div>
                                     </div>
 
-                                    <!-- Cake title centered below -->
-                                    <h4 class="cake-title text-center mb-2" style="font-weight: 450;">Cheesecake</h4>
-                                    <p class="mb-2">
-                                        <span style="font-weight: 450; font-size: 0.8;">0.5KG</span> -
-                                        <span class="text-dark" style="font-weight: 450; font-size: 0.8;">₹440</span>
+                                    <h4 class="cake-title text-center mb-2">Cheese Cake</h4>
+                                    <p class="mb-2 cake-details">
+                                        <span class="cake-weight">0.5KG</span> -
+                                        <span class="cake-price text-dark">₹440</span>
                                         <span class="text-secondary"><s>₹550</s></span>
                                     </p>
 
@@ -875,12 +868,10 @@
                                         </div>
                                     </div>
 
-                                    <!-- Cake title centered below -->
-                                    <h4 class="cake-title text-center mb-2" style="font-weight: 450;">Black Forest</h4>
-
-                                    <p class="mb-2">
-                                        <span style="font-weight: 450; font-size: 0.8rem;">0.5KG</span> -
-                                        <span class="text-dark" style="font-weight: 450; font-size: 0.8rem;">₹440</span>
+                                    <h4 class="cake-title text-center mb-2">Black Forest</h4>
+                                    <p class="mb-2 cake-details">
+                                        <span class="cake-weight">0.5KG</span> -
+                                        <span class="cake-price text-dark">₹440</span>
                                         <span class="text-secondary"><s>₹550</s></span>
                                     </p>
 
@@ -917,12 +908,10 @@
                                         </div>
                                     </div>
 
-                                    <!-- Cake title centered below -->
-                                    <h4 class="cake-title text-center mb-2" style="font-weight: 450;">Butter Scotch</h4>
-
-                                    <p class="mb-2">
-                                        <span style="font-weight: 450; font-size: 0.8rem;">0.5KG</span> -
-                                        <span class="text-dark" style="font-weight: 450; font-size: 0.8rem;">₹440</span>
+                                    <h4 class="cake-title text-center mb-2">Butter Scotch</h4>
+                                    <p class="mb-2 cake-details">
+                                        <span class="cake-weight">0.5KG</span> -
+                                        <span class="cake-price text-dark">₹440</span>
                                         <span class="text-secondary"><s>₹550</s></span>
                                     </p>
 
@@ -960,12 +949,47 @@
                                     </div>
 
                                     <!-- Cake title centered below -->
-                                    <h4 class="cake-title text-center mb-2" style="font-weight: 450;">Choco Tuffle</h4>
-                                    <p class="mb-2">
-                                        <span style="font-weight: 450; font-size: 0.8rem;">0.5KG</span> -
-                                        <span class="text-dark" style="font-weight: 450; font-size: 1rem;">₹440</span>
+                                    <h4 class="cake-title text-center mb-2">Choco Tuffle</h4>
+                                    <p class="mb-2 cake-details">
+                                        <span class="cake-weight">0.5KG</span> -
+                                        <span class="cake-price text-dark">₹440</span>
                                         <span class="text-secondary"><s>₹550</s></span>
                                     </p>
+                                    <style>
+                                        /* Mobile styles (default) */
+                                        .cake-title {
+                                            font-weight: 450;
+                                            font-size: 1rem;
+                                        }
+
+                                        .cake-details .cake-weight {
+                                            font-weight: 450;
+                                            font-size: 0.8rem;
+                                        }
+
+                                        .cake-details .cake-price {
+                                            font-weight: 450;
+                                            font-size: 1rem;
+                                        }
+
+                                        /* Desktop styles */
+                                        @media (min-width: 768px){
+                                            .product-box {
+    min-height: 360px;
+  }
+                                            .cake-title {
+                                                font-size: 1.3rem;
+                                            }
+
+                                            .cake-details .cake-weight {
+                                                font-size: 1rem;
+                                            }
+
+                                            .cake-details .cake-price {
+                                                font-size: 1.2rem;
+                                            }
+                                        }
+                                    </style>
 
                                     <p class="mb-2">
                                         <span class="px-3 py-1"
@@ -986,35 +1010,13 @@
 
 
                             <style>
-                                .image-square {
-                                    width: 100%;
-                                    aspect-ratio: 1 / 1;
-                                    /* Ensures square shape */
-                                    overflow: hidden;
-                                    border-radius: 20px;
-                                    display: block;
-                                }
-
-
-                                .image-square img {
-                                    width: 100%;
-                                    height: 100%;
-                                    object-fit: cover;
-                                    display: block;
-                                }
-
-
                                 @media (max-width: 767px) {
-                                    .product-box {
-                                        padding: 0.5rem;
-                                        /* reduced from 0.75rem */
-                                        border-radius: 10px;
-                                    }
-
                                     .image-square {
+                                        width: 100%;
                                         aspect-ratio: 1 / 1;
-                                        border-radius: 10px;
                                         overflow: hidden;
+                                        border-radius: 20px;
+                                        display: block;
                                     }
 
                                     .image-square img {
@@ -1023,35 +1025,8 @@
                                         object-fit: cover;
                                         display: block;
                                     }
-
-                                    .cake-title {
-                                        font-size: 0.95rem;
-                                        margin-top: 0.4rem;
-                                        margin-bottom: 0.2rem;
-                                    }
-
-                                    .rating-star {
-                                        font-size: 0.85rem;
-                                        margin-bottom: 0.2rem;
-                                    }
-
-                                    .product-box p {
-                                        font-size: 0.85rem;
-                                        margin-bottom: 0.2rem;
-                                    }
-
-                                    .btn {
-                                        font-size: 0.8rem;
-                                        padding: 0.25rem 0.6rem;
-                                        margin-top: 0.25rem;
-                                        margin-bottom: 0.25rem;
-                                    }
                                 }
                             </style>
-
-
-
-
 
                             <!-- Repeat for other cakes similarly... -->
                         </div>
