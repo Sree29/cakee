@@ -389,7 +389,7 @@
         <div class="container">
             <div class="d-flex flex-column flex-lg-row gap-3">
 
- <div class="d-flex flex-row flex-md-column gap-2">
+                <div class="d-flex flex-row flex-md-column gap-2">
                     <!-- Filter Card -->
                     <div class="dropdown filter-card border rounded d-flex align-items-center justify-content-center"
                         style="cursor:pointer;">
@@ -450,138 +450,35 @@
                         </ul>
                     </div>
 
-<!-- Egg Card -->
-<div class="dropdown egg-card border rounded d-flex align-items-center justify-content-center"
-     style="cursor:pointer;">
-    <button id="eggDropdown" class="dropdown-toggle btn btn-sm border-0 bg-transparent"
-        type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Egg
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="eggDropdown" style="min-width: 180px; white-space: normal;">
-        <li><a class="dropdown-item" href="#" data-value="all">All</a></li>
-        <li><a class="dropdown-item" href="#" data-value="egg">With Egg</a></li>
-        <li><a class="dropdown-item" href="#" data-value="no-egg">Eggless</a></li>
-    </ul>
-</div>
+                    <!-- Egg Card -->
+                    <div class="dropdown egg-card border rounded d-flex align-items-center justify-content-center"
+                        style="cursor:pointer;">
+                        <button id="eggDropdown" class="dropdown-toggle btn btn-sm border-0 bg-transparent"
+                            type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Egg
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="eggDropdown"
+                            style="min-width: 180px; white-space: normal;">
+                            <li><a class="dropdown-item" href="#" data-value="all">All</a></li>
+                            <li><a class="dropdown-item" href="#" data-value="egg">With Egg</a></li>
+                            <li><a class="dropdown-item" href="#" data-value="no-egg">Eggless</a></li>
+                        </ul>
+                    </div>
 
-<!-- Sugar Card -->
-<div class="dropdown sugar-card border rounded d-flex align-items-center justify-content-center"
-     style="cursor:pointer;">
-    <button id="sugarDropdown" class="dropdown-toggle btn btn-sm border-0 bg-transparent"
-        type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Sugar
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="sugarDropdown" style="min-width: 180px; white-space: normal;">
-        <li><a class="dropdown-item" href="#" data-value="all">All</a></li>
-        <li><a class="dropdown-item" href="#" data-value="sugar">With Sugar</a></li>
-        <li><a class="dropdown-item" href="#" data-value="sugar-free">Sugar Free</a></li>
-    </ul>
-</div>
-
-                </div>
-
-
-                <script>
-                    document.addEventListener('DOMContentLoaded', function () {
-                        const filterCard = document.getElementById('filterDropdown');
-                        const sortCard = document.getElementById('sortDropdown');
-                        const ratingCard = document.getElementById('ratingDropdown');
-
-                        const filterItems = document.querySelectorAll('.filter-card .dropdown-item');
-                        const sortItems = document.querySelectorAll('.sort-card .dropdown-item');
-                        const ratingItems = document.querySelectorAll('.rating-card .dropdown-item');
-
-                        // FILTER by price
-                        filterItems.forEach(item => {
-                            item.addEventListener('click', function (e) {
-                                e.preventDefault();
-                                filterCard.textContent = this.textContent;
-                                filterCard.dataset.value = this.dataset.value;
-                                applyFilterAndSort();
-                            });
-                        });
-
-                        // SORT
-                        sortItems.forEach(item => {
-                            item.addEventListener('click', function (e) {
-                                e.preventDefault();
-                                sortCard.textContent = this.textContent;
-                                sortCard.dataset.value = this.dataset.value;
-                                applyFilterAndSort();
-                            });
-                        });
-
-                        // FILTER by rating
-                        ratingItems.forEach(item => {
-                            item.addEventListener('click', function (e) {
-                                e.preventDefault();
-                                ratingCard.textContent = this.textContent;
-                                ratingCard.dataset.value = this.dataset.value;
-                                applyFilterAndSort();
-                            });
-                        });
-
-                        function applyFilterAndSort() {
-                            const filterValue = filterCard.dataset.value || "all";
-                            const sortValue = sortCard.dataset.value || "default";
-                            const ratingValue = parseFloat(ratingCard.dataset.value) || 0;
-
-                            const products = document.querySelectorAll(".product-box");
-
-                            // FILTER by price & rating
-                            products.forEach(product => {
-                                const price = parseInt(product.dataset.price, 10);
-                                const rating = parseFloat(product.dataset.rating) || 0;
-                                let show = true;
-
-                                // Price filter
-                                if (filterValue !== "all") {
-                                    if (filterValue.includes("+")) {
-                                        const min = parseInt(filterValue, 10);
-                                        show = price >= min;
-                                    } else {
-                                        const [min, max] = filterValue.split("-").map(Number);
-                                        show = price >= min && price <= max;
-                                    }
-                                }
-
-                                // Rating filter
-                                if (show && ratingValue > 0) {
-                                    show = rating >= ratingValue;
-                                }
-
-                                product.parentElement.style.display = show ? "" : "none";
-                            });
-
-                            // SORT
-                            const rows = document.querySelectorAll(".category-content .row");
-                            rows.forEach(row => {
-                                const cols = Array.from(row.children).filter(c => c.style.display !== "none");
-
-                                cols.sort((a, b) => {
-                                    const productA = a.querySelector(".product-box");
-                                    const productB = b.querySelector(".product-box");
-
-                                    if (sortValue === "price-asc") {
-                                        return parseInt(productA.dataset.price, 10) - parseInt(productB.dataset.price, 10);
-                                    } else if (sortValue === "price-desc") {
-                                        return parseInt(productB.dataset.price, 10) - parseInt(productA.dataset.price, 10);
-                                    } else if (sortValue === "name-asc") {
-                                        return productA.dataset.name.localeCompare(productB.dataset.name);
-                                    } else if (sortValue === "name-desc") {
-                                        return productB.dataset.name.localeCompare(productA.dataset.name);
-                                    } else {
-                                        return 0;
-                                    }
-                                });
-
-                                cols.forEach(col => row.appendChild(col));
-                            });
-                        }
-                    });
-
-                </script>
-
+                    <!-- Sugar Card -->
+                    <div class="dropdown sugar-card border rounded d-flex align-items-center justify-content-center"
+                        style="cursor:pointer;">
+                        <button id="sugarDropdown" class="dropdown-toggle btn btn-sm border-0 bg-transparent"
+                            type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Sugar
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="sugarDropdown"
+                            style="min-width: 180px; white-space: normal;">
+                            <li><a class="dropdown-item" href="#" data-value="all">All</a></li>
+                            <li><a class="dropdown-item" href="#" data-value="sugar">With Sugar</a></li>
+                            <li><a class="dropdown-item" href="#" data-value="sugar-free">Sugar Free</a></li>
+                        </ul>
+                    </div>
 
                 </div>
 
@@ -688,372 +585,471 @@
                 </script>
 
 
+            </div>
 
 
-                    <script>
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const filterCard = document.getElementById('filterDropdown');
+                    const sortCard = document.getElementById('sortDropdown');
+                    const ratingCard = document.getElementById('ratingDropdown');
 
-                        document.addEventListener('DOMContentLoaded', function () {
+                    const filterItems = document.querySelectorAll('.filter-card .dropdown-item');
+                    const sortItems = document.querySelectorAll('.sort-card .dropdown-item');
+                    const ratingItems = document.querySelectorAll('.rating-card .dropdown-item');
 
-                            function updateCartUI() {
-                                const cart = JSON.parse(localStorage.getItem('cart')) || [];
-                                console.log('Cart:', cart); // For now, check console
+                    // FILTER by price
+                    filterItems.forEach(item => {
+                        item.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            filterCard.textContent = this.textContent;
+                            filterCard.dataset.value = this.dataset.value;
+                            applyFilterAndSort();
+                        });
+                    });
 
-                                const cartList = document.querySelector('#cart-list');
-                                if (cartList) {
-                                    cartList.innerHTML = '';
-                                    cart.forEach((item, index) => {
-                                        cartList.innerHTML += `
+                    // SORT
+                    sortItems.forEach(item => {
+                        item.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            sortCard.textContent = this.textContent;
+                            sortCard.dataset.value = this.dataset.value;
+                            applyFilterAndSort();
+                        });
+                    });
+
+                    // FILTER by rating
+                    ratingItems.forEach(item => {
+                        item.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            ratingCard.textContent = this.textContent;
+                            ratingCard.dataset.value = this.dataset.value;
+                            applyFilterAndSort();
+                        });
+                    });
+
+                    function applyFilterAndSort() {
+                        const filterValue = filterCard.dataset.value || "all";
+                        const sortValue = sortCard.dataset.value || "default";
+                        const ratingValue = parseFloat(ratingCard.dataset.value) || 0;
+
+                        const products = document.querySelectorAll(".product-box");
+
+                        // FILTER by price & rating
+                        products.forEach(product => {
+                            const price = parseInt(product.dataset.price, 10);
+                            const rating = parseFloat(product.dataset.rating) || 0;
+                            let show = true;
+
+                            // Price filter
+                            if (filterValue !== "all") {
+                                if (filterValue.includes("+")) {
+                                    const min = parseInt(filterValue, 10);
+                                    show = price >= min;
+                                } else {
+                                    const [min, max] = filterValue.split("-").map(Number);
+                                    show = price >= min && price <= max;
+                                }
+                            }
+
+                            // Rating filter
+                            if (show && ratingValue > 0) {
+                                show = rating >= ratingValue;
+                            }
+
+                            product.parentElement.style.display = show ? "" : "none";
+                        });
+
+                        // SORT
+                        const rows = document.querySelectorAll(".category-content .row");
+                        rows.forEach(row => {
+                            const cols = Array.from(row.children).filter(c => c.style.display !== "none");
+
+                            cols.sort((a, b) => {
+                                const productA = a.querySelector(".product-box");
+                                const productB = b.querySelector(".product-box");
+
+                                if (sortValue === "price-asc") {
+                                    return parseInt(productA.dataset.price, 10) - parseInt(productB.dataset.price, 10);
+                                } else if (sortValue === "price-desc") {
+                                    return parseInt(productB.dataset.price, 10) - parseInt(productA.dataset.price, 10);
+                                } else if (sortValue === "name-asc") {
+                                    return productA.dataset.name.localeCompare(productB.dataset.name);
+                                } else if (sortValue === "name-desc") {
+                                    return productB.dataset.name.localeCompare(productA.dataset.name);
+                                } else {
+                                    return 0;
+                                }
+                            });
+
+                            cols.forEach(col => row.appendChild(col));
+                        });
+                    }
+                });
+
+            </script>
+
+
+
+
+            <script>
+
+                document.addEventListener('DOMContentLoaded', function () {
+
+                    function updateCartUI() {
+                        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                        console.log('Cart:', cart); // For now, check console
+
+                        const cartList = document.querySelector('#cart-list');
+                        if (cartList) {
+                            cartList.innerHTML = '';
+                            cart.forEach((item, index) => {
+                                cartList.innerHTML += `
           <li>
             ${item.name} - ₹${item.price} x ${item.quantity}
             <button data-index="${index}" class="remove-btn">Remove</button>
           </li>
         `;
-                                    });
-                                }
+                            });
+                        }
+                    }
+
+                    // Add to Cart Buttons
+                    const addButtons = document.querySelectorAll('.add-to-cart');
+                    addButtons.forEach(button => {
+                        button.addEventListener('click', function () {
+                            const productBox = this.closest('.product-box');
+                            const product = {
+                                name: productBox.dataset.name,
+                                price: parseInt(productBox.dataset.price),
+                                rating: parseFloat(productBox.dataset.rating),
+                                quantity: 1
+                            };
+
+                            // Get existing cart
+                            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+                            // Check if product exists
+                            const existingIndex = cart.findIndex(item => item.name === product.name);
+                            if (existingIndex > -1) {
+                                cart[existingIndex].quantity += 1;
+                            } else {
+                                cart.push(product);
                             }
 
-                            // Add to Cart Buttons
-                            const addButtons = document.querySelectorAll('.add-to-cart');
-                            addButtons.forEach(button => {
-                                button.addEventListener('click', function () {
-                                    const productBox = this.closest('.product-box');
-                                    const product = {
-                                        name: productBox.dataset.name,
-                                        price: parseInt(productBox.dataset.price),
-                                        rating: parseFloat(productBox.dataset.rating),
-                                        quantity: 1
-                                    };
+                            // Save cart
+                            localStorage.setItem('cart', JSON.stringify(cart));
 
-                                    // Get existing cart
-                                    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                            updateCartUI();
+                            alert(`${product.name} added to cart!`);
+                        });
+                    });
 
-                                    // Check if product exists
-                                    const existingIndex = cart.findIndex(item => item.name === product.name);
-                                    if (existingIndex > -1) {
-                                        cart[existingIndex].quantity += 1;
-                                    } else {
-                                        cart.push(product);
+                    // Remove button (optional)
+                    document.addEventListener('click', function (e) {
+                        if (e.target.classList.contains('remove-btn')) {
+                            const index = parseInt(e.target.dataset.index);
+                            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                            cart.splice(index, 1);
+                            localStorage.setItem('cart', JSON.stringify(cart));
+                            updateCartUI();
+                        }
+                    });
+
+                    // Initialize cart on load
+                    updateCartUI();
+                });
+            </script>
+
+
+            <style>
+                .rating-star .star {
+                    color: #FFD700;
+                    /* Golden yellow */
+                    font-size: 1rem;
+                }
+            </style>
+
+            <!-- Products Column -->
+            <div class="products-col flex-grow-1">
+
+                <!-- Cakes -->
+                <div class="category-content cakes">
+                    <div class="row g-3 justify-content-center">
+                        <div class="col-md-3 col-6">
+                            <div class="product-box text-center p-3"
+                                style="border: 1px solid #dee2e6; border-radius: 20px;" data-price="599"
+                                data-name="Black Forest Cake" data-rating="4">
+
+                                <a href="shop.html" class="image-square">
+                                    <img src="assets/images/cakes/black forest/black-fores.JPG" class="img-fluid"
+                                        alt="Butter Scotch">
+                                </a>
+
+
+                                <h4 class="cake-title mt-3 mb-1" style="font-weight: 450;">Black Forest Cake
+                                </h4>
+                                <h6 class="rating-star mb-1">
+                                    <span class="star">★★★★☆</span> <span class="rating-value">4</span>
+                                </h6>
+
+                                <p class="mb-2">
+                                    <span style="font-weight: 450; font-size: 1.1rem;">0.5KG</span> -
+                                    <span class="text-dark" style="font-weight: 450;font-size: 1.1rem;">₹599</span>
+                                    <span class="text-secondary"><s>₹699</s></span>
+                                </p>
+
+                                <p class="mb-2">
+                                    <span class="px-3 py-1"
+                                        style="background-color: #eaf8ec; color: #155724; font-weight: 500; border-radius: 8px;">
+                                        20% off
+                                    </span>
+                                </p>
+
+                                <a href="shop.html" class="btn btn-sm rounded-pill px-4 mb-1 mt-1"
+                                    style="background-color: #ff5cba; color: #fff; border: none;">Add to cart
+                                    →</a>
+
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class="col-md-3 col-6">
+                            <div class="product-box text-center p-3"
+                                style="border: 1px solid #dee2e6; border-radius: 20px;" data-price="699"
+                                data-name="Butter Scotch Cake" data-rating="3">
+
+                                <a href="shop.html" class="image-square">
+                                    <img src="assets/images/cakes/butter scotch/butter-scotch.JPG" class="img-fluid"
+                                        alt="Butter Scotch">
+                                </a>
+                                <style>
+                                    .image-square {
+                                        width: 100%;
+                                        /* full width of parent column */
+                                        aspect-ratio: 1/1;
+                                        /* 1:1 ratio */
+                                        overflow: hidden;
+                                        border-radius: 10px;
+                                        /* optional rounded corners */
                                     }
 
-                                    // Save cart
-                                    localStorage.setItem('cart', JSON.stringify(cart));
-
-                                    updateCartUI();
-                                    alert(`${product.name} added to cart!`);
-                                });
-                            });
-
-                            // Remove button (optional)
-                            document.addEventListener('click', function (e) {
-                                if (e.target.classList.contains('remove-btn')) {
-                                    const index = parseInt(e.target.dataset.index);
-                                    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-                                    cart.splice(index, 1);
-                                    localStorage.setItem('cart', JSON.stringify(cart));
-                                    updateCartUI();
-                                }
-                            });
-
-                            // Initialize cart on load
-                            updateCartUI();
-                        });
-                    </script>
+                                    .image-square img {
+                                        width: 100%;
+                                        height: 100%;
+                                        object-fit: cover;
+                                        /* fills container, keeps ratio, crops excess */
+                                        display: block;
+                                    }
+                                </style>
 
 
-                    <style>
-                        .rating-star .star {
-                            color: #FFD700;
-                            /* Golden yellow */
-                            font-size: 1rem;
-                        }
-                    </style>
+                                <h4 class="cake-title mt-3 mb-1" style="font-weight: 450;">Butter Scotch
+                                </h4>
+                                <h6 class="rating-star mb-1">
+                                    <span class="star">★★★★☆</span> <span class="rating-value">4</span>
+                                </h6>
 
-                    <!-- Products Column -->
-                    <div class="products-col flex-grow-1">
+                                <p class="mb-2">
+                                    <span style="font-weight: 450; font-size: 1.1rem;">0.5KG</span> -
+                                    <span class="text-dark" style="font-weight: 450;font-size: 1.1rem;">₹699</span>
+                                    <span class="text-secondary"><s>₹799</s></span>
+                                </p>
 
-                        <!-- Cakes -->
-                        <div class="category-content cakes">
-                            <div class="row g-3 justify-content-center">
-                                <div class="col-md-3 col-6">
-                                    <div class="product-box text-center p-3"
-                                        style="border: 1px solid #dee2e6; border-radius: 20px;" data-price="599"
-                                        data-name="Black Forest Cake" data-rating="4">
+                                <p class="mb-2">
+                                    <span class="px-3 py-1"
+                                        style="background-color: #eaf8ec; color: #155724; font-weight: 500; border-radius: 8px;">
+                                        20% off
+                                    </span>
+                                </p>
 
-                                        <a href="shop.html" class="image-square">
-                                            <img src="assets/images/cakes/black forest/black-fores.JPG"
-                                                class="img-fluid" alt="Butter Scotch">
-                                        </a>
+                                <a href="shop.html" class="btn btn-sm rounded-pill px-4 mb-1 mt-1"
+                                    style="background-color: #ff5cba; color: #fff; border: none;">Add to cart
+                                    →</a>
 
-
-                                        <h4 class="cake-title mt-3 mb-1" style="font-weight: 450;">Black Forest Cake
-                                        </h4>
-                                        <h6 class="rating-star mb-1">
-                                            <span class="star">★★★★☆</span> <span class="rating-value">4</span>
-                                        </h6>
-
-                                        <p class="mb-2">
-                                            <span style="font-weight: 450; font-size: 1.1rem;">0.5KG</span> -
-                                            <span class="text-dark"
-                                                style="font-weight: 450;font-size: 1.1rem;">₹599</span>
-                                            <span class="text-secondary"><s>₹699</s></span>
-                                        </p>
-
-                                        <p class="mb-2">
-                                            <span class="px-3 py-1"
-                                                style="background-color: #eaf8ec; color: #155724; font-weight: 500; border-radius: 8px;">
-                                                20% off
-                                            </span>
-                                        </p>
-
-                                        <a href="shop.html" class="btn btn-sm rounded-pill px-4 mb-1 mt-1"
-                                            style="background-color: #ff5cba; color: #fff; border: none;">Add to cart
-                                            →</a>
-
-                                    </div>
-                                </div>
-
-
-
-
-
-                                <div class="col-md-3 col-6">
-                                    <div class="product-box text-center p-3"
-                                        style="border: 1px solid #dee2e6; border-radius: 20px;" data-price="699"
-                                        data-name="Butter Scotch Cake" data-rating="3">
-
-                                        <a href="shop.html" class="image-square">
-                                            <img src="assets/images/cakes/butter scotch/butter-scotch.JPG"
-                                                class="img-fluid" alt="Butter Scotch">
-                                        </a>
-                                        <style>
-                                            .image-square {
-                                                width: 100%;
-                                                /* full width of parent column */
-                                                aspect-ratio: 1/1;
-                                                /* 1:1 ratio */
-                                                overflow: hidden;
-                                                border-radius: 10px;
-                                                /* optional rounded corners */
-                                            }
-
-                                            .image-square img {
-                                                width: 100%;
-                                                height: 100%;
-                                                object-fit: cover;
-                                                /* fills container, keeps ratio, crops excess */
-                                                display: block;
-                                            }
-                                        </style>
-
-
-                                        <h4 class="cake-title mt-3 mb-1" style="font-weight: 450;">Butter Scotch Cake
-                                        </h4>
-                                        <h6 class="rating-star mb-1">
-                                            <span class="star">★★★★☆</span> <span class="rating-value">4</span>
-                                        </h6>
-
-                                        <p class="mb-2">
-                                            <span style="font-weight: 450; font-size: 1.1rem;">0.5KG</span> -
-                                            <span class="text-dark"
-                                                style="font-weight: 450;font-size: 1.1rem;">₹699</span>
-                                            <span class="text-secondary"><s>₹799</s></span>
-                                        </p>
-
-                                        <p class="mb-2">
-                                            <span class="px-3 py-1"
-                                                style="background-color: #eaf8ec; color: #155724; font-weight: 500; border-radius: 8px;">
-                                                20% off
-                                            </span>
-                                        </p>
-
-                                        <a href="shop.html" class="btn btn-sm rounded-pill px-4 mb-1 mt-1"
-                                            style="background-color: #ff5cba; color: #fff; border: none;">Add to cart
-                                            →</a>
-
-                                    </div>
-                                </div>
-
-
-                                <!-- Repeat for other cakes similarly... -->
                             </div>
                         </div>
 
-                        <!-- Desserts -->
-                        <div class="category-content desserts mt-4">
-                            <div class="row g-3 justify-content-center">
-                                <div class="col-md-3 col-6">
-                                    <div class="product-box text-center p-3"
-                                        style="border: 1px solid #dee2e6; border-radius: 20px;" data-price="440"
-                                        data-name="Cheesecake" data-rating="3.4">
 
-                                        <a href="shop.html" class="image-square">
-                                            <img src="assets/images/desserts/cheese_cake.jpeg" class="img-fluid"
-                                                alt="Cheesecake">
-                                        </a>
-
-                                        <h4 class="cake-title mt-3 mb-1" style="font-weight: 450;">Cheesecake</h4>
-
-                                        <h6 class="rating-star mb-1">
-                                            <span class="star" style="color: #FFD700;">★★★★☆</span>
-                                            <span class="rating-value">3.4</span>
-                                        </h6>
-
-                                        <p class="mb-2">
-                                            <span style="font-weight: 450; font-size: 1.1rem;">0.5KG</span> -
-                                            <span class="text-dark"
-                                                style="font-weight: 450; font-size: 1.1rem;">₹440</span>
-                                            <span class="text-secondary"><s>₹550</s></span>
-                                        </p>
-
-                                        <p class="mb-2">
-                                            <span class="px-3 py-1"
-                                                style="background-color: #eaf8ec; color: #155724; font-weight: 500; border-radius: 8px;">
-                                                20% off
-                                            </span>
-                                        </p>
-
-                                        <a href="shop.html" class="btn btn-sm rounded-pill px-4 mb-1 mt-1"
-                                            style="background-color: #ff5cba; color: #fff; border: none;">Add to cart
-                                            →</a>
-
-                                    </div>
-                                </div>
-
-
-                                <div class="col-md-3 col-6">
-                                    <div class="product-box text-center p-3"
-                                        style="border: 1px solid #dee2e6; border-radius: 20px;" data-price="440"
-                                        data-name="Cheesecake" data-rating="3.4">
-
-                                        <a href="shop.html" class="image-square">
-                                            <img src="assets/images/desserts/Chocolate_mousse.jpeg" class="img-fluid"
-                                                alt="Chocolate Mousse">
-                                        </a>
-
-                                        <h4 class="cake-title mt-3 mb-1" style="font-weight: 450;">Chocolate Mousse</h4>
-
-                                        <h6 class="rating-star mb-1">
-                                            <span class="star" style="color: #FFD700;">★★★★☆</span>
-                                            <span class="rating-value">3.4</span>
-                                        </h6>
-
-                                        <p class="mb-2">
-                                            <span style="font-weight: 450; font-size: 1.1rem;">0.5KG</span> -
-                                            <span class="text-dark"
-                                                style="font-weight: 450; font-size: 1.1rem;">₹440</span>
-                                            <span class="text-secondary"><s>₹550</s></span>
-                                        </p>
-
-                                        <p class="mb-2">
-                                            <span class="px-3 py-1"
-                                                style="background-color: #eaf8ec; color: #155724; font-weight: 500; border-radius: 8px;">
-                                                20% off
-                                            </span>
-                                        </p>
-
-                                        <a href="shop.html" class="btn btn-sm rounded-pill px-4 mb-1 mt-1"
-                                            style="background-color: #ff5cba; color: #fff; border: none;">Add to cart
-                                            →</a>
-
-                                    </div>
-                                </div>
-
-
-
-                                <!-- Repeat for other desserts similarly... -->
-                            </div>
-                        </div>
-
-                        <!-- Specials -->
-                        <div class="category-content specials mt-4">
-                            <div class="row g-3 justify-content-center">
-                                <div class="col-md-3 col-6">
-                                    <div class="product-box text-center p-3"
-                                        style="border: 1px solid #dee2e6; border-radius: 20px;" data-price="799"
-                                        data-name="Chocolate Truffle" data-rating="3.6">
-
-                                        <a href="shop.html">
-                                            <img src="assets/images/specials/Chocolate_Truffle.jpeg" class="img-fluid"
-                                                alt="Chocolate Truffle" style="border-radius: 10px;">
-                                        </a>
-
-                                        <h4 class="cake-title mt-3 mb-1" style="font-weight: 450;">Chocolate Truffle
-                                        </h4>
-
-                                        <h6 class="rating-star mb-1">
-                                            <span class="star" style="color: #FFD700;">★★★★☆</span>
-                                            <span class="rating-value">3.6</span>
-                                        </h6>
-
-                                        <p class="mb-2">
-                                            <span style="font-weight: 450; font-size: 1.1rem;">0.5KG</span> -
-                                            <span class="text-dark"
-                                                style="font-weight: 450; font-size: 1.1rem;">₹799</span>
-                                            <span class="text-secondary"><s>₹950</s></span>
-                                        </p>
-
-                                        <p class="mb-2">
-                                            <span class="px-3 py-1"
-                                                style="background-color: #eaf8ec; color: #155724; font-weight: 500; border-radius: 8px;">
-                                                16% off
-                                            </span>
-                                        </p>
-
-                                        <a href="shop.html" class="btn btn-sm rounded-pill px-4 mb-1 mt-1"
-                                            style="background-color: #ff5cba; color: #fff; border: none;">Add to cart
-                                            →</a>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-6">
-                                    <div class="product-box text-center p-3"
-                                        style="border: 1px solid #dee2e6; border-radius: 20px;" data-price="799"
-                                        data-name="Chocolate Truffle" data-rating="3.6">
-
-                                        <a href="shop.html">
-                                            <img src="assets/images/specials/cupcakes.jpeg" class="img-fluid"
-                                                alt="Chocolate Truffle" style="border-radius: 10px;">
-                                        </a>
-
-                                        <h4 class="cake-title mt-3 mb-1" style="font-weight: 450;">Cupcake
-                                        </h4>
-
-                                        <h6 class="rating-star mb-1">
-                                            <span class="star" style="color: #FFD700;">★★★★☆</span>
-                                            <span class="rating-value">3.6</span>
-                                        </h6>
-
-                                        <p class="mb-2">
-                                            <span style="font-weight: 450; font-size: 1.1rem;">0.5KG</span> -
-                                            <span class="text-dark"
-                                                style="font-weight: 450; font-size: 1.1rem;">₹799</span>
-                                            <span class="text-secondary"><s>₹950</s></span>
-                                        </p>
-
-                                        <p class="mb-2">
-                                            <span class="px-3 py-1"
-                                                style="background-color: #eaf8ec; color: #155724; font-weight: 500; border-radius: 8px;">
-                                                16% off
-                                            </span>
-                                        </p>
-
-                                        <a href="shop.html" class="btn btn-sm rounded-pill px-4 mb-1 mt-1"
-                                            style="background-color: #ff5cba; color: #fff; border: none;">Add to cart
-                                            →</a>
-
-                                    </div>
-                                </div>
-
-
-                                <!-- Repeat for other specials similarly... -->
-                            </div>
-                        </div>
-
+                        <!-- Repeat for other cakes similarly... -->
                     </div>
-
-                    <!-- Add remaining special products here -->
                 </div>
+
+                <!-- Desserts -->
+                <div class="category-content desserts mt-4">
+                    <div class="row g-3 justify-content-center">
+                        <div class="col-md-3 col-6">
+                            <div class="product-box text-center p-3"
+                                style="border: 1px solid #dee2e6; border-radius: 20px;" data-price="440"
+                                data-name="Cheesecake" data-rating="3.4">
+
+                                <a href="shop.html" class="image-square">
+                                    <img src="assets/images/desserts/cheese_cake.jpeg" class="img-fluid"
+                                        alt="Cheesecake">
+                                </a>
+
+                                <h4 class="cake-title mt-3 mb-1" style="font-weight: 450;">Cheesecake</h4>
+
+                                <h6 class="rating-star mb-1">
+                                    <span class="star" style="color: #FFD700;">★★★★☆</span>
+                                    <span class="rating-value">3.4</span>
+                                </h6>
+
+                                <p class="mb-2">
+                                    <span style="font-weight: 450; font-size: 1.1rem;">0.5KG</span> -
+                                    <span class="text-dark" style="font-weight: 450; font-size: 1.1rem;">₹440</span>
+                                    <span class="text-secondary"><s>₹550</s></span>
+                                </p>
+
+                                <p class="mb-2">
+                                    <span class="px-3 py-1"
+                                        style="background-color: #eaf8ec; color: #155724; font-weight: 500; border-radius: 8px;">
+                                        20% off
+                                    </span>
+                                </p>
+
+                                <a href="shop.html" class="btn btn-sm rounded-pill px-4 mb-1 mt-1"
+                                    style="background-color: #ff5cba; color: #fff; border: none;">Add to cart
+                                    →</a>
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-3 col-6">
+                            <div class="product-box text-center p-3"
+                                style="border: 1px solid #dee2e6; border-radius: 20px;" data-price="440"
+                                data-name="Cheesecake" data-rating="3.4">
+
+                                <a href="shop.html" class="image-square">
+                                    <img src="assets/images/desserts/Chocolate_mousse.jpeg" class="img-fluid"
+                                        alt="Chocolate Mousse">
+                                </a>
+
+                                <h4 class="cake-title mt-3 mb-1" style="font-weight: 450;">Chocolate Mousse</h4>
+
+                                <h6 class="rating-star mb-1">
+                                    <span class="star" style="color: #FFD700;">★★★★☆</span>
+                                    <span class="rating-value">3.4</span>
+                                </h6>
+
+                                <p class="mb-2">
+                                    <span style="font-weight: 450; font-size: 1.1rem;">0.5KG</span> -
+                                    <span class="text-dark" style="font-weight: 450; font-size: 1.1rem;">₹440</span>
+                                    <span class="text-secondary"><s>₹550</s></span>
+                                </p>
+
+                                <p class="mb-2">
+                                    <span class="px-3 py-1"
+                                        style="background-color: #eaf8ec; color: #155724; font-weight: 500; border-radius: 8px;">
+                                        20% off
+                                    </span>
+                                </p>
+
+                                <a href="shop.html" class="btn btn-sm rounded-pill px-4 mb-1 mt-1"
+                                    style="background-color: #ff5cba; color: #fff; border: none;">Add to cart
+                                    →</a>
+
+                            </div>
+                        </div>
+
+
+
+                        <!-- Repeat for other desserts similarly... -->
+                    </div>
+                </div>
+
+                <!-- Specials -->
+                <div class="category-content specials mt-4">
+                    <div class="row g-3 justify-content-center">
+                        <div class="col-md-3 col-6">
+                            <div class="product-box text-center p-3"
+                                style="border: 1px solid #dee2e6; border-radius: 20px;" data-price="799"
+                                data-name="Chocolate Truffle" data-rating="3.6">
+
+                                <a href="shop.html">
+                                    <img src="assets/images/specials/Chocolate_Truffle.jpeg" class="img-fluid"
+                                        alt="Chocolate Truffle" style="border-radius: 10px;">
+                                </a>
+
+                                <h4 class="cake-title mt-3 mb-1" style="font-weight: 450;">Chocolate Truffle
+                                </h4>
+
+                                <h6 class="rating-star mb-1">
+                                    <span class="star" style="color: #FFD700;">★★★★☆</span>
+                                    <span class="rating-value">3.6</span>
+                                </h6>
+
+                                <p class="mb-2">
+                                    <span style="font-weight: 450; font-size: 1.1rem;">0.5KG</span> -
+                                    <span class="text-dark" style="font-weight: 450; font-size: 1.1rem;">₹799</span>
+                                    <span class="text-secondary"><s>₹950</s></span>
+                                </p>
+
+                                <p class="mb-2">
+                                    <span class="px-3 py-1"
+                                        style="background-color: #eaf8ec; color: #155724; font-weight: 500; border-radius: 8px;">
+                                        16% off
+                                    </span>
+                                </p>
+
+                                <a href="shop.html" class="btn btn-sm rounded-pill px-4 mb-1 mt-1"
+                                    style="background-color: #ff5cba; color: #fff; border: none;">Add to cart
+                                    →</a>
+
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <div class="product-box text-center p-3"
+                                style="border: 1px solid #dee2e6; border-radius: 20px;" data-price="799"
+                                data-name="Chocolate Truffle" data-rating="3.6">
+
+                                <a href="shop.html">
+                                    <img src="assets/images/specials/cupcakes.jpeg" class="img-fluid"
+                                        alt="Chocolate Truffle" style="border-radius: 10px;">
+                                </a>
+
+                                <h4 class="cake-title mt-3 mb-1" style="font-weight: 450;">Cupcake
+                                </h4>
+
+                                <h6 class="rating-star mb-1">
+                                    <span class="star" style="color: #FFD700;">★★★★☆</span>
+                                    <span class="rating-value">3.6</span>
+                                </h6>
+
+                                <p class="mb-2">
+                                    <span style="font-weight: 450; font-size: 1.1rem;">0.5KG</span> -
+                                    <span class="text-dark" style="font-weight: 450; font-size: 1.1rem;">₹799</span>
+                                    <span class="text-secondary"><s>₹950</s></span>
+                                </p>
+
+                                <p class="mb-2">
+                                    <span class="px-3 py-1"
+                                        style="background-color: #eaf8ec; color: #155724; font-weight: 500; border-radius: 8px;">
+                                        16% off
+                                    </span>
+                                </p>
+
+                                <a href="shop.html" class="btn btn-sm rounded-pill px-4 mb-1 mt-1"
+                                    style="background-color: #ff5cba; color: #fff; border: none;">Add to cart
+                                    →</a>
+
+                            </div>
+                        </div>
+
+
+                        <!-- Repeat for other specials similarly... -->
+                    </div>
+                </div>
+
             </div>
+
+            <!-- Add remaining special products here -->
+        </div>
+        </div>
 
     </section>
 
@@ -1171,8 +1167,9 @@
                             <img class="img-fluid logo" src="assets/images/logo/logo.png" alt="logo"
                                 style="max-width:200px; height:auto;">
 
-                            <p style="font-size:30px; font-weight:600; margin-top:10px;">Celebrate with us!
-                            </p>
+                              <h1 style="font-size:50px; font-weight:700; margin-top:10px; color:white; line-height:1.3;">
+  Celebrate <br>with us!
+</h1>
 
                             <div class="social-media-part">
                                 <ul class="social-icon">
