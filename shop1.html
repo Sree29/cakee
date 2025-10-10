@@ -389,98 +389,120 @@
         <div class="container">
             <div class="d-flex flex-column flex-lg-row gap-3">
 
-                <div class="d-flex flex-row flex-md-column gap-2">
-                    <!-- Filter Card -->
-                    <div class="dropdown filter-card border rounded d-flex align-items-center justify-content-center"
-                        style="cursor:pointer;">
-                        <button id="filterDropdown" class="dropdown-toggle btn btn-sm border-0 bg-transparent"
-                            type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Filter
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="filterDropdown"
-                            style="min-width: 180px; white-space: normal;">
-                            <li style="display: block;"><a class="dropdown-item d-block w-100" href="#"
-                                    data-value="all">All</a></li>
-                            <li style="display: block;"><a class="dropdown-item d-block w-100" href="#"
-                                    data-value="0-399">₹0 - ₹399</a></li>
-                            <li style="display: block;"><a class="dropdown-item d-block w-100" href="#"
-                                    data-value="400-599">₹400 - ₹599</a></li>
-                            <li style="display: block;"><a class="dropdown-item d-block w-100" href="#"
-                                    data-value="600-799">₹600 - ₹799</a></li>
-                            <li style="display: block;"><a class="dropdown-item d-block w-100" href="#"
-                                    data-value="800-999">₹800 - ₹999</a></li>
-                            <li style="display: block;"><a class="dropdown-item d-block w-100" href="#"
-                                    data-value="2000+">₹10000 & Above</a></li>
-                        </ul>
+                
 
-                    </div>
+                <div class="filter-sidebar">
+    <div class="d-flex flex-row flex-md-column gap-2">
+        <!-- Filter Card -->
+        <div class="dropdown filter-card border rounded d-flex align-items-center justify-content-center"
+             style="cursor:pointer;">
+            <button id="filterDropdown" class="dropdown-toggle btn btn-sm border-0 bg-transparent"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Filter
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="filterDropdown"
+                style="min-width: 180px; white-space: normal;">
+                <li><a class="dropdown-item d-block w-100" href="#" data-value="all">All</a></li>
+                <li><a class="dropdown-item d-block w-100" href="#" data-value="0-399">₹0 - ₹399</a></li>
+                <li><a class="dropdown-item d-block w-100" href="#" data-value="400-599">₹400 - ₹599</a></li>
+                <li><a class="dropdown-item d-block w-100" href="#" data-value="600-799">₹600 - ₹799</a></li>
+                <li><a class="dropdown-item d-block w-100" href="#" data-value="800-999">₹800 - ₹999</a></li>
+                <li><a class="dropdown-item d-block w-100" href="#" data-value="2000+">₹10000 & Above</a></li>
+            </ul>
+        </div>
+
+        <!-- Sort Card -->
+        <div class="dropdown sort-card border rounded d-flex align-items-center justify-content-center"
+             style="cursor:pointer;">
+            <button id="sortDropdown" class="dropdown-toggle btn btn-sm border-0 bg-transparent"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Sort
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="sortDropdown">
+                <li><a class="dropdown-item" href="#" data-value="default">Default</a></li>
+                <li><a class="dropdown-item" href="#" data-value="price-asc">Price: Low to High</a></li>
+                <li><a class="dropdown-item" href="#" data-value="price-desc">Price: High to Low</a></li>
+                <li><a class="dropdown-item" href="#" data-value="name-asc">Name: A-Z</a></li>
+                <li><a class="dropdown-item" href="#" data-value="name-desc">Name: Z-A</a></li>
+            </ul>
+        </div>
+
+        <!-- Rating Card -->
+        <div class="dropdown rating-card border rounded d-flex align-items-center justify-content-center"
+             style="cursor:pointer;">
+            <button id="ratingDropdown" class="dropdown-toggle btn btn-sm border-0 bg-transparent"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Rating
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="ratingDropdown">
+                <li><a class="dropdown-item" href="#" data-value="all">All</a></li>
+                <li><a class="dropdown-item" href="#" data-value="4">4 ★ & above</a></li>
+                <li><a class="dropdown-item" href="#" data-value="3">3 ★ & above</a></li>
+                <li><a class="dropdown-item" href="#" data-value="2">2 ★ & above</a></li>
+                <li><a class="dropdown-item" href="#" data-value="1">1 ★ & above</a></li>
+            </ul>
+        </div>
+
+        <!-- Egg Card -->
+        <div class="dropdown egg-card border rounded d-flex align-items-center justify-content-center"
+             style="cursor:pointer;">
+            <button id="eggDropdown" class="dropdown-toggle btn btn-sm border-0 bg-transparent"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Egg
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="eggDropdown"
+                style="min-width: 180px; white-space: normal;">
+                <li><a class="dropdown-item" href="#" data-value="all">All</a></li>
+                <li><a class="dropdown-item" href="#" data-value="egg">With Egg</a></li>
+                <li><a class="dropdown-item" href="#" data-value="no-egg">Eggless</a></li>
+            </ul>
+        </div>
+
+        <!-- Sugar Card -->
+        <div class="dropdown sugar-card border rounded d-flex align-items-center justify-content-center"
+             style="cursor:pointer;">
+            <button id="sugarDropdown" class="dropdown-toggle btn btn-sm border-0 bg-transparent"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Sugar
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="sugarDropdown"
+                style="min-width: 180px; white-space: normal;">
+                <li><a class="dropdown-item" href="#" data-value="all">All</a></li>
+                <li><a class="dropdown-item" href="#" data-value="sugar">With Sugar</a></li>
+                <li><a class="dropdown-item" href="#" data-value="sugar-free">Sugar Free</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<style>
+ /* Sidebar fixed on desktop */
+.filter-sidebar {
+    position: fixed;
+    top: 100px; /* adjust for navbar */
+    left: 20px; /* distance from left container edge */
+    width: 200px; /* sidebar width */
+    z-index: 1000;
+}
+
+/* Ensure main content doesn’t overlap */
+.main-content {
+    margin-left: 240px; /* sidebar width + spacing */
+}
+
+/* Mobile: sidebar behaves normally */
+@media (max-width: 991px) {
+    .filter-sidebar {
+        position: static;
+        width: 100%;
+        margin-left: 0;
+    }
+    .main-content {
+        margin-left: 0;
+    }
+}
 
 
-                    <!-- Sort Card -->
-                    <div class="dropdown sort-card border rounded d-flex align-items-center justify-content-center"
-                        style="cursor:pointer;">
-                        <button id="sortDropdown" class="dropdown-toggle btn btn-sm border-0 bg-transparent"
-                            type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Sort
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="sortDropdown">
-                            <li><a class="dropdown-item" href="#" data-value="default">Default</a></li>
-                            <li><a class="dropdown-item" href="#" data-value="price-asc">Price: Low to High</a></li>
-                            <li><a class="dropdown-item" href="#" data-value="price-desc">Price: High to Low</a></li>
-                            <li><a class="dropdown-item" href="#" data-value="name-asc">Name: A-Z</a></li>
-                            <li><a class="dropdown-item" href="#" data-value="name-desc">Name: Z-A</a></li>
-                        </ul>
-                    </div>
-
-
-
-                    <!-- Rating Card -->
-                    <div class="dropdown rating-card border rounded d-flex align-items-center justify-content-center"
-                        style="cursor:pointer;">
-                        <button id="ratingDropdown" class="dropdown-toggle btn btn-sm border-0 bg-transparent"
-                            type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Rating
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="ratingDropdown">
-                            <li><a class="dropdown-item" href="#" data-value="all">All</a></li>
-                            <li><a class="dropdown-item" href="#" data-value="4">4 ★ & above</a></li>
-                            <li><a class="dropdown-item" href="#" data-value="3">3 ★ & above</a></li>
-                            <li><a class="dropdown-item" href="#" data-value="2">2 ★ & above</a></li>
-                            <li><a class="dropdown-item" href="#" data-value="1">1 ★ & above</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Egg Card -->
-                    <div class="dropdown egg-card border rounded d-flex align-items-center justify-content-center"
-                        style="cursor:pointer;">
-                        <button id="eggDropdown" class="dropdown-toggle btn btn-sm border-0 bg-transparent"
-                            type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Egg
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="eggDropdown"
-                            style="min-width: 180px; white-space: normal;">
-                            <li><a class="dropdown-item" href="#" data-value="all">All</a></li>
-                            <li><a class="dropdown-item" href="#" data-value="egg">With Egg</a></li>
-                            <li><a class="dropdown-item" href="#" data-value="no-egg">Eggless</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Sugar Card -->
-                    <div class="dropdown sugar-card border rounded d-flex align-items-center justify-content-center"
-                        style="cursor:pointer;">
-                        <button id="sugarDropdown" class="dropdown-toggle btn btn-sm border-0 bg-transparent"
-                            type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Sugar
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="sugarDropdown"
-                            style="min-width: 180px; white-space: normal;">
-                            <li><a class="dropdown-item" href="#" data-value="all">All</a></li>
-                            <li><a class="dropdown-item" href="#" data-value="sugar">With Sugar</a></li>
-                            <li><a class="dropdown-item" href="#" data-value="sugar-free">Sugar Free</a></li>
-                        </ul>
-                    </div>
-
-                </div>
+</style>
 
 
                 <script>
@@ -826,6 +848,7 @@
                                 display: block;
                             }
 
+
                             .image-square img {
                                 width: 100%;
                                 height: 100%;
@@ -938,8 +961,7 @@
                                     <img src="assets/images/desserts/Chocolate_mousse.jpeg" class="img-fluid"
                                         alt="Chocolate Mousse">
                                 </a>
-
-                                <h4 class="cake-title mt-3 mb-1" style="font-weight: 450;">Chocolate Mousse</h4>
+                      <h4 class="cake-title mt-3 mb-1" style="font-weight: 450;">Chocolate Mousse</h4>
 
                                 <h6 class="rating-star mb-1">
                                     <span class="star" style="color: #FFD700;">★★★★☆</span>
@@ -1028,10 +1050,6 @@
                                 </style>
                             </div>
                         </div>
-
-
-
-
                         <!-- Repeat for other specials similarly... -->
                     </div>
                 </div>
@@ -1040,7 +1058,7 @@
 
             <!-- Add remaining special products here -->
         </div>
-        </div>
+    
 
     </section>
 
