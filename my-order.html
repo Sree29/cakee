@@ -619,13 +619,35 @@
                             </li>
 
                         </ul>
-                        <div class="mt-3 d-flex justify-content-end">
-                            <a href="#log-out" data-bs-toggle="modal" class="btn btn-sm"
-                                style="color:#fe0094; border: 1px solid #fe0094;">
-                                <i class="ri-logout-box-line"></i> Logout
+                        <div class="mt-4 d-flex justify-content-center">
+                            <a href="#log-out" data-bs-toggle="modal" class="btn logout-btn">
+                                <i class="ri-logout-box-line me-1"></i> Logout
                             </a>
-
                         </div>
+                        <style>
+                            .logout-btn {
+                                padding: 10px 25px;
+                                /* Bigger button */
+                                font-size: 1rem;
+                                /* Slightly larger text */
+                                color: #fff;
+                                /* Text color white */
+                                background-color: #ff0000;
+                                /* Red background */
+                                border: 2px solid #ff0000;
+                                /* Red border */
+                                border-radius: 50px;
+                                /* Fully rounded pill */
+                                transition: 0.3s;
+                            }
+
+                            .logout-btn:hover {
+                                background-color: #cc0000;
+                                /* Darker red on hover */
+                                border-color: #cc0000;
+                                color: #fff;
+                            }
+                        </style>
 
                     </div>
                 </div>
