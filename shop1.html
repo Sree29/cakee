@@ -9,7 +9,7 @@
     <meta name="keywords" content="zomo">
     <meta name="author" content="zomo">
     <link rel="icon" href="assets/images/logo/favicon.png" type="image/x-icon">
-    <title>Cakee</title>
+    <title>Cakee — Product</title>
     <link rel="apple-touch-icon" href="assets/images/logo/favicon.png">
     <meta name="theme-color" content="#fe0094">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -28,7 +28,7 @@
     <!-- bootstrap css -->
     <link rel="stylesheet" type="text/css" id="rtl-link" href="assets/css/vendors/bootstrap.css">
 
-    <!-- swiper css -->
+    <!-- swiper css (optional) -->
     <link rel="stylesheet" type="text/css" href="assets/css/vendors/swiper-bundle.min.css">
 
     <!-- remixicon css -->
@@ -37,17 +37,146 @@
     <!-- Theme css -->
     <link rel="stylesheet" id="change-link" type="text/css" href="assets/css/style.css">
 
-    <!-- font awsome -->
+    <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <style>
+        /* Page-specific styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
 
+        .product-hero {
+            padding: 40px 0;
+        }
+
+        .product-gallery {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 18px;
+        }
+
+        .product-img-main {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .thumb-list img {
+            width: 86px;
+            height: 72px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .thumb-list img.active {
+            border-color: #10a500;
+        }
+
+        .wishlist-icon {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 6px 14px rgba(16, 16, 16, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 6;
+            transition: transform .15s ease;
+        }
+
+        .wishlist-icon:hover {
+            transform: scale(1.06);
+        }
+
+        .wishlist-icon i {
+            font-size: 18px;
+            color: #ff4d4f;
+        }
+
+        .product-details {
+            background: #fff;
+            border-radius: 12px;
+            padding: 22px;
+        }
+
+        .price-old {
+            text-decoration: line-through;
+            color: #777;
+            margin-right: 8px;
+        }
+
+        .price-new {
+            font-weight: 700;
+            font-size: 22px;
+            color: #222;
+        }
+
+        .badge-off {
+            background: linear-gradient(90deg, #10a500, #1fae32);
+            color: #fff;
+            padding: 6px 10px;
+            border-radius: 8px;
+            font-size: 13px;
+        }
+
+        .option-btn {
+            min-width: 60px;
+            border-radius: 8px;
+        }
+
+        .option-btn.active {
+            background: #10a500;
+            color: #fff;
+            border-color: #10a500;
+        }
+
+        .add-cart {
+            background: linear-gradient(90deg, #ff6b6b, #ff4d4f);
+            color: #fff;
+            border-radius: 10px;
+            padding: 10px 14px;
+            border: none;
+        }
+
+        /* small helpers */
+        .muted-small {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .rating-star {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #ffb400;
+            font-weight: 600;
+        }
+
+        /* toast */
+        .cart-toast {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            z-index: 1200;
+            display: none;
+        }
+    </style>
 </head>
 
 <body class="position-relative">
 
-    <!-- Header section start -->
+    <!-- Header (user-provided) -->
     <header>
         <div class="container">
             <nav class="navbar navbar-expand-lg p-0">
@@ -120,144 +249,46 @@
                     }
                 </style>
 
-
                 <!-- </div>    -->
 
 
 
                 <div class="nav-option order-md-2">
                     <div class="dropdown-button">
-                        <div class="cart-button">
-                            <span>5</span>
+                        <a href="checkout.html" class="cart-button">
+                            <span id="cart-count">0</span>
                             <i class="ri-shopping-cart-line text-white cart-bag"></i>
-                        </div>
-                        <div class="onhover-box">
-                            <ul class="cart-list">
-                                <li class="product-box-contain">
-                                    <div class="drop-cart">
-                                        <a href="#!" class="drop-image">
-                                            <img src="assets/images/product/vp-3.png" class="blur-up lazyloaded" alt="">
-                                        </a>
-                                        <div class="drop-contain">
-                                            <a href="#!">
-                                                <h5>Egg Sandwich</h5>
-                                            </a>
-                                            <h6><span>1 x </span> ₹80.58</h6>
-                                            <button class="close-button close_button">
-                                                <i class="fa-solid fa-xmark"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="product-box-contain">
-                                    <div class="drop-cart">
-                                        <a href="#!" class="drop-image">
-                                            <img src="assets/images/product/vp-2.png" class="blur-up lazyloaded" alt="">
-                                        </a>
-                                        <div class="drop-contain">
-                                            <a href="#!">
-                                                <h5>Grilled Chicken Quesadilla</h5>
-                                            </a>
-                                            <h6><span>1 x </span> ₹25.64</h6>
-                                            <button class="close-button close_button">
-                                                <i class="fa-solid fa-xmark"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="product-box-contain">
-                                    <div class="drop-cart">
-                                        <a href="#!" class="drop-image">
-                                            <img src="assets/images/product/vp-4.png" class="blur-up lazyloaded" alt="">
-                                        </a>
-                                        <div class="drop-contain">
-                                            <a href="#!">
-                                                <h5>Spicy Ahi Roll</h5>
-                                            </a>
-                                            <h6><span>1 x </span> ₹12.00</h6>
-                                            <button class="close-button close_button">
-                                                <i class="fa-solid fa-xmark"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="product-box-contain">
-                                    <div class="drop-cart">
-                                        <a href="#!" class="drop-image">
-                                            <img src="assets/images/product/vp-5.png" class="blur-up lazyloaded" alt="">
-                                        </a>
-                                        <div class="drop-contain">
-                                            <a href="#!">
-                                                <h5>Spicy Dumplings</h5>
-                                            </a>
-                                            <h6><span>1 x </span> ₹16.28</h6>
-                                            <button class="close-button close_button">
-                                                <i class="fa-solid fa-xmark"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="product-box-contain">
-                                    <div class="drop-cart">
-                                        <a href="#!" class="drop-image">
-                                            <img src="assets/images/product/vp-6.png" class="blur-up lazyloaded" alt="">
-                                        </a>
-                                        <div class="drop-contain">
-                                            <a href="#!">
-                                                <h5>Chicken Nugget</h5>
-                                            </a>
-                                            <h6><span>1 x </span> ₹20.50</h6>
-                                            <button class="close-button close_button">
-                                                <i class="fa-solid fa-xmark"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                            <div class="price-box">
-                                <h5>Total :</h5>
-                                <h4 class="theme-color fw-semibold">₹155.00</h4>
-                            </div>
-                            <div class="button-group">
-                                <a href="checkout.html" class="btn btn-sm theme-btn w-100 d-block rounded-2">View
-                                    Cart</a>
-                            </div>
-                        </div>
-                        <!-- <a href="checkout.html" class="cart-button">
-  <span id="cart-count">0</span>
-  <i class="ri-shopping-cart-line text-white cart-bag"></i>
-</a>
+                        </a>
 
-<script>
-  const cartCountEl = document.getElementById('cart-count');
+                        <script>
+                            const cartCountEl = document.getElementById('cart-count');
 
-  // Load cart from localStorage
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                            // Load cart from localStorage
+                            let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-  // Function to update cart count
-  function updateCartCount() {
-    cartCountEl.textContent = cart.length;
-  }
+                            // Function to update cart count
+                            function updateCartCount() {
+                                cartCountEl.textContent = cart.length;
+                            }
 
-  // Initial count
-  updateCartCount();
+                            // Initial count
+                            updateCartCount();
 
-  // Add to cart buttons
-  document.querySelectorAll('.add-to-cart').forEach(button => {
-    button.addEventListener('click', () => {
-      const product = {
-        name: button.getAttribute('data-name'),
-        price: button.getAttribute('data-price'),
-        image: button.getAttribute('data-image') || ''
-      };
+                            // Add to cart buttons
+                            document.querySelectorAll('.add-to-cart').forEach(button => {
+                                button.addEventListener('click', () => {
+                                    const product = {
+                                        name: button.getAttribute('data-name'),
+                                        price: button.getAttribute('data-price'),
+                                        image: button.getAttribute('data-image') || ''
+                                    };
 
-      cart.push(product);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      updateCartCount();
-    });
-  });
-</script> -->
-
+                                    cart.push(product);
+                                    localStorage.setItem('cart', JSON.stringify(cart));
+                                    updateCartCount();
+                                });
+                            });
+                        </script>
 
 
                     </div>
@@ -296,6 +327,7 @@
             </nav>
         </div>
     </header>
+    <!-- Header end -->
     <!-- Header Section end -->
 
     <!-- home section start -->
@@ -389,118 +421,81 @@
         <div class="container">
             <div class="d-flex flex-column flex-lg-row gap-3">
 
-                
+                <div class="d-flex overflow-auto gap-2 py-2 scroll-headings">
+    <!-- Only the heading buttons -->
+    <button id="filterDropdown" class="btn btn-sm border rounded flex-shrink-0" type="button" data-bs-toggle="dropdown">
+        Filter
+    </button>
+     <ul class="dropdown-menu" aria-labelledby="filterDropdown"
+                            style="min-width: 180px; white-space: normal;">
+                            <li style="display: block;"><a class="dropdown-item d-block w-100" href="#"
+                                    data-value="all">All</a></li>
+                            <li style="display: block;"><a class="dropdown-item d-block w-100" href="#"
+                                    data-value="0-399">₹0 - ₹399</a></li>
+                            <li style="display: block;"><a class="dropdown-item d-block w-100" href="#"
+                                    data-value="400-599">₹400 - ₹599</a></li>
+                            <li style="display: block;"><a class="dropdown-item d-block w-100" href="#"
+                                    data-value="600-799">₹600 - ₹799</a></li>
+                            <li style="display: block;"><a class="dropdown-item d-block w-100" href="#"
+                                    data-value="800-999">₹800 - ₹999</a></li>
+                            <li style="display: block;"><a class="dropdown-item d-block w-100" href="#"
+                                    data-value="2000+">₹10000 & Above</a></li>
+                        </ul>
+ 
+    <button id="sortDropdown" class="btn btn-sm border rounded flex-shrink-0" type="button" data-bs-toggle="dropdown">
+        Sort
+    </button>
+ <ul class="dropdown-menu" aria-labelledby="filterDropdown"
+                            style="min-width: 180px; white-space: normal;">
+    <li style="display: block;"><a class="dropdown-item d-block w-100" href="#" data-value="default">Default</a></li>
+    <li style="display: block;"><a class="dropdown-item d-block w-100" href="#" data-value="price-asc">Price: Low to High</a></li>
+    <li style="display: block;"><a class="dropdown-item d-block w-100" href="#" data-value="price-desc">Price: High to Low</a></li>
+    <li style="display: block;"><a class="dropdown-item d-block w-100" href="#" data-value="name-asc">Name: A-Z</a></li>
+    <li style="display: block;"><a class="dropdown-item d-block w-100" href="#" data-value="name-desc">Name: Z-A</a></li>
+</ul>
 
-                <div class="filter-sidebar">
-    <div class="d-flex flex-row flex-md-column gap-2">
-        <!-- Filter Card -->
-        <div class="dropdown filter-card border rounded d-flex align-items-center justify-content-center"
-             style="cursor:pointer;">
-            <button id="filterDropdown" class="dropdown-toggle btn btn-sm border-0 bg-transparent"
-                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Filter
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="filterDropdown"
-                style="min-width: 180px; white-space: normal;">
-                <li><a class="dropdown-item d-block w-100" href="#" data-value="all">All</a></li>
-                <li><a class="dropdown-item d-block w-100" href="#" data-value="0-399">₹0 - ₹399</a></li>
-                <li><a class="dropdown-item d-block w-100" href="#" data-value="400-599">₹400 - ₹599</a></li>
-                <li><a class="dropdown-item d-block w-100" href="#" data-value="600-799">₹600 - ₹799</a></li>
-                <li><a class="dropdown-item d-block w-100" href="#" data-value="800-999">₹800 - ₹999</a></li>
-                <li><a class="dropdown-item d-block w-100" href="#" data-value="2000+">₹10000 & Above</a></li>
-            </ul>
-        </div>
-
-        <!-- Sort Card -->
-        <div class="dropdown sort-card border rounded d-flex align-items-center justify-content-center"
-             style="cursor:pointer;">
-            <button id="sortDropdown" class="dropdown-toggle btn btn-sm border-0 bg-transparent"
-                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Sort
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="sortDropdown">
-                <li><a class="dropdown-item" href="#" data-value="default">Default</a></li>
-                <li><a class="dropdown-item" href="#" data-value="price-asc">Price: Low to High</a></li>
-                <li><a class="dropdown-item" href="#" data-value="price-desc">Price: High to Low</a></li>
-                <li><a class="dropdown-item" href="#" data-value="name-asc">Name: A-Z</a></li>
-                <li><a class="dropdown-item" href="#" data-value="name-desc">Name: Z-A</a></li>
-            </ul>
-        </div>
-
-        <!-- Rating Card -->
-        <div class="dropdown rating-card border rounded d-flex align-items-center justify-content-center"
-             style="cursor:pointer;">
-            <button id="ratingDropdown" class="dropdown-toggle btn btn-sm border-0 bg-transparent"
-                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Rating
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="ratingDropdown">
-                <li><a class="dropdown-item" href="#" data-value="all">All</a></li>
-                <li><a class="dropdown-item" href="#" data-value="4">4 ★ & above</a></li>
-                <li><a class="dropdown-item" href="#" data-value="3">3 ★ & above</a></li>
-                <li><a class="dropdown-item" href="#" data-value="2">2 ★ & above</a></li>
-                <li><a class="dropdown-item" href="#" data-value="1">1 ★ & above</a></li>
-            </ul>
-        </div>
-
-        <!-- Egg Card -->
-        <div class="dropdown egg-card border rounded d-flex align-items-center justify-content-center"
-             style="cursor:pointer;">
-            <button id="eggDropdown" class="dropdown-toggle btn btn-sm border-0 bg-transparent"
-                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Egg
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="eggDropdown"
-                style="min-width: 180px; white-space: normal;">
-                <li><a class="dropdown-item" href="#" data-value="all">All</a></li>
-                <li><a class="dropdown-item" href="#" data-value="egg">With Egg</a></li>
-                <li><a class="dropdown-item" href="#" data-value="no-egg">Eggless</a></li>
-            </ul>
-        </div>
-
-        <!-- Sugar Card -->
-        <div class="dropdown sugar-card border rounded d-flex align-items-center justify-content-center"
-             style="cursor:pointer;">
-            <button id="sugarDropdown" class="dropdown-toggle btn btn-sm border-0 bg-transparent"
-                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Sugar
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="sugarDropdown"
-                style="min-width: 180px; white-space: normal;">
-                <li><a class="dropdown-item" href="#" data-value="all">All</a></li>
-                <li><a class="dropdown-item" href="#" data-value="sugar">With Sugar</a></li>
-                <li><a class="dropdown-item" href="#" data-value="sugar-free">Sugar Free</a></li>
-            </ul>
-        </div>
-    </div>
+    <button id="ratingDropdown" class="btn btn-sm border rounded flex-shrink-0" type="button" data-bs-toggle="dropdown">
+        Rating
+    </button>
+ <ul class="dropdown-menu" aria-labelledby="ratingDropdown">
+                            <li style="display: block;"><a class="dropdown-item" href="#" data-value="all">All</a></li>
+                            <li style="display: block;"><a class="dropdown-item" href="#" data-value="4">4 ★ & above</a></li>
+                            <li style="display: block;"><a class="dropdown-item" href="#" data-value="3">3 ★ & above</a></li>
+                            <li style="display: block;"><a class="dropdown-item" href="#" data-value="2">2 ★ & above</a></li>
+                            <li style="display: block;"><a class="dropdown-item" href="#" data-value="1">1 ★ & above</a></li>
+                        </ul>
+    <button id="eggDropdown" class="btn btn-sm border rounded flex-shrink-0" type="button" data-bs-toggle="dropdown">
+        Egg
+    </button>
+<ul class="dropdown-menu" aria-labelledby="eggDropdown"
+                            style="min-width: 180px; white-space: normal;">
+                            <li><a class="dropdown-item" href="#" data-value="all">All</a></li>
+                            <li><a class="dropdown-item" href="#" data-value="egg">With Egg</a></li>
+                            <li><a class="dropdown-item" href="#" data-value="no-egg">Eggless</a></li>
+                        </ul>
+    <button id="sugarDropdown" class="btn btn-sm border rounded flex-shrink-0" type="button" data-bs-toggle="dropdown">
+        Sugar
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="sugarDropdown"
+                            style="min-width: 180px; white-space: normal;">
+                            <li><a class="dropdown-item" href="#" data-value="all">All</a></li>
+                            <li><a class="dropdown-item" href="#" data-value="sugar">With Sugar</a></li>
+                            <li><a class="dropdown-item" href="#" data-value="sugar-free">Sugar Free</a></li>
+                        </ul>
 </div>
 <style>
- /* Sidebar fixed on desktop */
-.filter-sidebar {
-    position: fixed;
-    top: 100px; /* adjust for navbar */
-    left: 20px; /* distance from left container edge */
-    width: 200px; /* sidebar width */
-    z-index: 1000;
-}
-
-/* Ensure main content doesn’t overlap */
-.main-content {
-    margin-left: 240px; /* sidebar width + spacing */
-}
-
-/* Mobile: sidebar behaves normally */
-@media (max-width: 991px) {
-    .filter-sidebar {
-        position: static;
-        width: 100%;
-        margin-left: 0;
+    /* Mobile only */
+@media (max-width: 767px) {
+    .scroll-headings {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
     }
-    .main-content {
-        margin-left: 0;
+
+    .scroll-headings button {
+        min-width: 100px; /* ensures each heading is touch-friendly */
+        white-space: nowrap;
     }
 }
-
 
 </style>
 
@@ -1032,7 +1027,7 @@
                                     <a href="shop.html" class="btn btn-sm rounded-pill px-4"
                                         style="background-color: #ff5cba; color: #fff; border: none;">Add to cart</a>
                                 </div>
-                                <style>
+                                <!-- <style>
                                     @media (max-width: 767px) {
                                         .btn-wrapper {
                                             padding-top: 0.3rem;
@@ -1047,7 +1042,7 @@
                                             box-sizing: border-box;
                                         }
                                     }
-                                </style>
+                                </style> -->
                             </div>
                         </div>
                         <!-- Repeat for other specials similarly... -->
