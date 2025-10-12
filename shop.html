@@ -557,7 +557,7 @@
 
                 .main-image-wrapper,
                 .product-details {
-                    margin-top: 2rem !important; 
+                    margin-top: 2rem !important;
                     padding: 10px !important;
                 }
 
@@ -607,6 +607,13 @@
                 .main-image-wrapper {
                     margin-bottom: 0.5rem !important;
                     padding: 10px !important;
+                }
+            }
+
+            @media (min-width: 768px) {
+                .product-hero .container {
+                    padding-left: 0px !important;
+                    padding-right: 0px !important;
                 }
             }
         </style>
@@ -734,6 +741,15 @@
         .text-warning {
             color: #ffb400 !important;
         }
+
+        @media (min-width: 768px) {
+            .customer-reviews {
+                padding-left: 10px !important;
+                /* reduced from 20px */
+                padding-right: 10px !important;
+                /* reduced from 20px */
+            }
+        }
     </style>
     <section class="services-section">
         <div class="service-box">
@@ -792,7 +808,6 @@
     <style>
         .services-section {
             padding: 1.5rem 1rem;
-            /* Reduced for better spacing */
         }
 
         .service-box {
@@ -804,13 +819,6 @@
             max-width: 1200px;
             margin: 0 auto;
             overflow: hidden;
-        }
-
-        /* Desktop: 5 columns */
-        @media (min-width: 768px) {
-            .service-box {
-                grid-template-columns: repeat(5, 1fr);
-            }
         }
 
         .service-item {
@@ -849,13 +857,11 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            /* ✅ Vertical alignment fix */
         }
 
         .text-block h6 {
             margin: 0;
             font-size: 1.1rem;
-            /* ✅ Reduced for desktop balance */
             font-weight: 600;
             line-height: 1.2;
         }
@@ -863,42 +869,53 @@
         .text-block p {
             margin: 0.2rem 0 0;
             font-size: 0.95rem;
-            /* ✅ Reduced slightly */
             color: #555;
             line-height: 1.3;
         }
 
-        /* Mobile adjustments */
+        @media (min-width: 768px) {
+            .service-box {
+                grid-template-columns: repeat(5, 1fr);
+                max-width: calc(100% - 10px);
+                /* tighter overall width */
+                margin-left: 10px !important;
+                /* reduced left margin */
+                margin-right: 10px !important;
+                /* reduced right margin */
+            }
+
+            .service-item {
+                padding: 1.5rem;
+                min-height: 120px;
+            }
+        }
+
+        /* ✅ Mobile adjustments */
         @media (max-width: 767px) {
+            .services-section {
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+            }
+
             .service-box {
                 grid-template-columns: 1fr;
             }
-.services-section {
-    padding-top: 1rem; /* reduce top padding of section */
-    padding-bottom: 1rem; /* optional */
-}
-
 
             .service-item {
                 flex-direction: row;
-                padding: 0.8rem;
+                padding: 0.5rem 0.8rem;
                 gap: 0.6rem;
                 border-right: none;
                 border-bottom: 1px solid #ddd;
-                /* ✅ Divider added */
-                 padding-top: 0.5rem; /* reduce top padding of each item */
-    padding-bottom: 0.5rem;
+                min-height: 120px;
             }
 
             .service-item:last-child {
                 border-bottom: none;
-                /* ✅ Prevent extra line */
             }
 
             .icon-circle {
                 width: 40px;
-                aspect-ratio: 1 / 1;
-                border-radius: 50%;
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
             }
 
@@ -921,169 +938,180 @@
 
 
     <!-- =================== YOU MIGHT ALSO LIKE SECTION =================== -->
-    <section class="you-might-like py-4">
-        <div class="container">
-            <h5 class="fw-bold mb-4" style="font-size: 25px;">You Might Also Like</h5>
-            <div class="row g-3 justify-content-center">
+   <section class="category-products section-b-space mt-1">
+    <div class="container">
+        <div class="row g-3 justify-content-center">
 
-                <!-- Product Box -->
-                <div class="col-md-3 col-6">
-                    <div class="product-box text-center p-2">
-                        <div class="image-wrapper mb-2">
-                            <a href="shop.html" class="image-square">
-                                <img src="assets/images/cakes/black forest/black-fores.JPG" alt="Black Forest">
-                            </a>
+            <!-- Single Product Card -->
+            <div class="col-md-3 col-6">
+                <div class="product-box text-center">
+                    <a href="shop.html" class="image-square">
+                        <img src="assets/images/desserts/cheese_cake.jpeg" alt="Cheesecake">
+                    </a>
+
+                    <!-- Review badge -->
+                    <div class="d-flex justify-content-end mt-2 mb-2">
+                        <div class="review-badge">
+                            <span>★</span> 4.6
                         </div>
-                        <div class="d-flex justify-content-end mb-1">
-                            <div class="review-badge">
-                                <span>★</span> 4.6
-                            </div>
-                        </div>
-                        <h4 class="cake-title text-center mb-1">Black Forest</h4>
-                        <p class="mb-1">
-                            <span class="cake-weight">0.5KG</span> -
-                            <span class="text-dark cake-price">₹849</span>
-                            <span class="text-secondary"><s>₹999</s></span>
-                        </p>
-                        <p class="mb-1">
-                            <span class="badge-discount">15% off</span>
-                        </p>
-                        <a href="shop.html" class="btn view-cake-btn mb-1 mt-1">View Cake →</a>
+                    </div>
+
+                    <h4 class="cake-title">Cheese Cake</h4>
+                    <p class="cake-details">
+                        <span class="cake-weight">0.5KG</span> - 
+                        <span class="cake-price text-dark">₹440</span>
+                        <span class="text-secondary"><s>₹550</s></span>
+                    </p>
+
+                    <p>
+                        <span class="discount-badge">20% off</span>
+                    </p>
+
+                    <div class="btn-wrapper">
+                        <a href="shop.html" class="btn add-btn mt-2" >
+                             View Cake
+                        </a>
                     </div>
                 </div>
-                <div class="col-md-3 col-6">
-                    <div class="product-box text-center p-2">
-                        <div class="image-wrapper mb-2">
-                            <a href="shop.html" class="image-square">
-                                <img src="assets/images/cakes/pistachio/IMG_7890.JPG" alt="Pistachio Cake">
-                            </a>
-                        </div>
-                        <div class="d-flex justify-content-end mb-1">
-                            <div class="review-badge">
-                                <span>★</span> 4.6
-                            </div>
-                        </div>
-                        <h4 class="cake-title text-center mb-1">Pistachio Cake</h4>
-                        <p class="mb-1">
-                            <span class="cake-weight">0.5KG</span> -
-                            <span class="text-dark cake-price">₹849</span>
-                            <span class="text-secondary"><s>₹999</s></span>
-                        </p>
-                        <p class="mb-1">
-                            <span class="badge-discount">15% off</span>
-                        </p>
-                        <a href="shop.html" class="btn view-cake-btn mb-1 mt-1">View Cake →</a>
-                    </div>
-                </div>
-
-                <!-- Repeat for other products (Butter Scotch, Coco Nut, Choco Truffle) -->
-                <!-- ... same structure as above ... -->
-
             </div>
+
+            <!-- Repeat Product Card -->
+            <div class="col-md-3 col-6">
+                <div class="product-box text-center">
+                    <a href="shop.html" class="image-square">
+                        <img src="assets/images/cakes/black-fores.JPG" alt="Black Forest Cake">
+                    </a>
+                    <div class="d-flex justify-content-end mt-2 mb-2">
+                        <div class="review-badge"><span>★</span> 4.6</div>
+                    </div>
+                    <h4 class="cake-title">Black Forest</h4>
+                    <p class="cake-details">
+                        <span class="cake-weight">0.5KG</span> - 
+                        <span class="cake-price text-dark">₹440</span>
+                        <span class="text-secondary"><s>₹550</s></span>
+                    </p>
+                    <p><span class="discount-badge">20% off</span></p>
+                    <div class="btn-wrapper">
+                        <a href="shop.html" class="btn add-btn mt-2">
+                            View Cake
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more products in the same structure -->
         </div>
-    </section>
+    </div>
+</section>
 
-    <style>
-        .product-box {
-            border: 1px solid #dee2e6;
-            border-radius: 20px;
-            background-color: #fff;
-            transition: all 0.3s ease;
-            min-height: 380px;
-        }
+<style>
+/* Product Card */
+.product-box {
+    border: 1px solid #dee2e6;
+    border-radius: 20px;
+    padding: 0.8rem;
+    min-height: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+.product-box:hover {
+    transform: translateY(-5px);      /* slight lift */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* subtle shadow */
+             /* optional border color change */
+}
+.image-square {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 20px;
+    display: block;
+}
 
-        .product-box:hover {
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
-            transform: translateY(-2px);
-        }
+.image-square img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-        /* Image wrapper & square */
-        .image-wrapper {
-            margin: 0;
-        }
+.review-badge {
+    background-color: #4CAF50;
+    border-radius: 12px;
+    padding: 2px 6px;
+    display: inline-flex;
+    align-items: center;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.7rem;
+}
 
-        .image-square {
-            width: 100%;
-            aspect-ratio: 1/1;
-            overflow: hidden;
-        }
+.cake-title {
+    font-weight: 500;
+    font-size: 1.3rem;
+    margin: 0.5rem 0 0.3rem;
+}
 
-        .image-square img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            border-radius: 15px;
-            /* <-- Rounded image */
-        }
+.cake-details {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+}
 
-        .review-badge {
-            background-color: #4CAF50;
-            border-radius: 12px;
-            padding: 2px 6px;
-            display: inline-flex;
-            align-items: center;
-            color: #fff;
-            font-weight: 600;
-            font-size: 0.7rem;
-        }
+.cake-details .cake-weight {
+    font-weight: 450;
+}
 
-        .cake-title {
-            font-weight: 450;
-        }
+.cake-details .cake-price {
+    font-weight: 500;
+}
 
-        .cake-weight,
-        .cake-price {
-            font-weight: 450;
-            font-size: 0.8rem;
-        }
+.discount-badge {
+    background-color: #eaf8ec;
+    color: #155724;
+    font-weight: 500;
+    border-radius: 8px;
+    padding: 2px 8px;
+    font-size: 0.85rem;
+}
 
-        .badge-discount {
-            background-color: #eaf8ec;
-            color: #155724;
-            font-weight: 500;
-            border-radius: 8px;
-            padding: 2px 6px;
-            font-size: 0.75rem;
-        }
 
-        .view-cake-btn {
-            background-color: #ff5cba;
-            color: #fff;
-            border: none;
-            font-size: 0.85rem;
-            padding: 6px 14px;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-        }
+.add-btn,
+.add-btn:focus,
+.add-btn:hover,
+.add-btn:active {
+    background-color: #ff5cba !important;
+    color: #fff !important;
+    border: none;
+    outline: none;
+    box-shadow: none;
+     font-size: 0.9rem;
+         padding: 0.4rem 1.5rem;
+             border-radius: 50px;
+              
+}
 
-        .view-cake-btn:hover {
-            background-color: #e60085;
-        }
+/* Mobile Styles */
+@media (max-width: 767px) {
+    .product-box {
+        min-height: auto;
+        padding: 0.6rem;
+    }
 
-        @media (max-width: 576px) {
-            .product-box {
-                padding: 8px;
-                margin-bottom: 1rem;
-            }
+    .cake-title {
+        font-size: 1rem;
+    }
 
-            .review-badge {
-                font-size: 0.75rem;
-                padding: 3px 7px;
-            }
+    .cake-details {
+        font-size: 0.85rem;
+    }
 
-            .badge-discount {
-                font-size: 0.7rem;
-                padding: 2px 5px;
-            }
-
-            .view-cake-btn {
-                font-size: 0.8rem;
-                padding: 5px 10px;
-            }
-        }
-    </style>
-
+    .discount-badge {
+        font-size: 0.75rem;
+    }
+}
+</style>
 
 
     <section class="custom-features-section">
@@ -1143,12 +1171,6 @@
             margin: 0 auto;
         }
 
-        @media (min-width: 992px) {
-            .custom-feature-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-
         .custom-feature-card {
             background-color: #e6f2ff;
             border-radius: 14px;
@@ -1196,51 +1218,87 @@
             color: #555;
         }
 
-        /* MOBILE VIEW */
-       /* MOBILE VIEW */
-@media (max-width: 576px) {
-    .custom-features-section {
-        padding-left: 0.8rem;   /* small left padding */
-        padding-right: 0.8rem;  /* small right padding */
-        padding-top: 0.8rem;    /* optional top padding */
-        padding-bottom: 0.8rem; /* optional bottom padding */
-    }
+        /* ✅ MOBILE VIEW */
+        @media (max-width: 576px) {
+            .custom-features-section {
+                padding: 0.8rem;
+            }
 
-    .custom-feature-grid {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;  /* stretch cards to full width */
-        gap: 0.6rem;
-        padding: 0;  /* remove extra padding inside grid */
-    }
+            .custom-feature-grid {
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.6rem;
+                padding: 0;
+            }
 
-    .custom-feature-card {
-        flex-direction: row;
-        width: 100%;         
-        max-width: 100%;     
-        padding: 0.6rem 0.8rem; /* slight inner padding */
-        gap: 0.6rem;
-    }
+            .custom-feature-card {
+                flex-direction: row;
+                padding: 0.6rem 0.8rem;
+                gap: 0.6rem;
+                min-height: 110px;
+                /* Increased height for mobile */
+            }
 
-    .custom-icon-circle {
-        width: 36px;
-        height: 36px;
-    }
+            .custom-icon-circle {
+                width: 36px;
+                height: 36px;
+            }
 
-    .custom-icon {
-        font-size: 1rem;
-    }
+            .custom-icon {
+                font-size: 1rem;
+            }
 
-    .custom-title {
-        font-size: 1rem;
-    }
+            .custom-title {
+                font-size: 1rem;
+            }
 
-    .custom-description {
-        font-size: 0.8rem;
-    }
-}
+            .custom-description {
+                font-size: 0.8rem;
+            }
+        }
 
+        /* ✅ DESKTOP VIEW */
+        @media (min-width: 992px) {
+            .custom-features-section {
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+            .custom-feature-grid {
+                grid-template-columns: repeat(4, 1fr);
+                max-width: 100%;
+                margin: 0;
+                gap: 1rem;
+                padding-left: 1.5rem !important;
+                /* reduced left padding */
+                padding-right: 1.5rem !important;
+                /* reduced right padding */
+            }
+
+            .custom-feature-card {
+                padding: 0.8rem 1rem;
+                min-height: 100px;
+                text-align: left;
+            }
+
+            .custom-text-block {
+                justify-content: center !important;
+            }
+
+            .custom-description {
+                font-size: 1rem;
+                margin: 0.1rem 0 0;
+                color: #555;
+            }
+
+            .custom-title {
+                font-size: 1.2rem;
+            }
+
+        }
     </style>
+
 
     <!-- Footer (user-provided) -->
     <footer class="footer-section section-t-space">

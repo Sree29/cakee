@@ -402,7 +402,7 @@
 
 
     <!-- Sticky Toolbar should be outside the flex container -->
-    <div class="sticky-toolbar" >
+    <div class="sticky-toolbar">
         <div class="d-flex overflow-auto gap-2 py-2 scroll-headings">
             <!-- All your filter/sort/rating/egg/sugar buttons -->
             <div class="d-flex overflow-auto gap-2 py-2 scroll-headings mt-2">
@@ -469,8 +469,8 @@
                 </button>
 
                 <ul class="dropdown-menu" aria-labelledby="eggDropdown" style="min-width: 180px; white-space: normal;">
-                    <li><a class="dropdown-item" href="#" data-value="all">All</a></li>
-                    <li><a class="dropdown-item" href="#" data-value="egg">With Egg</a></li>
+                    <li style="display: block;"><a class="dropdown-item" href="#" data-value="all">All</a></li>
+                    <li style="display: block;"><a class="dropdown-item" href="#" data-value="egg">With Egg</a></li>
                     <li><a class="dropdown-item" href="#" data-value="no-egg">Eggless</a></li>
                 </ul>
                 <button id="sugarDropdown" class="btn btn-sm border rounded flex-shrink-0" type="button"
@@ -480,9 +480,10 @@
 
                 <ul class="dropdown-menu" aria-labelledby="sugarDropdown"
                     style="min-width: 180px; white-space: normal;">
-                    <li><a class="dropdown-item" href="#" data-value="all">All</a></li>
-                    <li><a class="dropdown-item" href="#" data-value="sugar">With Sugar</a></li>
-                    <li><a class="dropdown-item" href="#" data-value="sugar-free">Sugar Free</a></li>
+                    <li style="display: block;"><a class="dropdown-item" href="#" data-value="all">All</a></li>
+                    <li style="display: block;"><a class="dropdown-item" href="#" data-value="sugar">With Sugar</a></li>
+                    <li style="display: block;"><a class="dropdown-item" href="#" data-value="sugar-free">Sugar Free</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -495,7 +496,7 @@
             background-color: #fff;
             padding: 8px 15px;
             border-bottom: 1px solid #ddd;
-          
+
 
         }
 
@@ -808,6 +809,14 @@
                         color: #FFD700;
                         /* Golden yellow */
                         font-size: 1rem;
+                    }
+
+                    .product-box:hover {
+                        transform: translateY(-5px);
+                        /* slight lift */
+                        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+                        /* subtle shadow */
+                        /* optional border color change */
                     }
                 </style>
 
@@ -1380,13 +1389,13 @@
     <!-- mobile fix menu start -->
     <div class="mobile-menu d-md-none d-block mobile-cart">
         <ul>
-            <li class="active">
+            <li>
                 <a href="index.html" class="menu-box">
                     <i class="ri-home-4-line"></i>
                     <span>Home</span>
                 </a>
             </li>
-            <li>
+            <li  class="active">
                 <a href="shop1.html" class="menu-box">
                     <i class="ri-shopping-bag-line"></i>
                     <span>Shop</span>
