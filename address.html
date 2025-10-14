@@ -38,13 +38,15 @@
     <link rel="stylesheet" id="change-link" type="text/css" href="assets/css/style.css">
 
     <!-- font awsome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
 </head>
 
 <body class="position-relative">
-   
+
     <!-- Header section start -->
     <header>
         <div class="container">
@@ -63,65 +65,114 @@
                     <i class="ri-map-pin-line"></i> Location
                 </a> -->
                 <!-- Left: Location button (replaces logo) -->
-  
 
-<!-- <div class="d-flex align-items-center w-100">
+
+                <!-- <div class="d-flex align-items-center w-100">
      -->
-<div class="d-flex justify-content-between align-items-center w-100 button-row">
-  <!-- Location button -->
-  <a target="_blank" href="#!" data-bs-toggle="modal" data-bs-target="#location"
-     class="btn btn-sm theme-btn location-btn d-flex align-items-center gap-1">
-     <i class="ri-map-pin-line"></i> Location
-  </a>
+                <div class="d-flex justify-content-between align-items-center w-100 button-row">
+                    <!-- Location button -->
+                    <a target="_blank" href="#!" data-bs-toggle="modal" data-bs-target="#location"
+                        class="btn btn-sm theme-btn location-btn d-flex align-items-center gap-1">
+                        <i class="ri-map-pin-line"></i> Location
+                    </a>
 
-  <!-- Wishlist button -->
-  <a href="wishlist.html" 
-     class="btn btn-sm theme-btn wishlist-btn d-flex align-items-center gap-1">
-     <i class="ri-heart-line"></i> Wishlist
-  </a>
+                  <div class="d-flex gap-2">
+    <!-- Wishlist Button -->
+    <a href="wishlist.html" class="btn btn-sm theme-btn wishlist-btn d-flex align-items-center gap-1">
+        <i class="ri-heart-line"></i> 
+    </a>
+
+    <!-- Shop Page Button with Tooltip -->
+    <div class="tooltip-wrapper">
+        <a href="shop.html" class="btn btn-sm theme-btn shop-btn d-flex align-items-center justify-content-center">
+            <i class="ri-shopping-bag-line"></i>
+        </a>
+        <span class="tooltip-text">Shop</span>
+    </div>
 </div>
+
 <style>
- .button-row {
-  padding-left: 0 !important;
-  margin-left: 0 !important;
-}
-
-.location-btn {
-  margin-left: 0 !important;
-  margin-right: auto;
-}
-
-<!-- body, html {
-  padding: 0;
-  margin: 0;
-} -->
-@media (max-width: 576px) {
-  .button-row {
+/* Tooltip Wrapper */
+.tooltip-wrapper {
     position: relative;
-    padding: 0 !important;
-    margin: 0 !important;
-    width: 100%;
-  }
-
-  .location-btn {
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
-
-  .wishlist-btn {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
+    display: inline-block;
 }
 
+/* Tooltip text */
+.tooltip-text {
+    visibility: hidden;
+    width: max-content;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    position: absolute;
+    bottom: 120%; /* above the button */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    white-space: nowrap;
+    z-index: 10;
+}
 
+/* Show tooltip on hover */
+.tooltip-wrapper:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
 </style>
 
+                </div>
+                <style>
+                    .button-row {
+                        padding-left: 0 !important;
+                        margin-left: 0 !important;
+                    }
 
-    
-<!-- </div>    -->
+                    .location-btn {
+                        margin-left: 0 !important;
+                        margin-right: auto;
+                    }
+
+                    < !-- body,
+                    html {
+                        padding: 0;
+                        margin: 0;
+                    }
+
+                    -->@media (max-width: 576px) {
+                        .button-row {
+                            position: relative;
+                            padding: 0 !important;
+                            margin: 0 !important;
+                            width: 100%;
+                        }
+
+                        .location-btn {
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                        }
+
+                        .wishlist-btn {
+                            position: absolute;
+                            right: 0;
+                            top: 0;
+                        }
+
+                        .wishlist-btn i {
+                            font-size: 1rem;
+                            /* Larger icon size on mobile */
+                        }
+                    }
+                </style>
+
+
+
+                <!-- </div>    -->
 
 
 
@@ -223,40 +274,40 @@
                                     Cart</a>
                             </div>
                         </div> -->
-          <a href="checkout.html" class="cart-button">
-  <span id="cart-count">0</span>
-  <i class="ri-shopping-cart-line text-white cart-bag"></i>
-</a>
+                        <a href="checkout.html" class="cart-button">
+                            <span id="cart-count">0</span>
+                            <i class="ri-shopping-cart-line text-white cart-bag"></i>
+                        </a>
 
-<script>
-  const cartCountEl = document.getElementById('cart-count');
+                        <script>
+                            const cartCountEl = document.getElementById('cart-count');
 
-  // Load cart from localStorage
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                            // Load cart from localStorage
+                            let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-  // Function to update cart count
-  function updateCartCount() {
-    cartCountEl.textContent = cart.length;
-  }
+                            // Function to update cart count
+                            function updateCartCount() {
+                                cartCountEl.textContent = cart.length;
+                            }
 
-  // Initial count
-  updateCartCount();
+                            // Initial count
+                            updateCartCount();
 
-  // Add to cart buttons
-  document.querySelectorAll('.add-to-cart').forEach(button => {
-    button.addEventListener('click', () => {
-      const product = {
-        name: button.getAttribute('data-name'),
-        price: button.getAttribute('data-price'),
-        image: button.getAttribute('data-image') || ''
-      };
+                            // Add to cart buttons
+                            document.querySelectorAll('.add-to-cart').forEach(button => {
+                                button.addEventListener('click', () => {
+                                    const product = {
+                                        name: button.getAttribute('data-name'),
+                                        price: button.getAttribute('data-price'),
+                                        image: button.getAttribute('data-image') || ''
+                                    };
 
-      cart.push(product);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      updateCartCount();
-    });
-  });
-</script>
+                                    cart.push(product);
+                                    localStorage.setItem('cart', JSON.stringify(cart));
+                                    updateCartCount();
+                                });
+                            });
+                        </script>
 
 
 
@@ -292,7 +343,7 @@
                         </div>
                     </div>
                 </div>
-                
+
             </nav>
         </div>
     </header>
@@ -441,6 +492,35 @@
                                     </div>
                                 </div>
                             </div>
+                          <div class="delivery-details mt-4">
+    <h5 class="mb-3" style="font-size:large;">Delivery Details</h5>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <label for="deliveryDate" class="form-label fw-medium">Delivery Date <span class="text-danger">*</span></label>
+            <input type="date" id="deliveryDate" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+            <label for="deliveryTime" class="form-label fw-medium">Delivery Time <span class="text-danger">*</span></label>
+            <input type="time" id="deliveryTime" class="form-control" required>
+        </div>
+    </div>
+</div>
+  <style>
+/* Reduce font size for delivery details section */
+.delivery-details h5 {
+    font-size: 1.2rem; /* title font size */
+}
+
+.delivery-details label {
+    font-size: 0.85rem; /* label font size */
+}
+
+.delivery-details input {
+    font-size: 0.85rem; /* input text size */
+}
+</style>
+
+
                         </div>
                     </div>
                     <div class="col-lg-4">
@@ -452,7 +532,8 @@
                                             <div class="product-content">
                                                 <div class="d-flex align-items-center justify-content-between">
                                                     <h5>Black Forest</h5>
-                                                    <h6 class="product-price"><span class="checkout-actual-price"><s>₹699</s></span>  ₹549</h6>
+                                                    <h6 class="product-price"><span
+                                                            class="checkout-actual-price"><s>₹699</s></span> ₹549</h6>
                                                 </div>
                                                 <h6 class="ingredients-text">Cakee</h6>
                                                 <div
@@ -472,7 +553,8 @@
                                             <div class="product-content">
                                                 <div class="d-flex align-items-center justify-content-between">
                                                     <h5>Red Velvet</h5>
-                                                    <h6 class="product-price"><span class="checkout-actual-price"><s>₹999</s></span> ₹759</h6>
+                                                    <h6 class="product-price"><span
+                                                            class="checkout-actual-price"><s>₹999</s></span> ₹759</h6>
                                                 </div>
                                                 <h6 class="ingredients-text">Palooda Koyilandy</h6>
                                                 <div
@@ -492,7 +574,8 @@
                                             <div class="product-content">
                                                 <div class="d-flex align-items-center justify-content-between">
                                                     <h5>Kit Kat Cake</h5>
-                                                    <h6 class="product-price"><span class="checkout-actual-price"><s>₹1550</s></span> ₹1399</h6>
+                                                    <h6 class="product-price"><span
+                                                            class="checkout-actual-price"><s>₹1550</s></span> ₹1399</h6>
                                                 </div>
                                                 <h6 class="ingredients-text">Palooda Koyilandy</h6>
                                                 <div
@@ -517,7 +600,7 @@
                                 </div>
                                 <div class="sub-total">
                                     <h6 class="content-color fw-normal">
-                                        Delivery Charge 
+                                        Delivery Charge
                                     </h6>
                                     <h6 class="fw-semibold success-color">Free</h6>
                                 </div>
@@ -541,19 +624,19 @@
     <!-- account section end -->
 
     <!-- footer section starts -->
-<footer class="footer-section section-t-space">
-        
+    <footer class="footer-section section-t-space">
+
         <div class="container">
             <div class="main-footer">
                 <div class="row g-3">
                     <div class="col-xl-4 col-lg-12">
                         <div class="footer-logo-part">
-                        
+
 
                             <h1 style="font-size:50px; font-weight:700; margin-top:10px; color:white; line-height:1.3;">
-  Celebrate <br>with us!
-</h1><br>
-<img class="img-fluid logo" src="assets/images/logo/logo.png" alt="logo"
+                                Celebrate <br>with us!
+                            </h1><br>
+                            <img class="img-fluid logo" src="assets/images/logo/logo.png" alt="logo"
                                 style="max-width:100px; height:auto;">
 
                             <div class="social-media-part">
@@ -587,14 +670,15 @@
                             </div>
                         </div>
                     </div>
-                   
+
                 </div>
             </div>
             <div class="bottom-footer-part">
                 <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
-                  <h6>© Copyright 2025 <strong>CAKEE</strong>. All rights reserved. Designed by 
-<a href="https://www.cognetz.com" target="_blank" style="color: inherit; text-decoration: none;">Cognetz</a>.
-</h6>
+                    <h6>© Copyright 2025 <strong>CAKEE</strong>. All rights reserved. Designed by
+                        <a href="https://www.cognetz.com" target="_blank"
+                            style="color: inherit; text-decoration: none;">Cognetz</a>.
+                    </h6>
 
 
 
@@ -615,9 +699,9 @@
                 </a>
             </li>
 
-           <li>
+            <li>
                 <a href="shop1.html" class="menu-box">
-                   <i class="ri-shopping-bag-line"></i>
+                    <i class="ri-shopping-bag-line"></i>
                     <span>Shop</span>
                 </a>
             </li>

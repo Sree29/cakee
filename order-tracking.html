@@ -75,10 +75,54 @@
   </a>
 
   <!-- Wishlist button -->
-  <a href="wishlist.html" 
-     class="btn btn-sm theme-btn wishlist-btn d-flex align-items-center gap-1">
-     <i class="ri-heart-line"></i> Wishlist
-  </a>
+   <div class="d-flex gap-2">
+    <!-- Wishlist Button -->
+    <a href="wishlist.html" class="btn btn-sm theme-btn wishlist-btn d-flex align-items-center gap-1">
+        <i class="ri-heart-line"></i> 
+    </a>
+
+    <!-- Shop Page Button with Tooltip -->
+    <div class="tooltip-wrapper">
+        <a href="shop.html" class="btn btn-sm theme-btn shop-btn d-flex align-items-center justify-content-center">
+            <i class="ri-shopping-bag-line"></i>
+        </a>
+        <span class="tooltip-text">Shop</span>
+    </div>
+</div>
+
+<style>
+/* Tooltip Wrapper */
+.tooltip-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip-text {
+    visibility: hidden;
+    width: max-content;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    position: absolute;
+    bottom: 120%; /* above the button */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+/* Show tooltip on hover */
+.tooltip-wrapper:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+</style>
 </div>
 <style>
  .button-row {
@@ -113,6 +157,9 @@
     position: absolute;
     right: 0;
     top: 0;
+  }
+  .wishlist-btn i {
+    font-size: 1rem; /* Larger icon size on mobile */
   }
 }
 

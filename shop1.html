@@ -206,9 +206,54 @@
                     </a>
 
                     <!-- Wishlist button -->
-                    <a href="wishlist.html" class="btn btn-sm theme-btn wishlist-btn d-flex align-items-center gap-1">
-                        <i class="ri-heart-line"></i> Wishlist
-                    </a>
+                   <div class="d-flex gap-2">
+    <!-- Wishlist Button -->
+    <a href="wishlist.html" class="btn btn-sm theme-btn wishlist-btn d-flex align-items-center gap-1">
+        <i class="ri-heart-line"></i> 
+    </a>
+
+    <!-- Shop Page Button with Tooltip -->
+    <div class="tooltip-wrapper">
+        <a href="shop.html" class="btn btn-sm theme-btn shop-btn d-flex align-items-center justify-content-center">
+            <i class="ri-shopping-bag-line"></i>
+        </a>
+        <span class="tooltip-text">Shop</span>
+    </div>
+</div>
+
+<style>
+/* Tooltip Wrapper */
+.tooltip-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip-text {
+    visibility: hidden;
+    width: max-content;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    position: absolute;
+    bottom: 120%; /* above the button */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+/* Show tooltip on hover */
+.tooltip-wrapper:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+</style>
                 </div>
                 <style>
                     .button-row {
@@ -221,13 +266,7 @@
                         margin-right: auto;
                     }
 
-                    < !-- body,
-                    html {
-                        padding: 0;
-                        margin: 0;
-                    }
-
-                    -->@media (max-width: 576px) {
+                    @media (max-width: 576px) {
                         .button-row {
                             position: relative;
                             padding: 0 !important;
@@ -245,6 +284,11 @@
                             position: absolute;
                             right: 0;
                             top: 0;
+                        }
+
+                        .wishlist-btn i {
+                            font-size: 1rem;
+                            /* Larger icon size on mobile */
                         }
                     }
                 </style>
@@ -409,7 +453,7 @@
                 <!-- Only the heading buttons -->
                 <button id="filterDropdown" class="btn btn-sm border rounded flex-shrink-0" type="button"
                     data-bs-toggle="dropdown">
-                    Filter ▼
+                    Filter &#x25BE; <!-- small down-pointing triangle -->
                 </button>
 
                 <ul class="dropdown-menu" aria-labelledby="filterDropdown"
@@ -428,10 +472,11 @@
                             data-value="2000+">₹10000 & Above</a></li>
                 </ul>
 
-                <button id="sortDropdown" class="btn btn-sm border rounded flex-shrink-0" type="button"
+                <button id="filterDropdown" class="btn btn-sm border rounded flex-shrink-0" type="button"
                     data-bs-toggle="dropdown">
-                    Sort ▼
+                    Sort &#x25BE; <!-- small down-pointing triangle -->
                 </button>
+
 
                 <ul class="dropdown-menu" aria-labelledby="filterDropdown"
                     style="min-width: 180px; white-space: normal;">
@@ -447,10 +492,11 @@
                             data-value="name-desc">Name: Z-A</a></li>
                 </ul>
 
-                <button id="ratingDropdown" class="btn btn-sm border rounded flex-shrink-0" type="button"
+                <button id="filterDropdown" class="btn btn-sm border rounded flex-shrink-0" type="button"
                     data-bs-toggle="dropdown">
-                    Rating ▼
+                    Rating &#x25BE; <!-- small down-pointing triangle -->
                 </button>
+
 
                 <ul class="dropdown-menu" aria-labelledby="ratingDropdown">
                     <li style="display: block;"><a class="dropdown-item" href="#" data-value="all">All</a></li>
@@ -463,20 +509,22 @@
                     <li style="display: block;"><a class="dropdown-item" href="#" data-value="1">1 ★ & above</a>
                     </li>
                 </ul>
-                <button id="eggDropdown" class="btn btn-sm border rounded flex-shrink-0" type="button"
+                <button id="filterDropdown" class="btn btn-sm border rounded flex-shrink-0" type="button"
                     data-bs-toggle="dropdown">
-                    Egg ▼
+                    Egg &#x25BE; <!-- small down-pointing triangle -->
                 </button>
+
 
                 <ul class="dropdown-menu" aria-labelledby="eggDropdown" style="min-width: 180px; white-space: normal;">
                     <li style="display: block;"><a class="dropdown-item" href="#" data-value="all">All</a></li>
                     <li style="display: block;"><a class="dropdown-item" href="#" data-value="egg">With Egg</a></li>
                     <li><a class="dropdown-item" href="#" data-value="no-egg">Eggless</a></li>
                 </ul>
-                <button id="sugarDropdown" class="btn btn-sm border rounded flex-shrink-0" type="button"
+                <button id="filterDropdown" class="btn btn-sm border rounded flex-shrink-0" type="button"
                     data-bs-toggle="dropdown">
-                    Sugar ▼
+                    Sugar &#x25BE; <!-- small down-pointing triangle -->
                 </button>
+
 
                 <ul class="dropdown-menu" aria-labelledby="sugarDropdown"
                     style="min-width: 180px; white-space: normal;">
@@ -836,198 +884,48 @@
                                             alt="Cheesecake">
                                     </a>
 
-                                    <!-- Review badge aligned right -->
-                                    <div class="d-flex justify-content-end mb-2 mt-2">
+                                    <!-- Name and Rating Row -->
+                                    <div class="d-flex justify-content-between align-items-center mt-2 mb-2 px-2">
+                                        <h4 class="cake-title mb-0" style="font-size: 1rem; font-weight: 500;">Cheese
+                                            Cake</h4>
                                         <div class="review-badge"
                                             style="background-color: #4CAF50; border-radius: 12px; padding: 2px 6px; display: inline-flex; align-items: center; color: #fff; font-weight: 600; font-size: 0.7rem;">
-                                            <span style="margin-right: 6px;">★</span> 4.6
+                                            <span style="margin-right: 4px;">★</span> 4.6
                                         </div>
                                     </div>
 
-                                    <h4 class="cake-title text-center mb-2">Cheese Cake</h4>
-                                    <p class="mb-2 cake-details">
+                                    <p class="mb-2 cake-details px-2">
                                         <span class="cake-weight">0.5KG</span> -
                                         <span class="cake-price text-dark">₹440</span>
                                         <span class="text-secondary"><s>₹550</s></span>
                                     </p>
 
-                                    <p class="mb-2">
+                                    <p class="mb-2 px-2">
                                         <span class="px-3 py-1"
                                             style="background-color: #eaf8ec; color: #155724; font-weight: 500; border-radius: 8px;">
                                             20% off
                                         </span>
                                     </p>
 
-                                    <div class="btn-wrapper">
-                                        <a href="shop.html" class="btn btn-sm rounded-pill px-4"
-                                            style="background-color: #ff5cba; color: #fff; border: none;">
+                                    <div class="btn-wrapper mt-2 px-2">
+                                        <button type="button" class="btn btn-sm w-100 rounded-pill add-to-cart-btn"
+                                            data-product="Cheesecake" data-price="440">
                                             <i class="ri-shopping-cart-2-line me-2"></i> Add
-                                        </a>
+                                        </button>
                                     </div>
-
 
                                 </div>
                             </div>
 
+                            <style>
+                                .product-box .btn-wrapper .btn {
+                                    background-color: #ff5cba;
+                                    color: #fff;
+                                    border: none;
+                                }
+                            </style>
 
-                            <div class="col-md-3 col-6">
-                                <div class="product-box text-center p-2"
-                                    style="border: 1px solid #dee2e6; border-radius: 20px;" data-price="440"
-                                    data-name="Cheesecake" data-rating="3.4">
 
-                                    <a href="shop.html" class="image-square">
-                                        <img src="assets/images/cakes/black-fores.JPG" class="img-fluid"
-                                            alt="Black Forest Cake">
-                                    </a>
-
-                                    <!-- Review badge aligned right -->
-                                    <div class="d-flex justify-content-end mb-2 mt-2">
-                                        <div class="review-badge"
-                                            style="background-color: #4CAF50; border-radius: 12px; padding: 2px 6px; display: inline-flex; align-items: center; color: #fff; font-weight: 600; font-size: 0.7rem;">
-                                            <span style="margin-right: 6px;">★</span> 4.6
-                                        </div>
-                                    </div>
-
-                                    <h4 class="cake-title text-center mb-2">Black Forest</h4>
-                                    <p class="mb-2 cake-details">
-                                        <span class="cake-weight">0.5KG</span> -
-                                        <span class="cake-price text-dark">₹440</span>
-                                        <span class="text-secondary"><s>₹550</s></span>
-                                    </p>
-
-                                    <p class="mb-2">
-                                        <span class="px-3 py-1"
-                                            style="background-color: #eaf8ec; color: #155724; font-weight: 500; border-radius: 8px;">
-                                            20% off
-                                        </span>
-                                    </p>
-
-                                    <div class="btn-wrapper">
-                                        <a href="shop.html" class="btn btn-sm rounded-pill px-4"
-                                            style="background-color: #ff5cba; color: #fff; border: none;">
-                                            <i class="ri-shopping-cart-2-line me-2"></i> Add
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-6">
-                                <div class="product-box text-center p-2"
-                                    style="border: 1px solid #dee2e6; border-radius: 20px;" data-price="440"
-                                    data-name="Cheesecake" data-rating="3.4">
-
-                                    <a href="shop.html" class="image-square">
-                                        <img src="assets/images/cakes/butter-scotch.JPG" class="img-fluid"
-                                            alt="Butter Scotch Cake">
-                                    </a>
-
-                                    <!-- Review badge aligned right -->
-                                    <div class="d-flex justify-content-end mb-2 mt-2">
-                                        <div class="review-badge"
-                                            style="background-color: #4CAF50; border-radius: 12px; padding: 2px 6px; display: inline-flex; align-items: center; color: #fff; font-weight: 600; font-size: 0.7rem;">
-                                            <span style="margin-right: 6px;">★</span> 4.6
-                                        </div>
-                                    </div>
-
-                                    <h4 class="cake-title text-center mb-2">Butter Scotch</h4>
-                                    <p class="mb-2 cake-details">
-                                        <span class="cake-weight">0.5KG</span> -
-                                        <span class="cake-price text-dark">₹440</span>
-                                        <span class="text-secondary"><s>₹550</s></span>
-                                    </p>
-
-                                    <p class="mb-2">
-                                        <span class="px-3 py-1"
-                                            style="background-color: #eaf8ec; color: #155724; font-weight: 500; border-radius: 8px;">
-                                            20% off
-                                        </span>
-                                    </p>
-                                    <div class="btn-wrapper">
-                                        <a href="shop.html" class="btn btn-sm rounded-pill px-4"
-                                            style="background-color: #ff5cba; color: #fff; border: none;">
-                                            <i class="ri-shopping-cart-2-line me-2"></i> Add
-                                        </a>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-6">
-                                <div class="product-box text-center p-2"
-                                    style="border: 1px solid #dee2e6; border-radius: 20px;" data-price="440"
-                                    data-name="Cheesecake" data-rating="3.4">
-
-                                    <a href="shop.html" class="image-square">
-                                        <img src="assets/images/cakes/choco truffle/IMG_7830.JPG" class="img-fluid"
-                                            alt="ChocoTuffle">
-                                    </a>
-
-                                    <!-- Review badge aligned right -->
-                                    <div class="d-flex justify-content-end mb-2 mt-2">
-                                        <div class="review-badge"
-                                            style="background-color: #4CAF50; border-radius: 12px; padding: 2px 6px; display: inline-flex; align-items: center; color: #fff; font-weight: 600; font-size: 0.7rem;">
-                                            <span style="margin-right: 6px;">★</span> 4.6
-                                        </div>
-                                    </div>
-
-                                    <!-- Cake title centered below -->
-                                    <h4 class="cake-title text-center mb-2">Choco Tuffle</h4>
-                                    <p class="mb-2 cake-details">
-                                        <span class="cake-weight">0.5KG</span> -
-                                        <span class="cake-price text-dark">₹440</span>
-                                        <span class="text-secondary"><s>₹550</s></span>
-                                    </p>
-                                    <style>
-                                        /* Mobile styles (default) */
-                                        .cake-title {
-                                            font-weight: 450;
-                                            font-size: 1rem;
-                                        }
-
-                                        .cake-details .cake-weight {
-                                            font-weight: 450;
-                                            font-size: 0.8rem;
-                                        }
-
-                                        .cake-details .cake-price {
-                                            font-weight: 450;
-                                            font-size: 1rem;
-                                        }
-
-                                        /* Desktop styles */
-                                        @media (min-width: 768px) {
-                                            .product-box {
-                                                min-height: 360px;
-                                            }
-
-                                            .cake-title {
-                                                font-size: 1.3rem;
-                                            }
-
-                                            .cake-details .cake-weight {
-                                                font-size: 1rem;
-                                            }
-
-                                            .cake-details .cake-price {
-                                                font-size: 1.2rem;
-                                            }
-                                        }
-                                    </style>
-
-                                    <p class="mb-2">
-                                        <span class="px-3 py-1"
-                                            style="background-color: #eaf8ec; color: #155724; font-weight: 500; border-radius: 8px;">
-                                            20% off
-                                        </span>
-                                    </p>
-
-                                    <div class="btn-wrapper">
-                                        <a href="shop.html" class="btn btn-sm rounded-pill px-4"
-                                            style="background-color: #ff5cba; color: #fff; border: none;">
-                                            <i class="ri-shopping-cart-2-line me-2"></i> Add
-                                        </a>
-                                    </div>
-
-                                </div>
-                            </div>
 
 
                             <style>
@@ -1047,6 +945,33 @@
                                         display: block;
                                     }
                                 }
+
+                                .product-box {
+                                    border: 1px solid #dee2e6;
+                                    border-radius: 20px;
+                                    overflow: hidden;
+                                    /* ✅ ensures image follows border-radius */
+                                    transition: transform 0.3s, box-shadow 0.3s;
+                                }
+
+                                .image-square {
+                                    display: block;
+                                    width: 100%;
+                                    height: 200px;
+                                    /* or desired fixed height */
+                                    overflow: hidden;
+                                    /* ✅ clip the image */
+                                    border-radius: 20px 20px 0 0;
+                                    /* optional if you want top corners only */
+                                }
+
+                                .image-square img {
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: cover;
+                                    /* ✅ fill container without distortion */
+                                    display: block;
+                                }
                             </style>
 
                             <!-- Repeat for other cakes similarly... -->
@@ -1062,82 +987,37 @@
                                     data-name="Cheesecake" data-rating="3.4">
 
                                     <a href="shop.html" class="image-square">
-                                        <img src="assets/images/desserts/cheese_cake.jpeg" class="img-fluid"
-                                            alt="Cheesecake">
+                                        <img src="assets/images/desserts/fried_icecream.jpeg" class="img-fluid"
+                                            alt="Fried Ice Cream">
                                     </a>
-                                    <div class="d-flex justify-content-end mb-2 mt-2">
+
+                                    <!-- Name and Rating Row -->
+                                    <div class="d-flex justify-content-between align-items-center mt-2 mb-2 px-2">
+                                        <h4 class="cake-title mb-0" style="font-size: 1rem; font-weight: 500;">Fried Ice Cream</h4>
                                         <div class="review-badge"
                                             style="background-color: #4CAF50; border-radius: 12px; padding: 2px 6px; display: inline-flex; align-items: center; color: #fff; font-weight: 600; font-size: 0.7rem;">
-                                            <span style="margin-right: 6px;">★</span> 4.6
+                                            <span style="margin-right: 4px;">★</span> 4.6
                                         </div>
                                     </div>
 
-                                    <!-- Cake title centered below -->
-                                    <h4 class="cake-title text-center mb-2" style="font-weight: 450;">Cheese Cake</h4>
-
-
-                                    <p class="mb-2">
-                                        <span style="font-weight: 450; font-size: 0.8rem;">0.5KG</span> -
-                                        <span class="text-dark" style="font-weight: 450; font-size: 0.8rem;">₹440</span>
+                                    <p class="mb-2 cake-details px-2">
+                                        <span class="cake-weight">0.5KG</span> -
+                                        <span class="cake-price text-dark">₹440</span>
                                         <span class="text-secondary"><s>₹550</s></span>
                                     </p>
 
-                                    <p class="mb-2">
+                                    <p class="mb-2 px-2">
                                         <span class="px-3 py-1"
                                             style="background-color: #eaf8ec; color: #155724; font-weight: 500; border-radius: 8px;">
                                             20% off
                                         </span>
                                     </p>
 
-                                    <div class="btn-wrapper">
-                                        <a href="shop.html" class="btn btn-sm rounded-pill px-4"
-                                            style="background-color: #ff5cba; color: #fff; border: none;">
+                                    <div class="btn-wrapper mt-2 px-2">
+                                        <button type="button" class="btn btn-sm w-100 rounded-pill add-to-cart-btn"
+                                            data-product="Cheesecake" data-price="440">
                                             <i class="ri-shopping-cart-2-line me-2"></i> Add
-                                        </a>
-                                    </div>
-
-                                </div>
-                            </div>
-
-
-                            <div class="col-md-3 col-6">
-                                <div class="product-box text-center p-2"
-                                    style="border: 1px solid #dee2e6; border-radius: 20px;" data-price="440"
-                                    data-name="Cheesecake" data-rating="3.4">
-
-                                    <a href="shop.html" class="image-square">
-                                        <img src="assets/images/desserts/Chocolate_mousse.jpeg" class="img-fluid"
-                                            alt="Chocolate Mousse">
-                                    </a>
-                                    <div class="d-flex justify-content-end mb-2 mt-2">
-                                        <div class="review-badge"
-                                            style="background-color: #4CAF50; border-radius: 12px; padding: 2px 6px; display: inline-flex; align-items: center; color: #fff; font-weight: 600; font-size: 0.7rem;">
-                                            <span style="margin-right: 6px;">★</span> 4.6
-                                        </div>
-                                    </div>
-
-                                    <!-- Cake title centered below -->
-                                    <h4 class="cake-title text-center mb-2" style="font-weight: 450;"> Mousse</h4>
-
-
-                                    <p class="mb-2">
-                                        <span style="font-weight: 450; font-size: 0.8rem;">0.5KG</span> -
-                                        <span class="text-dark" style="font-weight: 450; font-size: 0.8rem;">₹440</span>
-                                        <span class="text-secondary"><s>₹550</s></span>
-                                    </p>
-
-                                    <p class="mb-2">
-                                        <span class="px-3 py-1"
-                                            style="background-color: #eaf8ec; color: #155724; font-weight: 500; border-radius: 8px;">
-                                            20% off
-                                        </span>
-                                    </p>
-
-                                    <div class="btn-wrapper">
-                                        <a href="shop.html" class="btn btn-sm rounded-pill px-4"
-                                            style="background-color: #ff5cba; color: #fff; border: none;">
-                                            <i class="ri-shopping-cart-2-line me-2"></i> Add
-                                        </a>
+                                        </button>
                                     </div>
 
                                 </div>
@@ -1158,38 +1038,61 @@
                                     data-name="Cheesecake" data-rating="3.4">
 
                                     <a href="shop.html" class="image-square">
-                                        <img src="assets/images/desserts/cheese_cake.jpeg" class="img-fluid"
-                                            alt="Cheesecake">
+                                        <img src="assets/images/specials/cupcakes.jpeg" class="img-fluid"
+                                            alt="Cupcakes">
                                     </a>
 
-                                    <div class="d-flex justify-content-end mb-2 mt-2">
+                                    <!-- Name and Rating Row -->
+                                    <div class="d-flex justify-content-between align-items-center mt-2 mb-2 px-2">
+                                        <h4 class="cake-title mb-0" style="font-size: 1rem; font-weight: 500;">Cupcakes
+                                            </h4>
                                         <div class="review-badge"
                                             style="background-color: #4CAF50; border-radius: 12px; padding: 2px 6px; display: inline-flex; align-items: center; color: #fff; font-weight: 600; font-size: 0.7rem;">
-                                            <span style="margin-right: 6px;">★</span> 4.6
+                                            <span style="margin-right: 4px;">★</span> 4.6
                                         </div>
                                     </div>
 
-                                    <!-- Cake title centered below -->
-                                    <h4 class="cake-title text-center mb-2" style="font-weight: 450;"> Cheese Cake</h4>
-                                    <p class="mb-2">
-                                        <span style="font-weight: 450; font-size: 0.8rem;">0.5KG</span> -
-                                        <span class="text-dark" style="font-weight: 450; font-size: 0.8rem;">₹440</span>
+                                    <p class="mb-2 cake-details px-2">
+                                        <span class="cake-weight">0.5KG</span> -
+                                        <span class="cake-price text-dark">₹440</span>
                                         <span class="text-secondary"><s>₹550</s></span>
                                     </p>
 
-                                    <p class="mb-2">
+                                    <p class="mb-2 px-2">
                                         <span class="px-3 py-1"
                                             style="background-color: #eaf8ec; color: #155724; font-weight: 500; border-radius: 8px;">
                                             20% off
                                         </span>
                                     </p>
 
-                                    <div class="btn-wrapper">
-                                        <a href="shop.html" class="btn btn-sm rounded-pill px-4"
-                                            style="background-color: #ff5cba; color: #fff; border: none;">
+                                    <div class="btn-wrapper mt-2 px-2">
+                                        <button type="button" class="btn btn-sm w-100 rounded-pill add-to-cart-btn"
+                                            data-product="Cheesecake" data-price="440">
                                             <i class="ri-shopping-cart-2-line me-2"></i> Add
-                                        </a>
+                                        </button>
                                     </div>
+
+                                </div>
+                            </div>
+                                    <script>
+                                        document.addEventListener('DOMContentLoaded', function () {
+                                            const cartButtons = document.querySelectorAll('.add-to-cart-btn');
+
+                                            cartButtons.forEach(button => {
+                                                button.addEventListener('click', function () {
+                                                    const productName = this.dataset.product;
+                                                    const productPrice = this.dataset.price;
+
+                                                    // Example: add to cart (localStorage or API call)
+                                                    console.log(`Added ${productName} (₹${productPrice}) to cart`);
+
+                                                    // Optionally show a toast or alert
+                                                    alert(`${productName} added to cart!`);
+                                                });
+                                            });
+                                        });
+                                    </script>
+
                                     <!-- <style>
                                     @media (max-width: 767px) {
                                         .btn-wrapper {
@@ -1395,7 +1298,7 @@
                     <span>Home</span>
                 </a>
             </li>
-            <li  class="active">
+            <li class="active">
                 <a href="shop1.html" class="menu-box">
                     <i class="ri-shopping-bag-line"></i>
                     <span>Shop</span>

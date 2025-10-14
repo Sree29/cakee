@@ -206,9 +206,54 @@
                     </a>
 
                     <!-- Wishlist button -->
-                    <a href="wishlist.html" class="btn btn-sm theme-btn wishlist-btn d-flex align-items-center gap-1">
-                        <i class="ri-heart-line"></i> Wishlist
-                    </a>
+                     <div class="d-flex gap-2">
+    <!-- Wishlist Button -->
+    <a href="wishlist.html" class="btn btn-sm theme-btn wishlist-btn d-flex align-items-center gap-1">
+        <i class="ri-heart-line"></i> 
+    </a>
+
+    <!-- Shop Page Button with Tooltip -->
+    <div class="tooltip-wrapper">
+        <a href="shop.html" class="btn btn-sm theme-btn shop-btn d-flex align-items-center justify-content-center">
+            <i class="ri-shopping-bag-line"></i>
+        </a>
+        <span class="tooltip-text">Shop</span>
+    </div>
+</div>
+
+<style>
+/* Tooltip Wrapper */
+.tooltip-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip-text {
+    visibility: hidden;
+    width: max-content;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    position: absolute;
+    bottom: 120%; /* above the button */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+/* Show tooltip on hover */
+.tooltip-wrapper:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+</style>
                 </div>
                 <style>
                     .button-row {
@@ -221,13 +266,7 @@
                         margin-right: auto;
                     }
 
-                    < !-- body,
-                    html {
-                        padding: 0;
-                        margin: 0;
-                    }
-
-                    -->@media (max-width: 576px) {
+                    @media (max-width: 576px) {
                         .button-row {
                             position: relative;
                             padding: 0 !important;
@@ -245,6 +284,11 @@
                             position: absolute;
                             right: 0;
                             top: 0;
+                        }
+
+                        .wishlist-btn i {
+                            font-size: 1rem;
+                            /* Larger icon size on mobile */
                         }
                     }
                 </style>
@@ -388,9 +432,10 @@
                         </div>
 
                         <div class="mt-3 d-flex align-items-center gap-3 flex-wrap">
-                            <div class="price-new fw-bold fs-5 text-dark">₹749</div>
+
                             <div class="price-old text-muted text-decoration-line-through">₹999</div>
-                            <div class="badge-off px-2 py-1 rounded">25% OFF</div>
+                            <div class="price-new fw-bold fs-5 text-dark">₹749</div>
+                            <div class="badge-off px-2 py-1 rounded" style="color: #fff;">25% OFF</div>
                         </div>
 
                         <div class="mt-3 weight-buttons-wrapper">
@@ -406,9 +451,9 @@
 
                         <div class="action-buttons d-flex align-items-center gap-3 mt-3">
                             <button class="btn buy-btn" id="buyNowBtn">Buy Now</button>
-                         <button class="btn cart-btn" id="addToCartBtn">
-  <i class="ri-shopping-cart-line me-2"></i>Add to cart
-</button>
+                            <button class="btn cart-btn" id="addToCartBtn">
+                                <i class="ri-shopping-cart-line me-2"></i>Add to cart
+                            </button>
 
                         </div>
 
@@ -422,204 +467,270 @@
                 </div>
             </div>
         </div>
+    </section>
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const mainImage = document.getElementById("mainImage");
+    const thumbnails = document.querySelectorAll(".thumb-box img");
 
-        <!-- Consolidated CSS -->
-        <style>
-            /* ---------- MAIN IMAGE & THUMBS ---------- */
-            .main-image-wrapper {
-                border: 1px solid #dee2e6;
-                border-radius: 25px;
-                padding: 20px;
-                background-color: #fff;
-            }
+    thumbnails.forEach(thumb => {
+        thumb.addEventListener("click", function () {
+            // Update main image src
+            const newSrc = this.getAttribute("data-src") || this.src;
+            mainImage.src = newSrc;
 
-            .main-image-inner {
-                height: 350px;
-                overflow: hidden;
-                border-radius: 10px;
+            // Highlight the active thumbnail
+            thumbnails.forEach(t => t.classList.remove("active"));
+            this.classList.add("active");
+        });
+    });
+});
+</script>
+<style>
+.thumb-box img {
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.3s, border 0.3s;
+}
+
+.thumb-box img.active {
+    border: 2px solid #ff5cba;
+    transform: scale(1.05);
+}
+</style>
+
+    <style>
+        /* Main image wrapper */
+        .main-image-wrapper {
+            border-radius: 20px !important;
+            /* same as image border */
+            overflow: hidden;
+            /* ensures image doesn't overflow corners */
+            border: 1px solid #dee2e6 !important;
+            /* optional border around image */
+        }
+
+        /* Inner image */
+        .main-image-wrapper .main-image-inner img {
+            border-radius: 20px !important;
+            /* matches wrapper */
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Thumbnail images */
+        .thumb-box img {
+            border-radius: 12px !important;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .thumb-box img.active,
+        .thumb-box img:hover {
+            transform: scale(1.05);
+            border: 2px solid #ff5cba;
+            /* highlight active thumb */
+        }
+    </style>
+
+    <!-- Consolidated CSS -->
+    <style>
+        /* ---------- MAIN IMAGE & THUMBS ---------- */
+        .main-image-wrapper {
+            border: 1px solid #dee2e6;
+            border-radius: 25px;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .main-image-inner {
+            height: 350px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .main-image-inner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .thumb-box {
+            border: 1px solid #dee2e6;
+            border-radius: 15px;
+            padding: 10px;
+            min-width: 90px;
+            background-color: #fff;
+        }
+
+        .thumb-box img {
+            height: 70px;
+            width: 70px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        /* ---------- PRODUCT DETAILS ---------- */
+        .product-details h5 {
+            margin: 0;
+        }
+
+        .rating-star {
+            font-size: 1rem;
+        }
+
+        .price-new {
+            font-size: 1.25rem;
+        }
+
+        .price-old {
+            font-size: 1rem;
+        }
+
+        .badge-off {
+            background-color: #eaf8ec;
+            color: #155724;
+            font-weight: 500;
+            font-size: 0.85rem;
+            padding: 4px 8px;
+        }
+
+        /* ---------- WEIGHT BUTTONS ---------- */
+        .weight-buttons {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            gap: 10px;
+            padding-bottom: 5px;
+        }
+
+        .weight-buttons::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .weight-buttons::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 5px;
+        }
+
+        .option-btn {
+            border: 2px solid #ccc;
+            background-color: #fff;
+            color: #333;
+            border-radius: 25px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            flex: 0 0 auto;
+            min-width: 60px;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+
+        .option-btn.active {
+            border: 2px solid #007bff;
+            background-color: #eaf3ff;
+            color: #007bff;
+        }
+
+        .option-btn:hover {
+            border-color: #007bff;
+            color: #007bff;
+        }
+
+        /* ---------- ACTION BUTTONS ---------- */
+        .action-buttons .btn {
+            padding: 6px 14px !important;
+            font-size: 0.9rem !important;
+            border-radius: 25px;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+
+        .buy-btn {
+            background-color: #fe0094;
+            color: #fff;
+            border: 2px solid #fe0094;
+        }
+
+        .buy-btn:hover {
+            background-color: #e60085;
+            border-color: #e60085;
+        }
+
+        .cart-btn {
+            border: 1px solid #fe0094;
+            color: #fe0094;
+            background: transparent;
+        }
+
+        /* ---------- MOBILE RESPONSIVE ---------- */
+        @media (max-width: 576px) {
+
+            .main-image-wrapper,
+            .product-details {
+                margin-top: 2rem !important;
+                padding: 10px !important;
             }
 
             .main-image-inner img {
-                width: 100%;
-                height: 100%;
+                height: 250px;
                 object-fit: cover;
             }
 
-            .thumb-box {
-                border: 1px solid #dee2e6;
-                border-radius: 15px;
-                padding: 10px;
-                min-width: 90px;
-                background-color: #fff;
+            .action-buttons .btn {
+                flex: 1;
+                text-align: center;
+                padding: 10px 0;
+                font-size: 0.9rem;
             }
 
-            .thumb-box img {
-                height: 70px;
-                width: 70px;
-                object-fit: cover;
-                cursor: pointer;
-            }
-
-            /* ---------- PRODUCT DETAILS ---------- */
-            .product-details h5 {
-                margin: 0;
-            }
-
-            .rating-star {
-                font-size: 1rem;
-            }
-
-            .price-new {
-                font-size: 1.25rem;
-            }
-
-            .price-old {
-                font-size: 1rem;
-            }
-
-            .badge-off {
-                background-color: #eaf8ec;
-                color: #155724;
-                font-weight: 500;
-                font-size: 0.85rem;
-                padding: 4px 8px;
-            }
-
-            /* ---------- WEIGHT BUTTONS ---------- */
             .weight-buttons {
-                display: flex;
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                gap: 10px;
-                padding-bottom: 5px;
-            }
-
-            .weight-buttons::-webkit-scrollbar {
-                height: 6px;
-            }
-
-            .weight-buttons::-webkit-scrollbar-thumb {
-                background: #ccc;
-                border-radius: 5px;
+                gap: 5px;
+                /* smaller space between buttons */
+                padding-bottom: 4px;
             }
 
             .option-btn {
-                border: 2px solid #ccc;
-                background-color: #fff;
-                color: #333;
-                border-radius: 25px;
-                padding: 10px 20px;
-                font-size: 1rem;
-                flex: 0 0 auto;
-                min-width: 60px;
-                white-space: nowrap;
-                transition: all 0.3s ease;
+                padding: 4px 8px;
+                /* reduced padding */
+                font-size: 0.75rem;
+                /* smaller text */
+                min-width: 45px;
+                /* smaller width */
+                border-radius: 20px;
+                /* slightly smaller pill */
             }
 
-            .option-btn.active {
-                border: 2px solid #007bff;
-                background-color: #eaf3ff;
-                color: #007bff;
+            /* Remove extra top margin on stacked columns */
+            .col-12.col-lg-6 {
+                margin-top: 0 !important;
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
             }
 
-            .option-btn:hover {
-                border-color: #007bff;
-                color: #007bff;
+            /* Reduce vertical spacing in product details */
+            .product-details {
+                margin-top: 0.5rem !important;
+                padding: 0 !important;
             }
 
-            /* ---------- ACTION BUTTONS ---------- */
-            .action-buttons .btn {
-                padding: 6px 14px !important;
-                font-size: 0.9rem !important;
-                border-radius: 25px;
-                white-space: nowrap;
-                transition: all 0.3s ease;
+            /* Reduce main image wrapper spacing */
+            .main-image-wrapper {
+                margin-bottom: 0.5rem !important;
+                padding: 10px !important;
             }
+        }
 
-            .buy-btn {
-                background-color: #fe0094;
-                color: #fff;
-                border: 2px solid #fe0094;
+        @media (min-width: 768px) {
+            .product-hero .container {
+                padding-left: 0px !important;
+                padding-right: 0px !important;
             }
+        }
+    </style>
 
-            .buy-btn:hover {
-                background-color: #e60085;
-                border-color: #e60085;
-            }
-
-            .cart-btn {
-                border: 1px solid #fe0094;
-                color: #fe0094;
-                background: transparent;
-            }
-
-            /* ---------- MOBILE RESPONSIVE ---------- */
-            @media (max-width: 576px) {
-
-                .main-image-wrapper,
-                .product-details {
-                    margin-top: 2rem !important;
-                    padding: 10px !important;
-                }
-
-                .main-image-inner img {
-                    height: 250px;
-                    object-fit: cover;
-                }
-
-                .action-buttons .btn {
-                    flex: 1;
-                    text-align: center;
-                    padding: 10px 0;
-                    font-size: 0.9rem;
-                }
-
-                .weight-buttons {
-                    gap: 5px;
-                    /* smaller space between buttons */
-                    padding-bottom: 4px;
-                }
-
-                .option-btn {
-                    padding: 4px 8px;
-                    /* reduced padding */
-                    font-size: 0.75rem;
-                    /* smaller text */
-                    min-width: 45px;
-                    /* smaller width */
-                    border-radius: 20px;
-                    /* slightly smaller pill */
-                }
-
-                /* Remove extra top margin on stacked columns */
-                .col-12.col-lg-6 {
-                    margin-top: 0 !important;
-                    padding-left: 0.5rem;
-                    padding-right: 0.5rem;
-                }
-
-                /* Reduce vertical spacing in product details */
-                .product-details {
-                    margin-top: 0.5rem !important;
-                    padding: 0 !important;
-                }
-
-                /* Reduce main image wrapper spacing */
-                .main-image-wrapper {
-                    margin-bottom: 0.5rem !important;
-                    padding: 10px !important;
-                }
-            }
-
-            @media (min-width: 768px) {
-                .product-hero .container {
-                    padding-left: 0px !important;
-                    padding-right: 0px !important;
-                }
-            }
-        </style>
-    </section>
 
 
     <!-- =================== CUSTOMER REVIEWS SECTION =================== -->
@@ -940,180 +1051,184 @@
 
 
     <!-- =================== YOU MIGHT ALSO LIKE SECTION =================== -->
-   <section class="category-products section-b-space mt-1">
-    <div class="container">
-        <div class="row g-3 justify-content-center">
+    <section class="category-products section-b-space mt-1">
+        <div class="container">
+            <div class="row g-3 justify-content-center">
 
-            <!-- Single Product Card -->
-            <div class="col-md-3 col-6">
-                <div class="product-box text-center">
-                    <a href="shop.html" class="image-square">
-                        <img src="assets/images/desserts/cheese_cake.jpeg" alt="Cheesecake">
-                    </a>
+                <!-- Single Product Card -->
+                <div class="col-md-3 col-6">
+                    <div class="product-box text-center">
+                        <a href="shop.html" class="image-square">
+                            <img src="assets/images/desserts/cheese_cake.jpeg" alt="Cheesecake">
+                        </a>
 
-                    <!-- Review badge -->
-                    <div class="d-flex justify-content-end mt-2 mb-2">
-                        <div class="review-badge">
-                            <span>★</span> 4.6
+                        <!-- Review badge -->
+                        <div class="d-flex justify-content-end mt-2 mb-2">
+                            <div class="review-badge">
+                                <span>★</span> 4.6
+                            </div>
+                        </div>
+
+                        <h4 class="cake-title">Cheese Cake</h4>
+                        <p class="cake-details">
+                            <span class="cake-weight">0.5KG</span> -
+                            <span class="cake-price text-dark">₹440</span>
+                            <span class="text-secondary"><s>₹550</s></span>
+                        </p>
+
+                        <p>
+                            <span class="discount-badge">20% off</span>
+                        </p>
+
+                        <div class="btn-wrapper">
+                            <a href="shop.html" class="btn add-btn mt-2">
+                                View Cake
+                            </a>
                         </div>
                     </div>
+                </div>
 
-                    <h4 class="cake-title">Cheese Cake</h4>
-                    <p class="cake-details">
-                        <span class="cake-weight">0.5KG</span> - 
-                        <span class="cake-price text-dark">₹440</span>
-                        <span class="text-secondary"><s>₹550</s></span>
-                    </p>
-
-                    <p>
-                        <span class="discount-badge">20% off</span>
-                    </p>
-
-                    <div class="btn-wrapper">
-                        <a href="shop.html" class="btn add-btn mt-2" >
-                             View Cake
+                <!-- Repeat Product Card -->
+                <div class="col-md-3 col-6">
+                    <div class="product-box text-center">
+                        <a href="shop.html" class="image-square">
+                            <img src="assets/images/cakes/black-fores.JPG" alt="Black Forest Cake">
                         </a>
+                        <div class="d-flex justify-content-end mt-2 mb-2">
+                            <div class="review-badge"><span>★</span> 4.6</div>
+                        </div>
+                        <h4 class="cake-title">Black Forest</h4>
+                        <p class="cake-details">
+                            <span class="cake-weight">0.5KG</span> -
+                            <span class="cake-price text-dark">₹440</span>
+                            <span class="text-secondary"><s>₹550</s></span>
+                        </p>
+                        <p><span class="discount-badge">20% off</span></p>
+                        <div class="btn-wrapper">
+                            <a href="shop.html" class="btn add-btn mt-2">
+                                View Cake
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Repeat Product Card -->
-            <div class="col-md-3 col-6">
-                <div class="product-box text-center">
-                    <a href="shop.html" class="image-square">
-                        <img src="assets/images/cakes/black-fores.JPG" alt="Black Forest Cake">
-                    </a>
-                    <div class="d-flex justify-content-end mt-2 mb-2">
-                        <div class="review-badge"><span>★</span> 4.6</div>
-                    </div>
-                    <h4 class="cake-title">Black Forest</h4>
-                    <p class="cake-details">
-                        <span class="cake-weight">0.5KG</span> - 
-                        <span class="cake-price text-dark">₹440</span>
-                        <span class="text-secondary"><s>₹550</s></span>
-                    </p>
-                    <p><span class="discount-badge">20% off</span></p>
-                    <div class="btn-wrapper">
-                        <a href="shop.html" class="btn add-btn mt-2">
-                            View Cake
-                        </a>
-                    </div>
-                </div>
+                <!-- Add more products in the same structure -->
             </div>
-
-            <!-- Add more products in the same structure -->
         </div>
-    </div>
-</section>
+    </section>
 
-<style>
-/* Product Card */
-.product-box {
-    border: 1px solid #dee2e6;
-    border-radius: 20px;
-    padding: 0.8rem;
-    min-height: 360px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-align: center;
-    background-color: #fff;
-    box-sizing: border-box;
-}
-.product-box:hover {
-    transform: translateY(-5px);      /* slight lift */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* subtle shadow */
-             /* optional border color change */
-}
-.image-square {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    overflow: hidden;
-    border-radius: 20px;
-    display: block;
-}
+    <style>
+        /* Product Card */
+        .product-box {
+            border: 1px solid #dee2e6;
+            border-radius: 20px;
+            padding: 0.8rem;
+            min-height: 360px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
+            background-color: #fff;
+            box-sizing: border-box;
+        }
 
-.image-square img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+        .product-box:hover {
+            transform: translateY(-5px);
+            /* slight lift */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            /* subtle shadow */
+            /* optional border color change */
+        }
 
-.review-badge {
-    background-color: #4CAF50;
-    border-radius: 12px;
-    padding: 2px 6px;
-    display: inline-flex;
-    align-items: center;
-    color: #fff;
-    font-weight: 600;
-    font-size: 0.7rem;
-}
+        .image-square {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            border-radius: 20px;
+            display: block;
+        }
 
-.cake-title {
-    font-weight: 500;
-    font-size: 1.3rem;
-    margin: 0.5rem 0 0.3rem;
-}
+        .image-square img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-.cake-details {
-    font-size: 1rem;
-    margin-bottom: 0.3rem;
-}
+        .review-badge {
+            background-color: #4CAF50;
+            border-radius: 12px;
+            padding: 2px 6px;
+            display: inline-flex;
+            align-items: center;
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.7rem;
+        }
 
-.cake-details .cake-weight {
-    font-weight: 450;
-}
+        .cake-title {
+            font-weight: 500;
+            font-size: 1.3rem;
+            margin: 0.5rem 0 0.3rem;
+        }
 
-.cake-details .cake-price {
-    font-weight: 500;
-}
+        .cake-details {
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
 
-.discount-badge {
-    background-color: #eaf8ec;
-    color: #155724;
-    font-weight: 500;
-    border-radius: 8px;
-    padding: 2px 8px;
-    font-size: 0.85rem;
-}
+        .cake-details .cake-weight {
+            font-weight: 450;
+        }
+
+        .cake-details .cake-price {
+            font-weight: 500;
+        }
+
+        .discount-badge {
+            background-color: #eaf8ec;
+            color: #155724;
+            font-weight: 500;
+            border-radius: 8px;
+            padding: 2px 8px;
+            font-size: 0.85rem;
+        }
 
 
-.add-btn,
-.add-btn:focus,
-.add-btn:hover,
-.add-btn:active {
-    background-color: #ff5cba !important;
-    color: #fff !important;
-    border: none;
-    outline: none;
-    box-shadow: none;
-     font-size: 0.9rem;
-         padding: 0.4rem 1.5rem;
-             border-radius: 50px;
-              
-}
+        .add-btn,
+        .add-btn:focus,
+        .add-btn:hover,
+        .add-btn:active {
+            background-color: #ff5cba !important;
+            color: #fff !important;
+            border: none;
+            outline: none;
+            box-shadow: none;
+            font-size: 0.9rem;
+            padding: 0.4rem 1.5rem;
+            border-radius: 50px;
 
-/* Mobile Styles */
-@media (max-width: 767px) {
-    .product-box {
-        min-height: auto;
-        padding: 0.6rem;
-    }
+        }
 
-    .cake-title {
-        font-size: 1rem;
-    }
+        /* Mobile Styles */
+        @media (max-width: 767px) {
+            .product-box {
+                min-height: auto;
+                padding: 0.6rem;
+            }
 
-    .cake-details {
-        font-size: 0.85rem;
-    }
+            .cake-title {
+                font-size: 1rem;
+            }
 
-    .discount-badge {
-        font-size: 0.75rem;
-    }
-}
-</style>
+            .cake-details {
+                font-size: 0.85rem;
+            }
+
+            .discount-badge {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
 
 
     <section class="custom-features-section">
