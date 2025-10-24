@@ -38,100 +38,124 @@
     <link rel="stylesheet" id="change-link" type="text/css" href="assets/css/style.css">
 
     <!-- font awsome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
 </head>
 
 <body class="position-relative">
-   
+
     <!-- Header section start -->
     <header>
         <div class="container">
             <nav class="navbar navbar-expand-lg p-0">
-                <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#offcanvasNavbar">
-                    <span class="navbar-toggler-icon">
-                        <i class="ri-menu-line"></i>
-                    </span>
-                </button> -->
-                <!-- <a href="index.html">
-                    <img class="img-fluid logo" src="assets/images/logo/logo.png" style="height: auto; width: 100px;" alt="logo">
-                </a>
-                <a target="_blank" href="#!" data-bs-toggle="modal" data-bs-target="#location"
-                    class="btn btn-sm theme-btn location-btn mt-0 ms-3 d-flex align-content-center gap-1">
-                    <i class="ri-map-pin-line"></i> Location
-                </a> -->
-                <!-- Left: Location button (replaces logo) -->
-  
 
-<!-- <div class="d-flex align-items-center w-100">
-     -->
-<div class="d-flex justify-content-between align-items-center w-100 button-row">
-  <!-- Location button -->
-  <a target="_blank" href="#!" data-bs-toggle="modal" data-bs-target="#location"
-     class="btn btn-sm theme-btn location-btn d-flex align-items-center gap-1">
-     <i class="ri-map-pin-line"></i> Location
-  </a>
+                <div class="d-flex justify-content-between align-items-center w-100 button-row">
+                    <!-- Location button -->
+                    <a target="_blank" href="#!" data-bs-toggle="modal" data-bs-target="#location"
+                        class="btn btn-sm theme-btn location-btn d-flex align-items-center gap-1">
+                        <i class="ri-map-pin-line"></i> Location
+                    </a>
 
-  <!-- Wishlist button -->
-  <a href="wishlist.html" 
-     class="btn btn-sm theme-btn wishlist-btn d-flex align-items-center gap-1">
-     <i class="ri-heart-line"></i> 
-  </a>
-</div>
-<style>
- .button-row {
-  padding-left: 0 !important;
-  margin-left: 0 !important;
-}
+                    <!-- Wishlist button -->
+                    <div class="d-flex gap-2">
+                        <!-- Wishlist Button -->
+                        <a href="wishlist.html"
+                            class="btn btn-sm theme-btn wishlist-btn d-flex align-items-center gap-1">
+                            <i class="ri-heart-line"></i>
+                        </a>
 
-.location-btn {
-  margin-left: 0 !important;
-  margin-right: auto;
-}
+                        <!-- Shop Page Button with Tooltip -->
+                        <div class="tooltip-wrapper">
+                            <a href="shop.html"
+                                class="btn btn-sm theme-btn shop-btn d-flex align-items-center justify-content-center">
+                                <i class="ri-shopping-bag-line"></i>
+                            </a>
+                            <span class="tooltip-text">Shop</span>
+                        </div>
+                    </div>
 
-<!-- body, html {
-  padding: 0;
-  margin: 0;
-} -->
-@media (max-width: 576px) {
-  .button-row {
-    position: relative;
-    padding: 0 !important;
-    margin: 0 !important;
-    width: 100%;
-  }
+                    <style>
+                        /* Tooltip Wrapper */
+                        .tooltip-wrapper {
+                            position: relative;
+                            display: inline-block;
+                        }
 
-  .location-btn {
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
+                        /* Tooltip text */
+                        .tooltip-text {
+                            visibility: hidden;
+                            width: max-content;
+                            background-color: #333;
+                            color: #fff;
+                            text-align: center;
+                            padding: 3px 6px;
+                            border-radius: 4px;
+                            font-size: 0.75rem;
+                            position: absolute;
+                            bottom: 120%;
+                            /* above the button */
+                            left: 50%;
+                            transform: translateX(-50%);
+                            opacity: 0;
+                            transition: opacity 0.3s;
+                            white-space: nowrap;
+                            z-index: 10;
+                        }
 
-  .wishlist-btn {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-    .wishlist-btn i {
-    font-size: 1rem; /* Larger icon size on mobile */
-  }
-}
+                        /* Show tooltip on hover */
+                        .tooltip-wrapper:hover .tooltip-text {
+                            visibility: visible;
+                            opacity: 1;
+                        }
+                    </style>
+                </div>
+                <style>
+                    .button-row {
+                        padding-left: 0 !important;
+                        margin-left: 0 !important;
+                    }
 
+                    .location-btn {
+                        margin-left: 0 !important;
+                        margin-right: auto;
+                    }
 
-</style>
+                    < !-- body,
+                    html {
+                        padding: 0;
+                        margin: 0;
+                    }
 
+                    -->@media (max-width: 576px) {
+                        .button-row {
+                            position: relative;
+                            padding: 0 !important;
+                            margin: 0 !important;
+                            width: 100%;
+                        }
 
+                        .location-btn {
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                        }
 
-    
-<!-- </div>    -->
+                        .wishlist-btn {
+                            position: absolute;
+                            right: 0;
+                            top: 0;
+                        }
+                    }
+                </style>
 
 
 
                 <div class="nav-option order-md-2">
                     <div class="dropdown-button">
-                        <!-- <div class="cart-button">
+                        <div class="cart-button">
                             <span>5</span>
                             <i class="ri-shopping-cart-line text-white cart-bag"></i>
                         </div>
@@ -226,41 +250,8 @@
                                 <a href="checkout.html" class="btn btn-sm theme-btn w-100 d-block rounded-2">View
                                     Cart</a>
                             </div>
-                        </div> -->
-          <a href="checkout.html" class="cart-button">
-  <span id="cart-count">0</span>
-  <i class="ri-shopping-cart-line text-white cart-bag"></i>
-</a>
+                        </div>
 
-<script>
-  const cartCountEl = document.getElementById('cart-count');
-
-  // Load cart from localStorage
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-  // Function to update cart count
-  function updateCartCount() {
-    cartCountEl.textContent = cart.length;
-  }
-
-  // Initial count
-  updateCartCount();
-
-  // Add to cart buttons
-  document.querySelectorAll('.add-to-cart').forEach(button => {
-    button.addEventListener('click', () => {
-      const product = {
-        name: button.getAttribute('data-name'),
-        price: button.getAttribute('data-price'),
-        image: button.getAttribute('data-image') || ''
-      };
-
-      cart.push(product);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      updateCartCount();
-    });
-  });
-</script>
 
 
 
@@ -282,9 +273,9 @@
                                 <li>
                                     <a class="dropdown-item" href="saved-address.html">Saved Address</a>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <a class="dropdown-item" href="saved-card.html">Saved cards</a>
-                                </li>
+                                </li> -->
                                 <li>
                                     <a class="dropdown-item" href="setting.html">Settings</a>
                                 </li>
@@ -296,7 +287,7 @@
                         </div>
                     </div>
                 </div>
-                
+
             </nav>
         </div>
     </header>
@@ -305,74 +296,160 @@
     <!-- page head section starts -->
     <section class="page-head-section">
         <div class="container page-heading">
-            <h2 class="h3 mb-3 text-white text-center">Login</h2>
+            <h2 class="h3 mb-3 text-white text-center">Refund & Cancellation Policy</h2>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb flex-lg-nowrap justify-content-center justify-content-lg-star">
                     <li class="breadcrumb-item">
                         <a href="index.html"><i class="ri-home-line"></i>Home</a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">Login</li>
+                    <li class="breadcrumb-item active" aria-current="page">Refund & Cancellation Policy</li>
                 </ol>
             </nav>
         </div>
     </section>
-    <!-- page head section end -->
+    <!-- Privacy Policy Section -->
+    
+<section class="policy-section">
+    <div class="container">
+        <h2 style="color:#fe0094; font-size:24px; font-weight:700; margin-bottom:1rem;">Refund & Cancellation Policy</h2>
+        <p style=" line-height:1.8; color:#333; font-size: 14px;">Last Updated: October 2025</p><br>
+        <p style="line-height:1.8; color:#333; font-size: 14px;">
+           At Cakee.in, we take great pride in delivering fresh, high-quality cakes and ensuring your celebrations go perfectly. However, we understand that sometimes plans change. This policy explains how cancellations, refunds, and replacements are handled.
 
-    <style>
-        .login-data{
-            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-            padding: 30px;
-            border-radius: 15px;
-            background: #fff;
-        }
-    </style>
-    <!-- signin page start -->
-    <section class="login-hero-section section-b-space" style="background: rgb(233, 249, 255);">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-5 col-lg-6 col-md-10 m-auto p-3">
-                    <div class="login-data">
-                        <form class="auth-form text-center">
-                            <h2 class="text-secondary">LOGIN</h2>
-                            <h5 class="mb-4">
-                                or
-                                <a href="signup.html"><span class="theme-color">create an a account</span></a>
-                            </h5>
-                            <div class="form-input">
-                                <input type="tel" class="form-control" placeholder="Enter your number">
-                                <i class="ri-phone-line"></i>
-                            </div>
-                            <div class="form-input">
-                                <input type="password" class="form-control" placeholder="Enter your password">
-                                <i class="ri-lock-password-line"></i>
-                            </div>
-                            <a href="index.html" class="btn theme-btn submit-btn w-100 rounded-2">CONTINUE</a>
-                            <small class="fw-normal content-color mt-4">
-                                By creating an account, I accept the
-                                <span class="fw-semibold">
-                                    <a href="" class="text-secondary">Terms & Conditions </a> & <a href="" class="text-secondary">Privacy Policy</a></span>
-                            </small>
-                        </form>
-                    </div>
-                </div>
-            </div>
+        </p>
+
+        <div class="policy-section-item">
+            <h3 style="font-size:18px; font-weight:600; color:#fe0094; margin-top:1.5rem;">1. Order Cancellation</h3>
+            <ul class="policy-list">
+                <li style="font-size: 14px;">Cancellations must be made at least 24 hours before the scheduled delivery time.
+</li>
+                <li style="font-size: 14px;"> For same-day, midnight, or express deliveries, cancellations are not allowed once the order is confirmed.</li>
+                <li style="font-size: 14px;">To cancel an order, please email us at<a href="mailto:support@cakee.in">support@cakee.in</a> with your order ID and reason for cancellation.
+</li>
+            </ul>
         </div>
-    </section>
-    <!-- signin page end -->
+
+        <div class="policy-section-item">
+            <h3 style="font-size:18px; font-weight:600; color:#fe0094; margin-top:1.5rem;">2. Refund Policy</h3>
+            <p style=" line-height:1.8; color:#333; font-size: 14px;">Refunds are processed under the following conditions:<br>
+</p>
+            <ul class="policy-list">
+                <li style="font-size: 16px;"><strong>Full Refunds</strong> will be issued if:
+                    <ul>
+                        <li style="font-size: 14px;">The order is cancelled more than 24 hours before delivery.</li>
+                        <li style="font-size: 14px;">The product cannot be delivered due to reasons attributable to Cakee.in (such as unavailability of product or delivery area).</li>
+                    </ul>
+                </li>
+                <li style="font-size: 16px;"><strong>Partial Refunds</strong> may be issued if:
+                    <ul>
+                        <li style="font-size: 15px;">There are minor quality issues that do not affect the overall usability of the product.</li>
+                        <li style="font-size: 15px;">The product is slightly different from the image due to handmade variations.</li>
+                    </ul>
+                </li>
+                <li style="font-size: 16px;"><strong>No Refunds</strong> will be issued if:
+                    <ul>
+                        <li style="font-size: 14px;">Incorrect or incomplete delivery details are provided by the customer.</li>
+                        <li style="font-size: 14px;">The recipient is unavailable at the time of delivery.</li>
+                        <li style="font-size: 14px;">The order includes customized cakes (photo, fondant, or message cakes) where production has already begun.</li>
+                        <li style="font-size: 14px;">Delays are caused by weather, traffic, or unavoidable courier delays.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="policy-section-item">
+            <h3 style="font-size:18px; font-weight:600; color:#fe0094; margin-top:1.5rem;">3. Replacement Policy</h3>
+            <ul class="policy-list">
+                <li style="font-size: 16px;">If you receive a damaged or incorrect product:
+                    <ul>
+                        <li style="font-size: 14px;">Please contact us within 1 hour of delivery at <strong>Mob no. +91 8075353860</strong>, with a clear photo of the product and order details on WhatsApp.</li>
+                        <li style="font-size: 14px;">After verification, we will arrange for a replacement or issue a refund, as appropriate.</li>
+                        <li style="font-size: 14px;">Complaints received after 1 hour of delivery will not be eligible for a refund or replacement, as cakes are perishable items.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="policy-section-item">
+            <h3 style="font-size:18px; font-weight:600; color:#fe0094; margin-top:1.5rem;">4. Mode of Refund</h3>
+            <ul class="policy-list">
+                <li style="font-size: 14px;">Refunds (if approved) will be processed to the <strong>original payment method </strong>(Credit/Debit Card, UPI, Wallet, or Net Banking).</li>
+                <li style="font-size: 14px;">Please allow <strong>7–10 business days</strong> for the refund to reflect in your account.</li>
+            </ul>
+        </div>
+
+        <div class="policy-section-item">
+            <h3 style="font-size:18px; font-weight:600; color:#fe0094; margin-top:1.5rem;">5. Changes to Orders</h3>
+            <ul class="policy-list">
+                <li style="font-size: 14px;">Changes to delivery address, message, or delivery time can be made <strong>only if</strong> requested 24 hours before the delivery time.</li>
+                <li style="font-size: 14px;">No changes can be made after the order has been dispatched or is in preparation.</li>
+            </ul>
+        </div>
+
+        <div class="policy-section-item">
+            <h3 style="font-size:18px; font-weight:600; color:#fe0094; margin-top:1.5rem;">6. Contact Us</h3>
+            <ul class="policy-list">
+                <li style="font-size: 16px;">If you have any concerns about your order, please reach out to us at:
+                    <ul>
+                        <li style="font-size: 14px;">Email: <a href="mailto:cakeeinfo@gmail.com">cakeeinfo@gmail.com</a></li><br>
+                        <li style="font-size: 14px;">Website: <a href="https://www.cakee.in" target="_blank">www.cakee.in</a></li>
+                    </ul>
+                </li>
+                <li style="font-size: 16px;">We’re always here to help make your celebrations sweeter! 🎂</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<style>
+    .policy-section {
+    max-width: 800px;
+    margin: 0 auto;
+    
+    color: #333;
+}
+
+.policy-section h2 {
+    text-align: left;
+}
+
+.policy-section h3 {
+    margin-bottom: 0.5rem;
+}
+
+.policy-list {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    line-height: 1.8;
+    font-size: 16px;
+    margin-bottom: 1rem;
+}
+
+.policy-list li {
+    margin-bottom: 0.5rem;
+}
+
+.policy-list li ul {
+    list-style-type: circle;
+    padding-left: 1.5rem;
+    margin-top: 0.3rem;
+}
+
+</style>
 
     <!-- footer section starts -->
-  <footer class="footer-section section-t-space">
-        
+    <footer class="footer-section section-t-space">
+
         <div class="container">
             <div class="main-footer">
                 <div class="row g-3">
                     <div class="col-xl-4 col-lg-12">
                         <div class="footer-logo-part">
-                        
-  <h1 style="font-size:50px; font-weight:700; margin-top:10px; color:white; line-height:1.3;">
-  Celebrate <br>with us!
-</h1><br>
-<img class="img-fluid logo" src="assets/images/logo/logo.png" alt="logo"
+
+
+                            <h1 style="font-size:50px; font-weight:700; margin-top:10px; color:white; line-height:1.3;">
+                                Celebrate <br>with us!
+                            </h1><br>
+                            <img class="img-fluid logo" src="assets/images/logo/logo.png" alt="logo"
                                 style="max-width:100px; height:auto;">
 
                             <div class="social-media-part">
@@ -406,15 +483,17 @@
                             </div>
                         </div>
                     </div>
-                   
+
                 </div>
             </div>
             <div class="bottom-footer-part">
                 <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
-                    <h6>© Copyright 2025 <strong>CAKEE</strong>. All rights reserved. Designed by 
-<a href="https://www.cognetz.com" target="_blank" style="color: inherit; text-decoration: none;">Cognetz</a>.
-</h6>
-         <div class="footer-bottom" style="text-align:center; padding:20px 0; ">
+                    <h6>© Copyright 2025 <strong>CAKEE</strong>. All rights reserved. Designed by
+                        <a href="https://www.cognetz.com" target="_blank"
+                            style="color: inherit; text-decoration: none;">Cognetz</a>.
+                    </h6>
+
+                             <div class="footer-bottom" style="text-align:center; padding:20px 0; ">
 
   <!-- Image -->
   <div class="footer-left mb-3">
@@ -453,24 +532,38 @@
     </footer>
     <!-- footer section end -->
 
-    <!-- theme btn start -->
-    <!-- <div class="theme-btns">
-        <button type="button" class="btntheme mode-change-button">
-            <i id="themeIcon" class="ri-moon-line icon mode-icon"></i>
-            <span class="text-value">Dark</span>
-        </button>
-        <button type="button" id="rtl-btn" class="btntheme rtlBtnEl">
-            <i class="ri-repeat-line icon"></i>
-            <span class="text-value">RTL</span>
-        </button>
-    </div> -->
-    <!-- theme btn end -->
+    <!-- mobile fix menu start -->
+    <div class="mobile-menu d-md-none d-block mobile-cart">
+        <ul>
+            <li>
+                <a href="index.html" class="menu-box">
+                    <i class="ri-home-4-line"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="shop1.html" class="menu-box">
+                    <i class="ri-shopping-bag-line"></i>
+                    <span>Shop</span>
+                </a>
+            </li>
+            <li>
+                <a href="checkout.html" class="menu-box">
+                    <i class="ri-shopping-cart-2-line"></i>
+                    <span>Cart</span>
+                </a>
+            </li>
+            <li>
+                <a href="profile.html" class="menu-box">
+                    <i class="ri-user-line"></i>
+                    <span>Profile</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- mobile fix menu end -->
 
-    <!-- tap to top start -->
-    <button class="scroll scroll-to-top">
-        <i class="ri-arrow-up-s-line arrow"></i>
-    </button>
-    <!-- tap to top end -->
+
 
     <!-- location offcanvas start -->
     <div class="modal fade location-modal" id="location" data-bs-backdrop="static" data-bs-keyboard="false"
@@ -520,6 +613,18 @@
         </div>
     </div>
     <!-- location offcanvas end -->
+
+
+
+    <!-- tap to top start -->
+    <button class="scroll scroll-to-top">
+        <i class="ri-arrow-up-s-line arrow"></i>
+    </button>
+    <!-- tap to top end -->
+
+    <!-- responsive space -->
+    <div class="responsive-space"></div>
+    <!-- responsive space -->
 
     <!-- bootstrap js -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>

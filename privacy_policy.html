@@ -38,100 +38,124 @@
     <link rel="stylesheet" id="change-link" type="text/css" href="assets/css/style.css">
 
     <!-- font awsome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
 </head>
 
 <body class="position-relative">
-   
+
     <!-- Header section start -->
     <header>
         <div class="container">
             <nav class="navbar navbar-expand-lg p-0">
-                <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#offcanvasNavbar">
-                    <span class="navbar-toggler-icon">
-                        <i class="ri-menu-line"></i>
-                    </span>
-                </button> -->
-                <!-- <a href="index.html">
-                    <img class="img-fluid logo" src="assets/images/logo/logo.png" style="height: auto; width: 100px;" alt="logo">
-                </a>
-                <a target="_blank" href="#!" data-bs-toggle="modal" data-bs-target="#location"
-                    class="btn btn-sm theme-btn location-btn mt-0 ms-3 d-flex align-content-center gap-1">
-                    <i class="ri-map-pin-line"></i> Location
-                </a> -->
-                <!-- Left: Location button (replaces logo) -->
-  
 
-<!-- <div class="d-flex align-items-center w-100">
-     -->
-<div class="d-flex justify-content-between align-items-center w-100 button-row">
-  <!-- Location button -->
-  <a target="_blank" href="#!" data-bs-toggle="modal" data-bs-target="#location"
-     class="btn btn-sm theme-btn location-btn d-flex align-items-center gap-1">
-     <i class="ri-map-pin-line"></i> Location
-  </a>
+                <div class="d-flex justify-content-between align-items-center w-100 button-row">
+                    <!-- Location button -->
+                    <a target="_blank" href="#!" data-bs-toggle="modal" data-bs-target="#location"
+                        class="btn btn-sm theme-btn location-btn d-flex align-items-center gap-1">
+                        <i class="ri-map-pin-line"></i> Location
+                    </a>
 
-  <!-- Wishlist button -->
-  <a href="wishlist.html" 
-     class="btn btn-sm theme-btn wishlist-btn d-flex align-items-center gap-1">
-     <i class="ri-heart-line"></i> 
-  </a>
-</div>
-<style>
- .button-row {
-  padding-left: 0 !important;
-  margin-left: 0 !important;
-}
+                    <!-- Wishlist button -->
+                    <div class="d-flex gap-2">
+                        <!-- Wishlist Button -->
+                        <a href="wishlist.html"
+                            class="btn btn-sm theme-btn wishlist-btn d-flex align-items-center gap-1">
+                            <i class="ri-heart-line"></i>
+                        </a>
 
-.location-btn {
-  margin-left: 0 !important;
-  margin-right: auto;
-}
+                        <!-- Shop Page Button with Tooltip -->
+                        <div class="tooltip-wrapper">
+                            <a href="shop.html"
+                                class="btn btn-sm theme-btn shop-btn d-flex align-items-center justify-content-center">
+                                <i class="ri-shopping-bag-line"></i>
+                            </a>
+                            <span class="tooltip-text">Shop</span>
+                        </div>
+                    </div>
 
-<!-- body, html {
-  padding: 0;
-  margin: 0;
-} -->
-@media (max-width: 576px) {
-  .button-row {
-    position: relative;
-    padding: 0 !important;
-    margin: 0 !important;
-    width: 100%;
-  }
+                    <style>
+                        /* Tooltip Wrapper */
+                        .tooltip-wrapper {
+                            position: relative;
+                            display: inline-block;
+                        }
 
-  .location-btn {
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
+                        /* Tooltip text */
+                        .tooltip-text {
+                            visibility: hidden;
+                            width: max-content;
+                            background-color: #333;
+                            color: #fff;
+                            text-align: center;
+                            padding: 3px 6px;
+                            border-radius: 4px;
+                            font-size: 0.75rem;
+                            position: absolute;
+                            bottom: 120%;
+                            /* above the button */
+                            left: 50%;
+                            transform: translateX(-50%);
+                            opacity: 0;
+                            transition: opacity 0.3s;
+                            white-space: nowrap;
+                            z-index: 10;
+                        }
 
-  .wishlist-btn {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-    .wishlist-btn i {
-    font-size: 1rem; /* Larger icon size on mobile */
-  }
-}
+                        /* Show tooltip on hover */
+                        .tooltip-wrapper:hover .tooltip-text {
+                            visibility: visible;
+                            opacity: 1;
+                        }
+                    </style>
+                </div>
+                <style>
+                    .button-row {
+                        padding-left: 0 !important;
+                        margin-left: 0 !important;
+                    }
 
+                    .location-btn {
+                        margin-left: 0 !important;
+                        margin-right: auto;
+                    }
 
-</style>
+                    < !-- body,
+                    html {
+                        padding: 0;
+                        margin: 0;
+                    }
 
+                    -->@media (max-width: 576px) {
+                        .button-row {
+                            position: relative;
+                            padding: 0 !important;
+                            margin: 0 !important;
+                            width: 100%;
+                        }
 
+                        .location-btn {
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                        }
 
-    
-<!-- </div>    -->
+                        .wishlist-btn {
+                            position: absolute;
+                            right: 0;
+                            top: 0;
+                        }
+                    }
+                </style>
 
 
 
                 <div class="nav-option order-md-2">
                     <div class="dropdown-button">
-                        <!-- <div class="cart-button">
+                        <div class="cart-button">
                             <span>5</span>
                             <i class="ri-shopping-cart-line text-white cart-bag"></i>
                         </div>
@@ -226,41 +250,8 @@
                                 <a href="checkout.html" class="btn btn-sm theme-btn w-100 d-block rounded-2">View
                                     Cart</a>
                             </div>
-                        </div> -->
-          <a href="checkout.html" class="cart-button">
-  <span id="cart-count">0</span>
-  <i class="ri-shopping-cart-line text-white cart-bag"></i>
-</a>
+                        </div>
 
-<script>
-  const cartCountEl = document.getElementById('cart-count');
-
-  // Load cart from localStorage
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-  // Function to update cart count
-  function updateCartCount() {
-    cartCountEl.textContent = cart.length;
-  }
-
-  // Initial count
-  updateCartCount();
-
-  // Add to cart buttons
-  document.querySelectorAll('.add-to-cart').forEach(button => {
-    button.addEventListener('click', () => {
-      const product = {
-        name: button.getAttribute('data-name'),
-        price: button.getAttribute('data-price'),
-        image: button.getAttribute('data-image') || ''
-      };
-
-      cart.push(product);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      updateCartCount();
-    });
-  });
-</script>
 
 
 
@@ -282,9 +273,9 @@
                                 <li>
                                     <a class="dropdown-item" href="saved-address.html">Saved Address</a>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <a class="dropdown-item" href="saved-card.html">Saved cards</a>
-                                </li>
+                                </li> -->
                                 <li>
                                     <a class="dropdown-item" href="setting.html">Settings</a>
                                 </li>
@@ -296,7 +287,7 @@
                         </div>
                     </div>
                 </div>
-                
+
             </nav>
         </div>
     </header>
@@ -305,74 +296,149 @@
     <!-- page head section starts -->
     <section class="page-head-section">
         <div class="container page-heading">
-            <h2 class="h3 mb-3 text-white text-center">Login</h2>
+            <h2 class="h3 mb-3 text-white text-center">Privacy Policy</h2>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb flex-lg-nowrap justify-content-center justify-content-lg-star">
                     <li class="breadcrumb-item">
                         <a href="index.html"><i class="ri-home-line"></i>Home</a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">Login</li>
+                    <li class="breadcrumb-item active" aria-current="page">Privacy Policy</li>
                 </ol>
             </nav>
         </div>
     </section>
-    <!-- page head section end -->
+    <!-- Privacy Policy Section -->
+    <section class="privacy-policy-section py-5">
+        <div class="container" style="max-width: 900px;">
+            <h1 class="mb-4" style="font-weight: 700; font-size: 2.5rem; color: #fe0094;">Privacy Policy</h1>
+            <p class="text-muted mb-5"><strong>Last Updated:</strong> October 2025</p>
 
-    <style>
-        .login-data{
-            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-            padding: 30px;
-            border-radius: 15px;
-            background: #fff;
-        }
-    </style>
-    <!-- signin page start -->
-    <section class="login-hero-section section-b-space" style="background: rgb(233, 249, 255);">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-5 col-lg-6 col-md-10 m-auto p-3">
-                    <div class="login-data">
-                        <form class="auth-form text-center">
-                            <h2 class="text-secondary">LOGIN</h2>
-                            <h5 class="mb-4">
-                                or
-                                <a href="signup.html"><span class="theme-color">create an a account</span></a>
-                            </h5>
-                            <div class="form-input">
-                                <input type="tel" class="form-control" placeholder="Enter your number">
-                                <i class="ri-phone-line"></i>
-                            </div>
-                            <div class="form-input">
-                                <input type="password" class="form-control" placeholder="Enter your password">
-                                <i class="ri-lock-password-line"></i>
-                            </div>
-                            <a href="index.html" class="btn theme-btn submit-btn w-100 rounded-2">CONTINUE</a>
-                            <small class="fw-normal content-color mt-4">
-                                By creating an account, I accept the
-                                <span class="fw-semibold">
-                                    <a href="" class="text-secondary">Terms & Conditions </a> & <a href="" class="text-secondary">Privacy Policy</a></span>
-                            </small>
-                        </form>
-                    </div>
-                </div>
+            <p style="font-size: 16px;">Welcome to Cakee.in. We value your trust and are committed to protecting your
+                privacy. This Privacy Policy explains how we collect, use, and safeguard your personal information when
+                you visit or make a purchase from our website
+                <a href="https://www.cakee.in" style="color: #fe0094; text-decoration: none;">www.cakee.in</a>.
+            </p>
+
+            <div class="policy-section mb-4">
+                <h3 style="font-weight: 400; margin-top: 2rem; color: #fe0094; font-size:18px;">1. Information We
+                    Collect</h3><br>
+                <ul style="padding-left: 1.2rem; list-style: disc; line-height: 1.8;">
+                    <li style="font-size: 16px;"><strong>Personal Details:</strong> Name, email address, phone number,
+                        billing and delivery address.</li>
+                    <li style="font-size: 16px;"><strong>Payment Information:</strong> Payment method details such as
+                        credit/debit card, UPI, wallet, or net banking (processed securely through trusted payment
+                        gateways).
+                    </li>
+                    <li style="font-size: 16px;"><strong>Order Information:</strong> Items purchased, date, delivery
+                        details, and messages on cakes (if any).
+                    </li>
+                    <li style="font-size: 16px;"><strong>Device & Usage Data:</strong> IP address, browser type,
+                        cookies, and usage statistics to improve our website experience.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="policy-section mb-4">
+                <h3 style="font-weight: 400; margin-top: 2rem; color: #fe0094; font-size:18px;">2. How We Use Your
+                    Information</h3><br>
+                <ul style="padding-left: 1.2rem; list-style: disc; line-height: 1.8; font-size:16px;">
+                    <li style="font-size: 16px;">Process and deliver your orders.</li><br>
+                    <li style="font-size: 16px;">Communicate updates related to your order.</li><br>
+                    <li style="font-size: 16px;">Improve our products, services, and website experience.</li><br>
+                    <li style="font-size: 16px;"> Send offers, promotions, or updates (only with your consent).</li><br>
+                    <li style="font-size: 16px;"> Prevent fraudulent transactions and ensure secure payments.</li>
+                </ul>
+            </div>
+
+            <div class="policy-section mb-4">
+                <h3 style="font-weight: 400; margin-top: 2rem; color: #fe0094; font-size:18px;">3. Data Security</h3>
+                <br>
+                <p style="font-size: 16px;">We follow strict security measures to protect your personal data. All
+                    transactions are processed through secure, PCI-compliant payment gateways, and your payment details
+                    are never stored on our servers.</p>
+            </div>
+
+            <div class="policy-section mb-4">
+                <h3 style="font-weight: 400; margin-top: 2rem; color: #fe0094; font-size:18px;">4. Cookies</h3><br>
+                <p style="font-size: 16px;">Our website uses cookies to enhance user experience, analyze website
+                    performance, and remember your preferences. You can choose to disable cookies through your browser
+                    settings, but some features of the website may not function properly.
+                </p>
+            </div>
+
+            <div class="policy-section mb-4">
+                <h3 style="font-weight: 400; margin-top: 2rem; color: #fe0094; font-size:18px;">5. Sharing of
+                    Information</h3><br>
+                <p style="font-size: 16px;">We do not sell or rent your personal information to third parties.
+                    We may share data only with:</p><br>
+                <ul style="padding-left: 1.2rem; list-style: disc; line-height: 1.8;">
+                    <li style="font-size: 16px;"><strong>Delivery Partners:</strong> to fulfill your order.</li><br>
+                    <li style="font-size: 16px;"><strong>Payment Gateways:</strong> to process payments securely.</li>
+                    <br>
+                    <li style="font-size: 16px;"><strong>Service Providers:</strong> who assist us in website
+                        operations, under confidentiality agreements.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="policy-section mb-4">
+                <h3 style="font-weight: 400; margin-top: 2rem; color: #fe0094; font-size:18px;">6. Your Rights</h3><br>
+                <p style="font-size: 16px;">You have the right to:</p><br>
+                <ul style="padding-left: 1.2rem; list-style: disc; line-height: 1.8;">
+                    <li style="font-size: 16px;">Access, update, or delete your personal information.</li><br>
+                    <li style="font-size: 16px;">Opt-out of promotional emails and messages.</li><br>
+                    <li style="font-size: 16px;">Request details on how your data is used.</li>
+                </ul><br>
+                <p style="font-size: 16px;">To exercise these rights, contact us at <a href="mailto:support@cakee.in"
+                        style="color: #fe0094; text-decoration: none;">support@cakee.in</a>.</p>
+            </div>
+
+            <div class="policy-section mb-4">
+                <h3 style="font-weight: 400; margin-top: 2rem; color: #fe0094; font-size:18px;">7. Third-Party Links
+                </h3><br>
+                <p style="font-size: 16px;">Our website may contain links to other websites. We are not responsible for
+                    the privacy practices or content of those sites.</p>
+            </div>
+
+            <div class="policy-section mb-4">
+                <h3 style="font-weight: 400; margin-top: 2rem; color: #fe0094; font-size:18px;">8. Updates to This
+                    Policy</h3><br>
+                <p style="font-size: 16px;">We may update this Privacy Policy periodically. Any changes will be posted
+                    on this page with the revised date.
+                </p>
+            </div>
+
+            <div class="policy-section mb-4">
+                <h3 style="font-weight: 400; margin-top: 2rem; color: #fe0094; font-size:18px;">9. Contact Us</h3><br>
+                <p style="font-size: 16px;">If you have any questions or concerns regarding this Privacy Policy or your
+                    personal information, please contact us at:
+                </p>
+                <ul style="padding-left: 1.2rem; list-style: disc; line-height: 1.8;">
+                    <li style="font-size: 16px;">Email: <a href="mailto:cakeeinfo@gmail.com"
+                            style="color: #fe0094; text-decoration: none;">cakeeinfo@gmail.com</a></li><br>
+                    <li style="font-size: 16px;">Website: <a href="https://www.cakee.in"
+                            style="color: #fe0094; text-decoration: none;">www.cakee.in</a></li><br>
+                    <li style="font-size: 16px;">Phone: +91 8075353860</li>
+                </ul>
             </div>
         </div>
     </section>
-    <!-- signin page end -->
+
 
     <!-- footer section starts -->
-  <footer class="footer-section section-t-space">
-        
+    <footer class="footer-section section-t-space">
+
         <div class="container">
             <div class="main-footer">
                 <div class="row g-3">
                     <div class="col-xl-4 col-lg-12">
                         <div class="footer-logo-part">
-                        
-  <h1 style="font-size:50px; font-weight:700; margin-top:10px; color:white; line-height:1.3;">
-  Celebrate <br>with us!
-</h1><br>
-<img class="img-fluid logo" src="assets/images/logo/logo.png" alt="logo"
+
+
+                            <h1 style="font-size:50px; font-weight:700; margin-top:10px; color:white; line-height:1.3;">
+                                Celebrate <br>with us!
+                            </h1><br>
+                            <img class="img-fluid logo" src="assets/images/logo/logo.png" alt="logo"
                                 style="max-width:100px; height:auto;">
 
                             <div class="social-media-part">
@@ -406,15 +472,17 @@
                             </div>
                         </div>
                     </div>
-                   
+
                 </div>
             </div>
             <div class="bottom-footer-part">
                 <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
-                    <h6>© Copyright 2025 <strong>CAKEE</strong>. All rights reserved. Designed by 
-<a href="https://www.cognetz.com" target="_blank" style="color: inherit; text-decoration: none;">Cognetz</a>.
-</h6>
-         <div class="footer-bottom" style="text-align:center; padding:20px 0; ">
+                    <h6>© Copyright 2025 <strong>CAKEE</strong>. All rights reserved. Designed by
+                        <a href="https://www.cognetz.com" target="_blank"
+                            style="color: inherit; text-decoration: none;">Cognetz</a>.
+                    </h6>
+
+                             <div class="footer-bottom" style="text-align:center; padding:20px 0; ">
 
   <!-- Image -->
   <div class="footer-left mb-3">
@@ -453,24 +521,38 @@
     </footer>
     <!-- footer section end -->
 
-    <!-- theme btn start -->
-    <!-- <div class="theme-btns">
-        <button type="button" class="btntheme mode-change-button">
-            <i id="themeIcon" class="ri-moon-line icon mode-icon"></i>
-            <span class="text-value">Dark</span>
-        </button>
-        <button type="button" id="rtl-btn" class="btntheme rtlBtnEl">
-            <i class="ri-repeat-line icon"></i>
-            <span class="text-value">RTL</span>
-        </button>
-    </div> -->
-    <!-- theme btn end -->
+    <!-- mobile fix menu start -->
+    <div class="mobile-menu d-md-none d-block mobile-cart">
+        <ul>
+            <li>
+                <a href="index.html" class="menu-box">
+                    <i class="ri-home-4-line"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="shop1.html" class="menu-box">
+                    <i class="ri-shopping-bag-line"></i>
+                    <span>Shop</span>
+                </a>
+            </li>
+            <li>
+                <a href="checkout.html" class="menu-box">
+                    <i class="ri-shopping-cart-2-line"></i>
+                    <span>Cart</span>
+                </a>
+            </li>
+            <li>
+                <a href="profile.html" class="menu-box">
+                    <i class="ri-user-line"></i>
+                    <span>Profile</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- mobile fix menu end -->
 
-    <!-- tap to top start -->
-    <button class="scroll scroll-to-top">
-        <i class="ri-arrow-up-s-line arrow"></i>
-    </button>
-    <!-- tap to top end -->
+
 
     <!-- location offcanvas start -->
     <div class="modal fade location-modal" id="location" data-bs-backdrop="static" data-bs-keyboard="false"
@@ -520,6 +602,18 @@
         </div>
     </div>
     <!-- location offcanvas end -->
+
+
+
+    <!-- tap to top start -->
+    <button class="scroll scroll-to-top">
+        <i class="ri-arrow-up-s-line arrow"></i>
+    </button>
+    <!-- tap to top end -->
+
+    <!-- responsive space -->
+    <div class="responsive-space"></div>
+    <!-- responsive space -->
 
     <!-- bootstrap js -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>

@@ -38,100 +38,124 @@
     <link rel="stylesheet" id="change-link" type="text/css" href="assets/css/style.css">
 
     <!-- font awsome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
 </head>
 
 <body class="position-relative">
-   
+
     <!-- Header section start -->
     <header>
         <div class="container">
             <nav class="navbar navbar-expand-lg p-0">
-                <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#offcanvasNavbar">
-                    <span class="navbar-toggler-icon">
-                        <i class="ri-menu-line"></i>
-                    </span>
-                </button> -->
-                <!-- <a href="index.html">
-                    <img class="img-fluid logo" src="assets/images/logo/logo.png" style="height: auto; width: 100px;" alt="logo">
-                </a>
-                <a target="_blank" href="#!" data-bs-toggle="modal" data-bs-target="#location"
-                    class="btn btn-sm theme-btn location-btn mt-0 ms-3 d-flex align-content-center gap-1">
-                    <i class="ri-map-pin-line"></i> Location
-                </a> -->
-                <!-- Left: Location button (replaces logo) -->
-  
 
-<!-- <div class="d-flex align-items-center w-100">
-     -->
-<div class="d-flex justify-content-between align-items-center w-100 button-row">
-  <!-- Location button -->
-  <a target="_blank" href="#!" data-bs-toggle="modal" data-bs-target="#location"
-     class="btn btn-sm theme-btn location-btn d-flex align-items-center gap-1">
-     <i class="ri-map-pin-line"></i> Location
-  </a>
+                <div class="d-flex justify-content-between align-items-center w-100 button-row">
+                    <!-- Location button -->
+                    <a target="_blank" href="#!" data-bs-toggle="modal" data-bs-target="#location"
+                        class="btn btn-sm theme-btn location-btn d-flex align-items-center gap-1">
+                        <i class="ri-map-pin-line"></i> Location
+                    </a>
 
-  <!-- Wishlist button -->
-  <a href="wishlist.html" 
-     class="btn btn-sm theme-btn wishlist-btn d-flex align-items-center gap-1">
-     <i class="ri-heart-line"></i> 
-  </a>
-</div>
-<style>
- .button-row {
-  padding-left: 0 !important;
-  margin-left: 0 !important;
-}
+                    <!-- Wishlist button -->
+                    <div class="d-flex gap-2">
+                        <!-- Wishlist Button -->
+                        <a href="wishlist.html"
+                            class="btn btn-sm theme-btn wishlist-btn d-flex align-items-center gap-1">
+                            <i class="ri-heart-line"></i>
+                        </a>
 
-.location-btn {
-  margin-left: 0 !important;
-  margin-right: auto;
-}
+                        <!-- Shop Page Button with Tooltip -->
+                        <div class="tooltip-wrapper">
+                            <a href="shop.html"
+                                class="btn btn-sm theme-btn shop-btn d-flex align-items-center justify-content-center">
+                                <i class="ri-shopping-bag-line"></i>
+                            </a>
+                            <span class="tooltip-text">Shop</span>
+                        </div>
+                    </div>
 
-<!-- body, html {
-  padding: 0;
-  margin: 0;
-} -->
-@media (max-width: 576px) {
-  .button-row {
-    position: relative;
-    padding: 0 !important;
-    margin: 0 !important;
-    width: 100%;
-  }
+                    <style>
+                        /* Tooltip Wrapper */
+                        .tooltip-wrapper {
+                            position: relative;
+                            display: inline-block;
+                        }
 
-  .location-btn {
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
+                        /* Tooltip text */
+                        .tooltip-text {
+                            visibility: hidden;
+                            width: max-content;
+                            background-color: #333;
+                            color: #fff;
+                            text-align: center;
+                            padding: 3px 6px;
+                            border-radius: 4px;
+                            font-size: 0.75rem;
+                            position: absolute;
+                            bottom: 120%;
+                            /* above the button */
+                            left: 50%;
+                            transform: translateX(-50%);
+                            opacity: 0;
+                            transition: opacity 0.3s;
+                            white-space: nowrap;
+                            z-index: 10;
+                        }
 
-  .wishlist-btn {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-    .wishlist-btn i {
-    font-size: 1rem; /* Larger icon size on mobile */
-  }
-}
+                        /* Show tooltip on hover */
+                        .tooltip-wrapper:hover .tooltip-text {
+                            visibility: visible;
+                            opacity: 1;
+                        }
+                    </style>
+                </div>
+                <style>
+                    .button-row {
+                        padding-left: 0 !important;
+                        margin-left: 0 !important;
+                    }
 
+                    .location-btn {
+                        margin-left: 0 !important;
+                        margin-right: auto;
+                    }
 
-</style>
+                    < !-- body,
+                    html {
+                        padding: 0;
+                        margin: 0;
+                    }
 
+                    -->@media (max-width: 576px) {
+                        .button-row {
+                            position: relative;
+                            padding: 0 !important;
+                            margin: 0 !important;
+                            width: 100%;
+                        }
 
+                        .location-btn {
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                        }
 
-    
-<!-- </div>    -->
+                        .wishlist-btn {
+                            position: absolute;
+                            right: 0;
+                            top: 0;
+                        }
+                    }
+                </style>
 
 
 
                 <div class="nav-option order-md-2">
                     <div class="dropdown-button">
-                        <!-- <div class="cart-button">
+                        <div class="cart-button">
                             <span>5</span>
                             <i class="ri-shopping-cart-line text-white cart-bag"></i>
                         </div>
@@ -226,41 +250,8 @@
                                 <a href="checkout.html" class="btn btn-sm theme-btn w-100 d-block rounded-2">View
                                     Cart</a>
                             </div>
-                        </div> -->
-          <a href="checkout.html" class="cart-button">
-  <span id="cart-count">0</span>
-  <i class="ri-shopping-cart-line text-white cart-bag"></i>
-</a>
+                        </div>
 
-<script>
-  const cartCountEl = document.getElementById('cart-count');
-
-  // Load cart from localStorage
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-  // Function to update cart count
-  function updateCartCount() {
-    cartCountEl.textContent = cart.length;
-  }
-
-  // Initial count
-  updateCartCount();
-
-  // Add to cart buttons
-  document.querySelectorAll('.add-to-cart').forEach(button => {
-    button.addEventListener('click', () => {
-      const product = {
-        name: button.getAttribute('data-name'),
-        price: button.getAttribute('data-price'),
-        image: button.getAttribute('data-image') || ''
-      };
-
-      cart.push(product);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      updateCartCount();
-    });
-  });
-</script>
 
 
 
@@ -282,9 +273,9 @@
                                 <li>
                                     <a class="dropdown-item" href="saved-address.html">Saved Address</a>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <a class="dropdown-item" href="saved-card.html">Saved cards</a>
-                                </li>
+                                </li> -->
                                 <li>
                                     <a class="dropdown-item" href="setting.html">Settings</a>
                                 </li>
@@ -296,7 +287,7 @@
                         </div>
                     </div>
                 </div>
-                
+
             </nav>
         </div>
     </header>
@@ -305,74 +296,206 @@
     <!-- page head section starts -->
     <section class="page-head-section">
         <div class="container page-heading">
-            <h2 class="h3 mb-3 text-white text-center">Login</h2>
+            <h2 class="h3 mb-3 text-white text-center">Terms And Conditions</h2>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb flex-lg-nowrap justify-content-center justify-content-lg-star">
                     <li class="breadcrumb-item">
                         <a href="index.html"><i class="ri-home-line"></i>Home</a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">Login</li>
+                    <li class="breadcrumb-item active" aria-current="page">Terms And Conditions</li>
                 </ol>
             </nav>
         </div>
     </section>
-    <!-- page head section end -->
+    <!-- Privacy Policy Section -->
 
-    <style>
-        .login-data{
-            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-            padding: 30px;
-            border-radius: 15px;
-            background: #fff;
-        }
-    </style>
-    <!-- signin page start -->
-    <section class="login-hero-section section-b-space" style="background: rgb(233, 249, 255);">
+    <section class="policy-section">
         <div class="container">
-            <div class="row">
-                <div class="col-xl-5 col-lg-6 col-md-10 m-auto p-3">
-                    <div class="login-data">
-                        <form class="auth-form text-center">
-                            <h2 class="text-secondary">LOGIN</h2>
-                            <h5 class="mb-4">
-                                or
-                                <a href="signup.html"><span class="theme-color">create an a account</span></a>
-                            </h5>
-                            <div class="form-input">
-                                <input type="tel" class="form-control" placeholder="Enter your number">
-                                <i class="ri-phone-line"></i>
-                            </div>
-                            <div class="form-input">
-                                <input type="password" class="form-control" placeholder="Enter your password">
-                                <i class="ri-lock-password-line"></i>
-                            </div>
-                            <a href="index.html" class="btn theme-btn submit-btn w-100 rounded-2">CONTINUE</a>
-                            <small class="fw-normal content-color mt-4">
-                                By creating an account, I accept the
-                                <span class="fw-semibold">
-                                    <a href="" class="text-secondary">Terms & Conditions </a> & <a href="" class="text-secondary">Privacy Policy</a></span>
-                            </small>
-                        </form>
-                    </div>
-                </div>
+            <h2 style="color:#fe0094; font-size:24px; font-weight:700; margin-bottom:1rem;">Terms & Conditions</h2>
+            <p style="font-size:14px; line-height:1.8; color:#333;">Last Updated: October 2025</p><br>
+            <p style="font-size:14px; line-height:1.8; color:#333;">
+                Welcome to <strong>Cakee.in</strong>. By accessing or using our website <a href="https://www.cakee.in"
+                    target="_blank">www.cakee.in</a>, you agree to comply with and be bound by the following Terms and
+                Conditions. Please read them carefully before placing any order.
+            </p>
+
+            <div class="policy-section-item">
+                <h3 style="font-size:18px; font-weight:600; color:#fe0094; margin-top:1.5rem;">1. General</h3>
+                <ul class="policy-list">
+                    <li>These Terms apply to all users of the website and to all purchases made through Cakee.in.</li>
+                    <li>By using our services, you acknowledge that you are at least 18 years old or are using the site
+                        under parental supervision.</li>
+                    <li>Cakee.in reserves the right to modify or update these Terms at any time without prior notice.
+                        Changes will be effective immediately upon posting on the website.</li>
+                </ul>
+            </div>
+
+            <div class="policy-section-item">
+                <h3 style="font-size:18px; font-weight:600; color:#fe0094; margin-top:1.5rem;">2. Products & Images</h3>
+                <ul class="policy-list">
+                    <li>All cakes and bakery items are handmade, and slight variations in design, colour, and decoration
+                        may occur.</li>
+                    <li>Product images shown on the website are for illustration purposes only. The final product may
+                        differ slightly depending on availability and customization.</li>
+                    <li>Freshness and quality are guaranteed as per our baking standards.</li>
+                </ul>
+            </div>
+
+            <div class="policy-section-item">
+                <h3 style="font-size:18px; font-weight:600; color:#fe0094; margin-top:1.5rem;">3. Orders & Payments</h3>
+                <ul class="policy-list">
+                    <li>Orders can be placed through our website or authorized partners only.</li>
+                    <li>Once an order is confirmed, <strong>no changes or cancellations</strong> can be made less than 24 hours before
+                        delivery.</li>
+                    <li>Payment must be completed at the time of placing the order. We accept secure online payments via
+                        credit/debit card, UPI, wallet, and net banking.</li>
+                    <li>Cakee.in uses trusted payment gateways and does not store any payment card information.</li>
+                </ul>
+            </div>
+
+            <div class="policy-section-item">
+                <h3 style="font-size:18px; font-weight:600; color:#fe0094; margin-top:1.5rem;">4. Delivery Policy</h3>
+                <ul class="policy-list">
+                    <li>We offer <strong>same-day, midnight, and express delivery</strong>  services in select cities across our selected
+                        locations.</li>
+                    <li>Delivery time slots are approximate and may vary due to weather, traffic, or unforeseen
+                        circumstances.</li>
+                    <li>If the recipient is unavailable at the given address, we may deliver the order to a neighbour,
+                        security guard, or leave it at the reception, as deemed appropriate.</li>
+                    <li>Orders once dispatched cannot be redirected or refunded.</li>
+                </ul>
+            </div>
+
+            <div class="policy-section-item">
+                <h3 style="font-size:18px; font-weight:600; color:#fe0094; margin-top:1.5rem;">5. Cancellation & Refund
+                    Policy</h3>
+                <ul class="policy-list">
+                    <li>Cancellations must be requested <strong>at least 24 hours</strong>  before the delivery time.</li>
+                    <li>Refunds (if approved) will be processed to the original payment method within <strong>7–10 working days</strong>.
+                    </li>
+                    <li>No refunds will be made for:
+                        <ul>
+                            <li>Incorrect delivery address or recipient details provided by the customer.</li>
+                            <li>Unsuccessful deliveries due to recipient unavailability.</li><br>
+                            <li>Customized cakes once production has started.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="policy-section-item">
+                <h3 style="font-size:18px; font-weight:600; color:#fe0094; margin-top:1.5rem;">6. Custom & Personalized
+                    Orders</h3>
+                <ul class="policy-list">
+                    <li>For photo cakes or message cakes, the user must upload clear, appropriate images or text.</li>
+                    <li>Cakee.in reserves the right to reject or modify any message or image that is offensive,
+                        copyrighted, or inappropriate.</li>
+                </ul>
+            </div>
+
+            <div class="policy-section-item">
+                <h3 style="font-size:18px; font-weight:600; color:#fe0094; margin-top:1.5rem;">7. Pricing & Offers</h3>
+                <ul class="policy-list">
+                    <li>All prices are listed in Indian Rupees (INR) and include applicable taxes unless stated
+                        otherwise.</li>
+                    <li>Cakee.in reserves the right to change prices, offers, or discounts at any time without prior
+                        notice.</li>
+                </ul>
+            </div>
+
+            <div class="policy-section-item">
+                <h3 style="font-size:18px; font-weight:600; color:#fe0094; margin-top:1.5rem;">8. Intellectual Property
+                </h3>
+                <ul class="policy-list">
+                    <li>All content on Cakee.in, including text, images, logos, and graphics, is the property of
+                        Cakee.in and protected by copyright laws.</li>
+                    <li>Reproduction or redistribution of any content without written permission is strictly prohibited.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="policy-section-item">
+                <h3 style="font-size:18px; font-weight:600; color:#fe0094; margin-top:1.5rem;">9. Limitation of
+                    Liability</h3>
+                <ul class="policy-list">
+                    <li>Cakee.in shall not be liable for any indirect, incidental, or consequential damages arising from
+                        use of the website or delay/non-delivery of products.</li>
+                    <li>Our total liability for any claim shall not exceed the amount paid by the customer for that
+                        specific order.</li>
+                </ul>
+            </div>
+
+            <div class="policy-section-item">
+                <h3 style="font-size:18px; font-weight:600; color:#fe0094; margin-top:1.5rem;">10. Governing Law</h3>
+                <ul class="policy-list">
+                    <li>These Terms & Conditions are governed by the laws of <strong>India</strong>. Any disputes arising shall be
+                        subject to the jurisdiction of courts in <strong>Kozhikode, Kerala</strong> .</li>
+                </ul>
+            </div>
+
+            <div class="policy-section-item">
+                <h3 style="font-size:18px; font-weight:600; color:#fe0094; margin-top:1.5rem;">11. Contact Us</h3>
+                <ul class="policy-list">
+                    <li>For questions, complaints, or support, please contact us at:
+
+                        <ul>
+                            <li>Email: <a href="mailto:cakeeinfo@gmail.com"><strong>cakeeinfo@gmail.com</strong></a></li><br>
+                            <li>Website: <a href="https://www.cakee.in" target="_blank"><strong>www.cakee.in</strong></a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </div>
     </section>
-    <!-- signin page end -->
+    <style>
+        .policy-section {
+            max-width: 800px;
+            margin: 0 auto;
 
+
+            color: #333;
+        }
+
+        .policy-section h2 {
+            text-align: left;
+        }
+
+        .policy-section h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .policy-list {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            line-height: 1.8;
+            font-size: 16px;
+            margin-bottom: 1rem;
+        }
+
+        .policy-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        .policy-list li ul {
+            list-style-type: circle;
+            padding-left: 1.5rem;
+            margin-top: 0.3rem;
+        }
+    </style>
     <!-- footer section starts -->
-  <footer class="footer-section section-t-space">
-        
+    <footer class="footer-section section-t-space">
+
         <div class="container">
             <div class="main-footer">
                 <div class="row g-3">
                     <div class="col-xl-4 col-lg-12">
                         <div class="footer-logo-part">
-                        
-  <h1 style="font-size:50px; font-weight:700; margin-top:10px; color:white; line-height:1.3;">
-  Celebrate <br>with us!
-</h1><br>
-<img class="img-fluid logo" src="assets/images/logo/logo.png" alt="logo"
+
+
+                            <h1 style="font-size:50px; font-weight:700; margin-top:10px; color:white; line-height:1.3;">
+                                Celebrate <br>with us!
+                            </h1><br>
+                            <img class="img-fluid logo" src="assets/images/logo/logo.png" alt="logo"
                                 style="max-width:100px; height:auto;">
 
                             <div class="social-media-part">
@@ -406,14 +529,16 @@
                             </div>
                         </div>
                     </div>
-                   
+
                 </div>
             </div>
             <div class="bottom-footer-part">
                 <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
-                    <h6>© Copyright 2025 <strong>CAKEE</strong>. All rights reserved. Designed by 
-<a href="https://www.cognetz.com" target="_blank" style="color: inherit; text-decoration: none;">Cognetz</a>.
-</h6>
+                    <h6>© Copyright 2025 <strong>CAKEE</strong>. All rights reserved. Designed by
+                        <a href="https://www.cognetz.com" target="_blank"
+                            style="color: inherit; text-decoration: none;">Cognetz</a>.
+                    </h6>
+
          <div class="footer-bottom" style="text-align:center; padding:20px 0; ">
 
   <!-- Image -->
@@ -453,24 +578,38 @@
     </footer>
     <!-- footer section end -->
 
-    <!-- theme btn start -->
-    <!-- <div class="theme-btns">
-        <button type="button" class="btntheme mode-change-button">
-            <i id="themeIcon" class="ri-moon-line icon mode-icon"></i>
-            <span class="text-value">Dark</span>
-        </button>
-        <button type="button" id="rtl-btn" class="btntheme rtlBtnEl">
-            <i class="ri-repeat-line icon"></i>
-            <span class="text-value">RTL</span>
-        </button>
-    </div> -->
-    <!-- theme btn end -->
+    <!-- mobile fix menu start -->
+    <div class="mobile-menu d-md-none d-block mobile-cart">
+        <ul>
+            <li>
+                <a href="index.html" class="menu-box">
+                    <i class="ri-home-4-line"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="shop1.html" class="menu-box">
+                    <i class="ri-shopping-bag-line"></i>
+                    <span>Shop</span>
+                </a>
+            </li>
+            <li>
+                <a href="checkout.html" class="menu-box">
+                    <i class="ri-shopping-cart-2-line"></i>
+                    <span>Cart</span>
+                </a>
+            </li>
+            <li>
+                <a href="profile.html" class="menu-box">
+                    <i class="ri-user-line"></i>
+                    <span>Profile</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- mobile fix menu end -->
 
-    <!-- tap to top start -->
-    <button class="scroll scroll-to-top">
-        <i class="ri-arrow-up-s-line arrow"></i>
-    </button>
-    <!-- tap to top end -->
+
 
     <!-- location offcanvas start -->
     <div class="modal fade location-modal" id="location" data-bs-backdrop="static" data-bs-keyboard="false"
@@ -520,6 +659,18 @@
         </div>
     </div>
     <!-- location offcanvas end -->
+
+
+
+    <!-- tap to top start -->
+    <button class="scroll scroll-to-top">
+        <i class="ri-arrow-up-s-line arrow"></i>
+    </button>
+    <!-- tap to top end -->
+
+    <!-- responsive space -->
+    <div class="responsive-space"></div>
+    <!-- responsive space -->
 
     <!-- bootstrap js -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
